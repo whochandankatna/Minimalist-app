@@ -1,0 +1,23 @@
+{
+  "name": "minimalist-app",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Minimalist app videos built with Remotion",
+  "scripts": {
+    "dev": "remotion studio",
+    "build": "remotion render MyComp out/video.mp4",
+    "upgrade": "remotion upgrade",
+    "lint": "tsc"
+  },
+  "dependencies": {
+    "@remotion/cli": "4.0.532",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "remotion": "4.0.532"
+  },
+  "devDependencies": {
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "typescript": "7.0.2"
+  }
+}
