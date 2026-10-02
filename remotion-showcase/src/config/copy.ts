@@ -1,11 +1,12 @@
 // On-screen copy and voiceover script. Scenes 1 to 5 follow the creative brief.
-// Scenes 6 and 7 were drafted for review because the brief was cut off there.
+// Scenes 6 and 7 were drafted because the brief was cut off there, then approved.
+// Voiceover lines 1, 4 and 6 use the approved shorter versions.
 import type { SceneKey } from './timeline'
 
 export const COPY: Record<SceneKey, { lines: string[]; voiceover: string }> = {
   problem: {
     lines: ['Too many systems.', 'Not enough clarity.'],
-    voiceover: 'Running a business should not mean chasing information across disconnected systems.',
+    voiceover: "Business shouldn't mean chasing data across disconnected tools.",
   },
   operatingView: {
     lines: ['Everything your business needs.', 'One operating dashboard.'],
@@ -17,7 +18,7 @@ export const COPY: Record<SceneKey, { lines: string[]; voiceover: string }> = {
   },
   channels: {
     lines: ['Every channel.', 'One source of truth.'],
-    voiceover: 'Combine in-store and delivery performance without rebuilding reports by hand.',
+    voiceover: 'Combine in-store and delivery sales without manual reports.',
   },
   operations: {
     lines: ['Connected teams.', 'Consistent operations.'],
@@ -25,7 +26,7 @@ export const COPY: Record<SceneKey, { lines: string[]; voiceover: string }> = {
   },
   intelligence: {
     lines: ['Spot problems early.', 'Act with confidence.'],
-    voiceover: 'Live signals surface what needs attention and turn it into a clear next step.',
+    voiceover: 'Live signals show what needs attention, and what to do next.',
   },
   close: {
     lines: ['One dashboard.', 'Every decision connected.'],

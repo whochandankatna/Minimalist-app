@@ -312,12 +312,15 @@ const ACTIONS = [
 
 function ActionsPanel({ rect, frame, reduced }: { rect: Rect; frame: number; reduced: boolean }) {
   const t = DASH_TIMING
+  // A short fade (6 frames) keeps the dashboard beneath from showing through
+  // the panel while it arrives; the gentle rise carries the motion instead.
   const enter = out(frame, t.actionsAt, t.actionsAt + 14)
+  const fade = out(frame, t.actionsAt, t.actionsAt + 6)
   if (enter <= 0) return null
   const focus = stepAt(frame, t.actionFocus, -1)
   const done = frame >= t.actionDone
   return (
-    <section className="cfo-overview-modal-card" style={place(rect, { boxSizing: 'border-box', width: rect.w, maxHeight: 'none', overflow: 'hidden', padding: 20, background: 'linear-gradient(145deg, rgba(255,255,255,0.97), rgba(238,236,241,0.95))', opacity: enter, transform: `translateY(${reduced ? 0 : (1 - enter) * 16}px) scale(${reduced ? 1 : 0.98 + 0.02 * enter})`, transformOrigin: 'top right' })}>
+    <section className="cfo-overview-modal-card" style={place(rect, { boxSizing: 'border-box', width: rect.w, maxHeight: 'none', overflow: 'hidden', padding: 20, background: 'linear-gradient(145deg, #fbfbfc, #efedf2)', zIndex: 5, isolation: 'isolate', opacity: fade, transform: `translateY(${reduced ? 0 : (1 - enter) * 16}px) scale(${reduced ? 1 : 0.98 + 0.02 * enter})`, transformOrigin: 'top right' })}>
       <div className="cfo-overview-modal-head"><div><small>From live priority signals</small><span>Recommended next steps</span></div></div>
       <div style={{ display: 'grid', gap: 8, marginTop: 14 }}>
         {ACTIONS.map((action, index) => {

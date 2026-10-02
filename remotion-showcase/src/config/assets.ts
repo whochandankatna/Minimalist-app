@@ -11,11 +11,13 @@ export type AudioClip = {
   offset?: number
 }
 
+// Original upbeat bed composed for this video (scripts/compose-music.py).
+// Swap in any licensed track by changing `src`.
 export const MUSIC: AudioClip & { fadeInFrames: number; fadeOutFrames: number } = {
-  src: null,
-  volume: 0.32,
-  fadeInFrames: 20,
-  fadeOutFrames: 45,
+  src: 'audio/music/upbeat-bed.mp3',
+  volume: 0.42,
+  fadeInFrames: 6,
+  fadeOutFrames: 30,
 }
 
 /** Narration, one clip per scene so each line can be re-recorded on its own. */
