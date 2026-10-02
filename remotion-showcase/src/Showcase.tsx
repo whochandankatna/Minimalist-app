@@ -58,12 +58,25 @@ function Stage() {
   return <DashboardStage reveal={reveal} revealOrigin={origin} opacity={opacity} deviceScale={deviceScale} showSidebarOrb={frame >= 167} />
 }
 
+// Narration windows in absolute frames, for ducking the music under the voice.
+const narrationWindows = (Object.keys(NARRATION) as SceneKey[]).flatMap(key => {
+  const clip = NARRATION[key]
+  if (!clip.src || !clip.durationInFrames) return []
+  const start = SCENES[key].from + (clip.offset ?? 0)
+  return [{ start, end: start + clip.durationInFrames }]
+})
+
+function musicDuck(f: number) {
+  const depth = narrationWindows.reduce((max, w) => Math.max(max, interpolate(f, [w.start - MUSIC.duckAttackFrames, w.start, w.end, w.end + MUSIC.duckReleaseFrames], [0, 1, 1, 0], clamp)), 0)
+  return interpolate(depth, [0, 1], [MUSIC.volume, MUSIC.duckVolume])
+}
+
 function Soundtrack() {
   const { durationInFrames } = useVideoConfig()
   return (
     <>
       {MUSIC.src && (
-        <Audio src={staticFile(MUSIC.src)} volume={f => MUSIC.volume * interpolate(f, [0, MUSIC.fadeInFrames, durationInFrames - MUSIC.fadeOutFrames, durationInFrames], [0, 1, 1, 0], clamp)} />
+        <Audio src={staticFile(MUSIC.src)} volume={f => musicDuck(f) * interpolate(f, [0, MUSIC.fadeInFrames, durationInFrames - MUSIC.fadeOutFrames, durationInFrames], [0, 1, 1, 0], clamp)} />
       )}
       {(Object.keys(NARRATION) as SceneKey[]).map(key => {
         const clip = NARRATION[key]

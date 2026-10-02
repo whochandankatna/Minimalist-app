@@ -9,26 +9,40 @@ export type AudioClip = {
   volume: number
   /** Frames to wait after the cue point before playing. */
   offset?: number
+  /** Clip length in frames, used to duck the music under narration. */
+  durationInFrames?: number
 }
 
 // Original upbeat bed composed for this video (scripts/compose-music.py).
 // Swap in any licensed track by changing `src`.
-export const MUSIC: AudioClip & { fadeInFrames: number; fadeOutFrames: number } = {
+// While narration plays the music drops to `duckVolume` (about 15 dB under the
+// voice) and swells back to `volume` in the gaps between lines.
+export const MUSIC: AudioClip & {
+  fadeInFrames: number
+  fadeOutFrames: number
+  duckVolume: number
+  duckAttackFrames: number
+  duckReleaseFrames: number
+} = {
   src: 'audio/music/upbeat-bed.mp3',
   volume: 0.42,
   fadeInFrames: 6,
   fadeOutFrames: 30,
+  duckVolume: 0.16,
+  duckAttackFrames: 6,
+  duckReleaseFrames: 12,
 }
 
 /** Narration, one clip per scene so each line can be re-recorded on its own. */
 export const NARRATION: Record<SceneKey, AudioClip> = {
-  problem: { src: null, volume: 1, offset: 4 },
-  operatingView: { src: null, volume: 1, offset: 4 },
-  performance: { src: null, volume: 1, offset: 4 },
-  channels: { src: null, volume: 1, offset: 4 },
-  operations: { src: null, volume: 1, offset: 4 },
-  intelligence: { src: null, volume: 1, offset: 4 },
-  close: { src: null, volume: 1, offset: 10 },
+  // Voice: Higgsfield seed_audio, preset "Maya". Trimmed by scripts/trim-narration.py.
+  problem: { src: 'audio/narration/01-problem.mp3', volume: 1, offset: 2, durationInFrames: 105 },
+  operatingView: { src: 'audio/narration/02-operating-view.mp3', volume: 1, offset: 4, durationInFrames: 102 },
+  performance: { src: 'audio/narration/03-performance.mp3', volume: 1, offset: 4, durationInFrames: 149 },
+  channels: { src: 'audio/narration/04-channels.mp3', volume: 1, offset: 6, durationInFrames: 101 },
+  operations: { src: 'audio/narration/05-operations.mp3', volume: 1, offset: 4, durationInFrames: 138 },
+  intelligence: { src: 'audio/narration/06-intelligence.mp3', volume: 1, offset: 10, durationInFrames: 107 },
+  close: { src: 'audio/narration/07-close.mp3', volume: 1, offset: 10, durationInFrames: 110 },
 }
 
 /** Short interface sounds, cued at absolute frames in the 900-frame timeline. */

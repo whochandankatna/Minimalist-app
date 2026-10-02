@@ -117,12 +117,12 @@ Every sound is optional and configured in `src/config/assets.ts`. Put files in `
 
 ```ts
 export const NARRATION = {
-  problem: { src: 'audio/narration/01-problem.mp3', volume: 1, offset: 4 },
+  problem: { src: 'audio/narration/01-problem.mp3', volume: 1, offset: 2, durationInFrames: 105 },
   // ...
 }
 ```
 
-Music fades in and out automatically. Sound-effect cues are listed with the frame they belong to. See `NARRATION-SCRIPT.md` for the script and timing.
+Narration is recorded (voice: Higgsfield "Maya"). To replace a line, drop the new raw take in `archive/audio/narration-raw/`, point `scripts/trim-narration.py` at it, run the script, then update that clip's `durationInFrames` (clip seconds × 30, rounded up). Music fades in and out automatically and ducks under each narration line. Sound-effect cues are listed with the frame they belong to. See `NARRATION-SCRIPT.md` for the script and timing.
 
 ## Data and privacy
 
