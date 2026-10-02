@@ -1,0 +1,30 @@
+{
+  "name": "tropicool-remotion-showcase",
+  "version": "1.0.0",
+  "private": true,
+  "description": "30-second product showcase for the Tropicool Treats Business Operations App, built with Remotion",
+  "scripts": {
+    "dev": "remotion studio src/index.ts",
+    "typecheck": "tsc --noEmit",
+    "render:desktop": "remotion render src/index.ts TropicoolShowcaseDesktop out/tropicool-showcase-1920x1080.mp4",
+    "render:vertical": "remotion render src/index.ts TropicoolShowcaseVertical out/tropicool-showcase-1080x1920.mp4",
+    "render:all": "npm run render:desktop && npm run render:vertical",
+    "render:reduced": "remotion render src/index.ts TropicoolShowcaseDesktop out/tropicool-showcase-reduced-motion.mp4 --props='{\"reducedMotion\":true}'",
+    "still:desktop": "remotion still src/index.ts TropicoolShowcaseDesktop out/still-desktop.png --frame=300",
+    "still:vertical": "remotion still src/index.ts TropicoolShowcaseVertical out/still-vertical.png --frame=300",
+    "vendor:styles": "node scripts/vendor-app-styles.mjs"
+  },
+  "dependencies": {
+    "@fontsource/jetbrains-mono": "5.3.0",
+    "@fontsource/outfit": "5.3.0",
+    "@remotion/cli": "4.0.532",
+    "react": "19.2.0",
+    "react-dom": "19.2.0",
+    "remotion": "4.0.532"
+  },
+  "devDependencies": {
+    "@types/react": "19.2.2",
+    "@types/react-dom": "19.2.2",
+    "typescript": "5.9.3"
+  }
+}

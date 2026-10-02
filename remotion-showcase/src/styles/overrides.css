@@ -1,0 +1,35 @@
+/* Showcase-only adjustments layered on top of the vendored app stylesheet.
+   These never change the look of a component; they make rendering
+   frame-accurate and supply the small base reset Tailwind normally provides. */
+
+/* Minimal subset of Tailwind's preflight that the app markup relies on. */
+/* :where() keeps these at zero specificity so every app rule still wins. */
+:where(.tt-app) button { font: inherit; color: inherit; background: transparent; border: 0 solid; padding: 0; margin: 0; cursor: default; text-align: inherit; }
+:where(.tt-app) :where(h1, h2, h3, p, figure) { margin: 0; }
+:where(.tt-app) :where(img, svg, canvas) { display: block; }
+:where(.tt-app) img { max-width: 100%; }
+
+/* Remotion captures each frame independently. CSS transitions and keyframe
+   animations are not tied to the frame clock, so all motion is driven from
+   React instead. */
+.tt-root *, .tt-root *::before, .tt-root *::after {
+  animation: none !important;
+  transition: none !important;
+}
+
+/* Brief: no bold type anywhere. The app uses 500 for emphasis; cap at 500. */
+:where(.tt-root) :where(strong, b, h1, h2, h3) { font-weight: 500; }
+
+/* The app's sticky sidebar relies on page scroll; the camera handles framing. */
+.tt-app .manager-desktop-sidebar { position: relative; top: auto; max-height: none; }
+
+/* Backdrop blur is expensive per frame and the stage already has a frosted
+   backdrop; keep it on the large surfaces only. */
+.tt-app .dash4-stat-card, .tt-app .dither-donut-legend button { -webkit-backdrop-filter: none; backdrop-filter: none; }
+
+/* These app selectors use 600/700; the brief asks for no bold type. */
+.tt-root .cfo-transaction-header,
+.tt-root .cfo-transaction-table > button span,
+.tt-root .cfo-transaction-table > button strong,
+.tt-root .cfo-forward-grid span,
+.tt-root .cfo-channel-legend b { font-weight: 500 !important; }
