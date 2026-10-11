@@ -1,0 +1,686 @@
+{
+ "meta": {
+  "compiledOn": "2026-10-11",
+  "sources": [
+   {
+    "id": "s1",
+    "title": "MSME-DI Ludhiana, Brief Industrial Profile of District Moga (data 2010-11)",
+    "url": "https://dcmsme.gov.in/old/dips/Moga.pdf"
+   },
+   {
+    "id": "s2",
+    "title": "Tribune: Now RTAs to fix freight charges (134 truck unions to be dissolved, 2017)",
+    "url": "https://m.tribuneindia.com/news/archive/punjab/now-rtas-to-fix-freight-charges-429001"
+   },
+   {
+    "id": "s3",
+    "title": "Udayavani/PTI: Amarinder rules out revoking truck union ban (Jul 2017)",
+    "url": "https://www.udayavani.com/english-news/amarinder-rules-out-revoking-truck-union-ban"
+   },
+   {
+    "id": "s4",
+    "title": "Tribune: Kejriwal draws flak over statement on reviving truck unions in Punjab (Dec 2021)",
+    "url": "https://www.tribuneindia.com/news/chandigarh/kejriwal-draws-flak-over-statement-on-reviving-truck-unions-in-punjab-356828/amp"
+   },
+   {
+    "id": "s5",
+    "title": "Hindustan Times: Industry opposes revival of truck unions in Punjab (11 Jan 2022)",
+    "url": "https://www.pressreader.com/india/hindustan-times-bathinda/20220111/281702618068406"
+   },
+   {
+    "id": "s6",
+    "title": "Tribune: Industrialists protest as Abohar truck union defies DC's directive",
+    "url": "https://www.tribuneindia.com/news/punjab/industrialists-protest-as-abohar-truck-union-defies-dcs-directive-505783/amp"
+   },
+   {
+    "id": "s7",
+    "title": "Aaj Tak: Sangrur AAP splits into two factions over truck union leadership, highway blocked (25 Apr 2026)",
+    "url": "https://www.aajtak.in/india/punjab/story/sangrur-aap-splits-into-two-factions-over-truck-union-leadership-national-highway-blocked-lclnt-strc-2533568-2026-04-25"
+   },
+   {
+    "id": "s8",
+    "title": "The Core energy tracker: Petrol/diesel price in Moga (10 Oct 2026)",
+    "url": "https://energy.thecore.in/fuel/petrol-price/moga"
+   },
+   {
+    "id": "s9",
+    "title": "The Core energy tracker: Petrol/diesel price in Chandigarh (10 Oct 2026)",
+    "url": "https://energy.thecore.in/fuel/petrol-price/chandigarh"
+   },
+   {
+    "id": "s10",
+    "title": "Business Today: Petrol, diesel prices hiked in Chandigarh again (May 2026)",
+    "url": "https://www.businesstoday.in/india/story/petrol-diesel-prices-hiked-in-chandigarh-check-new-rates-here-531746-2026-05-15"
+   },
+   {
+    "id": "s11",
+    "title": "Upstox: Petrol price in Moga (history to 11 Oct 2026)",
+    "url": "https://upstox.com/petrol-price/petrol-price-in-moga/"
+   },
+   {
+    "id": "s12",
+    "title": "Sunday Guardian: NHAI hikes toll rates at key plazas in Punjab, Haryana (effective 15 Jul 2026)",
+    "url": "https://sundayguardianlive.com/india/nhai-hikes-toll-rates-at-key-plazas-in-punjab-haryana-check-revised-charges-for-cars-buses-and-trucks-237000/"
+   },
+   {
+    "id": "s13",
+    "title": "NHAI public notice: Gurhe (Chowkiman) toll plaza, NH-95/new NH-05, rates 2022-23",
+    "url": "https://tis.nhai.gov.in/UploadGazatte/LocalNews/Gurhe.pdf"
+   },
+   {
+    "id": "s14",
+    "title": "Bajaj Finserv: Ghulal toll plaza axle-wise rates (Oct 2024 listing)",
+    "url": "https://www.bajajfinserv.in/ghulal-toll-plaza"
+   },
+   {
+    "id": "s15",
+    "title": "Tribune: Toll rates increased at Ladhowal plaza",
+    "url": "https://www.tribuneindia.com/news/archive/ludhiana/toll-rates-increased-at-ladhowal-plaza-646329"
+   },
+   {
+    "id": "s16",
+    "title": "Nestle India: Milk farmers (Moga milk district)",
+    "url": "https://www.nestle.in/csv/case-studies/milk-farmers"
+   },
+   {
+    "id": "s17",
+    "title": "Business Standard/IANS: Fields to dairy - Nestle helps Punjab farmers (2015)",
+    "url": "https://www.business-standard.com/article/news-ians/fields-to-dairy-nestle-helps-punjab-farmers-break-new-ground-115042400225_1.html"
+   },
+   {
+    "id": "s18",
+    "title": "Tribune: Chandigarh's GST kitty grows 7% in June (Q1 FY27; ~33,800 registered taxpayers)",
+    "url": "https://www.tribuneindia.com/news/chandigarh/chandigarhs-gst-kitty-grows-7-in-june-but-collections-swing-sharply-through-the-quarter/"
+   },
+   {
+    "id": "s19",
+    "title": "Tribune: Fix arhtiyas' commission at 2.5% of MSP - Meet Hayer in Lok Sabha",
+    "url": "https://www.tribuneindia.com/news/punjab/fix-arhtiyas-commission-at-2-5-of-msp-meet-hayer-in-lok-sabha"
+   },
+   {
+    "id": "s20",
+    "title": "PARI (P. Sainath): Punjab's arhtiyas - sins of commission (2018)",
+    "url": "https://ruralindiaonline.org/article/punjabs-arhtiyas-sins-of-commission"
+   },
+   {
+    "id": "s21",
+    "title": "Sukhpal Singh & T.K. Dhaliwal (PAU): commission agents in Punjab (AgEcon Search)",
+    "url": "https://ageconsearch.umn.edu/record/204788/files/07-Sukhpal%20Singh.pdf"
+   },
+   {
+    "id": "s22",
+    "title": "Tribune: Do away with arhtiya system, Punjab told (interest 18-37%)",
+    "url": "https://www.tribuneindia.com/news/archive/punjab/do-away-with-arhtiya-system-punjab-told-736296"
+   },
+   {
+    "id": "s23",
+    "title": "Tribune: Have no choice - Punjab to make direct MSP payment to farmers (2021)",
+    "url": "https://www.tribuneindia.com/news/punjab/have-no-choice-punjab-to-make-direct-msp-payment-to-farmers-as-centre-rejects-plea-for-exemption-236402/amp"
+   },
+   {
+    "id": "s24",
+    "title": "Tribune: Mandi labour rate hiked 10% (paddy Rs 17.50 -> 19.26 per bag)",
+    "url": "https://www.tribuneindia.com/news/punjab/mandi-labour-rate-hiked-10"
+   },
+   {
+    "id": "s25",
+    "title": "Tribune: SDM's meeting with arhtiyas, labourers remains unfruitful (commission frozen ~Rs 45.88/qtl; labour Rs 16.05/bag)",
+    "url": "https://www.tribuneindia.com/news/jalandhar/sdms-meeting-with-arhtiyas-labourers-remains-unfruitful"
+   },
+   {
+    "id": "s26",
+    "title": "Tribune: Palledars being exploited in mandis, alleges Bajwa",
+    "url": "https://www.tribuneindia.com/news/punjab/palledars-being-exploited-in-mandis-alleges-bajwa-595907"
+   },
+   {
+    "id": "s27",
+    "title": "Hindustan Times: Grain transport - rate row persists as truck unions stick to strike (Apr 2018)",
+    "url": "https://www.pressreader.com/india/hindustan-times-bathinda/20180401/281573766253608"
+   },
+   {
+    "id": "s28",
+    "title": "Hindustan Times: Govt ropes in arhtiyas for transporting wheat, tells Mandi Board to fix rate (Apr 2018)",
+    "url": "https://www.pressreader.com/india/hindustan-times-patiala/20180404/281625305867134"
+   },
+   {
+    "id": "s29",
+    "title": "TeamLease RegTech: Punjab Food Grains Transportation Policy, 2022",
+    "url": "https://www.teamleaseregtech.com/updates/article/15674/punjab-food-grains-transportation-policy-2022"
+   },
+   {
+    "id": "s30",
+    "title": "CAG Report 31 of 2015, Ch.4: Procurement and milling of paddy",
+    "url": "https://cag.gov.in/uploads/download_audit_report/2015/Union_Performance_Procurement_Milling_of_Paddy_Central_Pool_31_2015_chap_4.pdf"
+   },
+   {
+    "id": "s31",
+    "title": "Tribune: 85.4 LMT paddy procured in Punjab; 4,132 millers allotted (Nov 2024)",
+    "url": "https://www.tribuneindia.com/news/punjab/85-4-lmt-paddy-procured-in-punjab-rs-19800-crore-paid-to-4-lakh-farmers-centre/amp"
+   },
+   {
+    "id": "s32",
+    "title": "IANS: Measures to ensure seamless paddy procurement in Punjab - Pralhad Joshi (Oct 2024)",
+    "url": "https://ianslive.in/measures-to-ensure-seamless-paddy-procurement-in-punjab-union-minister-joshi--20241027170905"
+   },
+   {
+    "id": "s33",
+    "title": "Hindustan Times: At 204L tonne, all-time high paddy procured (Moga 14.5 LMT, 2020)",
+    "url": "https://www.pressreader.com/india/hindustan-times-amritsar/20201203/281655372641660"
+   },
+   {
+    "id": "s34",
+    "title": "Tribune: Govt raises wheat MSP to Rs 2,585/qtl for 2026-27",
+    "url": "https://www.tribuneindia.com/news/india/govt-raises-wheat-msp-by-6-59-to-rs-2585-per-quintal-for-2026-27"
+   },
+   {
+    "id": "s35",
+    "title": "DT Next: Paddy MSP hiked by Rs 72 to Rs 2,441/qtl (KMS 2026-27)",
+    "url": "https://www.dtnext.in/news/business/govt-hikes-paddy-msp-by-rs-72-to-rs-2441qtl-sunflower-seed-sees-steepest-rise-at-rs-622"
+   },
+   {
+    "id": "s36",
+    "title": "All India Radio: Punjab to procure 132 LMT wheat against target of 122 LMT (Mar 2026)",
+    "url": "https://www.newsonair.gov.in/punjab-to-procure-132-lmt-wheat-against-the-target-of-122-lmt-during-procurement-season"
+   },
+   {
+    "id": "s37",
+    "title": "Daily Pioneer: Wheat procurement rises to 35 MT (Punjab 12.1 MT, 2026-27)",
+    "url": "https://www.dailypioneer.com/news/wheat-procurement-rises-to-35-mt-exceeds-target-for-2026-27"
+   },
+   {
+    "id": "s38",
+    "title": "Tribune: 10 lakh MT rice moved out, FCI clears godowns",
+    "url": "https://www.tribuneindia.com/news/punjab/10-lakh-mt-rice-moved-out-fci-clears-godowns-for-kharif-crops"
+   },
+   {
+    "id": "s39",
+    "title": "Tribune: 95 LMT grain moved out of state on 2,684 rakes - Bittu",
+    "url": "https://tribuneindia.com/news/95-lmt-grain-moved-out-of-state-on-2684-rakes-bittu"
+   },
+   {
+    "id": "s40",
+    "title": "Tribune: Adani group keen to set up silos in Punjab (Moga silo 2 LMT)",
+    "url": "https://m.tribuneindia.com/news/archive/business/adani-group-keen-to-set-up-silos-in-punjab-73948"
+   },
+   {
+    "id": "s41",
+    "title": "Adani Agri Logistics business page",
+    "url": "https://adani.com/businesses/agri-logistics"
+   },
+   {
+    "id": "s42",
+    "title": "Tribune: Amid curbs, IELTS hubs lose sheen",
+    "url": "https://www.tribuneindia.com/news/punjab/amid-curbs-ielts-hubs-lose-sheen-94528/amp"
+   },
+   {
+    "id": "s43",
+    "title": "VisaVerge: Canada visa rule changes force closures of IELTS centres in Punjab",
+    "url": "https://www.visaverge.com/visa/canada-visa-rule-changes-force-closures-of-ielts-centres-in-punjab"
+   },
+   {
+    "id": "s44",
+    "title": "TargetStudy directory: IELTS coaching centres in Moga (47 listed)",
+    "url": "https://targetstudy.com/coaching/ielts-coaching-in-moga.htm"
+   },
+   {
+    "id": "s45",
+    "title": "Tribune: Licences of 263 immigration firms, IELTS centres revoked (Jalandhar)",
+    "url": "https://www.tribuneindia.com/news/jalandhar/licences-of-263-immigration-firms-ielts-centres-revoked-486964"
+   },
+   {
+    "id": "s46",
+    "title": "Tribune: Punjab offers IT-friendly ecosystem (150+ IT units, ~35,000 professionals; Quark City 70+ firms)",
+    "url": "https://m.tribuneindia.com/news/punjab/punjab-offers-it-friendly-ecosystem-gurmeet-singh-meet-hayer-482797"
+   },
+   {
+    "id": "s47",
+    "title": "Amar Ujala: Punjab invites Infosys to set up campus in Mohali (Infosys Chandigarh ~6,000 staff)",
+    "url": "https://www.amarujala.com/punjab-invites-infosys-to-set-up-campus-in-mohali"
+   },
+   {
+    "id": "s48",
+    "title": "Tribune: Week on, no shopkeeper willing to stay open 24x7 (13,900 registered vs ~40,000 shops in Chandigarh)",
+    "url": "https://www.tribuneindia.com/news/chandigarh/week-on-no-shopkeeper-willing-to-stay-open-24x7-636791/amp"
+   },
+   {
+    "id": "s49",
+    "title": "India Environment Portal/Tribune: 2,600 brick kilns in state shut, await green clearance (2014)",
+    "url": "https://indiaenvironmentportal.org.in/news-clippings/2600-brick-kilns-in-state-shut-await-green-clearance"
+   },
+   {
+    "id": "s50",
+    "title": "TrucksBuses: Tata Signa 2823.T price (Dec 2025)",
+    "url": "https://www.trucksbuses.com/trucks/cargo-truck/tata-signa-2823t/price"
+   },
+   {
+    "id": "s51",
+    "title": "WageIndicator: Heavy truck and lorry drivers pay, India",
+    "url": "https://prd.wageindicator.org/en-in/work-in-india/role-and-pay/india-heavy-truck-and-lorry-drivers"
+   },
+   {
+    "id": "s52",
+    "title": "Business Standard: Truck freight rates dip for smaller cities (CMIE, Apr 2024)",
+    "url": "https://www.business-standard.com/industry/news/truck-freight-rates-dip-for-smaller-cities-remain-flat-for-bigger-ones-124050500187_1.html"
+   },
+   {
+    "id": "s53",
+    "title": "Business Standard: Road freight rates to cool off 10-12% following diesel price cut - IFTRT (2021)",
+    "url": "https://www.business-standard.com/amp/article/economy-policy/road-freight-rates-to-cool-off-10-12-following-diesel-price-cut-iftrt-121110400733_1.html"
+   },
+   {
+    "id": "s54",
+    "title": "Rome2Rio: Moga to Chandigarh (road ~165 km)",
+    "url": "https://www.rome2rio.com/s/Moga/Chand%C4%ABgarh"
+   },
+   {
+    "id": "s55",
+    "title": "IIM Bangalore CDPG: Is digital public infrastructure truly scalable? (UPI per-capita by state)",
+    "url": "https://www.iimb.ac.in/cdpg/pdf/digital-public-infrastructure-truly-scalable.pdf"
+   },
+   {
+    "id": "s56",
+    "title": "RBI: Impact of UPI on cash demand (Sep 2025)",
+    "url": "https://website.rbi.org.in/documents/d/rbi/impact-of-upi-on-cash-demand_sep2025"
+   },
+   {
+    "id": "s57",
+    "title": "Tribune: Farmers paid Rs 7,472 cr for paddy, 100% lifting ensured, says CM (KMS 2025-26; 1,822 purchase centres)",
+    "url": "https://www.tribuneindia.com/news/punjab/farmers-paid-rs-7472-cr-for-paddy-100-lifting-ensured-says-cm"
+   },
+   {
+    "id": "s58",
+    "title": "Tribune: Licences of 4 immigration firms cancelled (Mohali 471 registered travel agents)",
+    "url": "https://www.tribuneindia.com/news/chandigarh/licences-of-4-immigration-firms-cancelled-354189"
+   },
+   {
+    "id": "s59",
+    "title": "LBS Wheeler Institute: Between trust and trade - informal credit networks in India",
+    "url": "https://wheelerblog.london.edu/between-trust-and-trade-on-informal-credit-networks-in-india-2/"
+   },
+   {
+    "id": "s60",
+    "title": "Down To Earth: Shortage of labourers, gunny bags - Punjab in a spot over wheat procurement (2021)",
+    "url": "https://www.downtoearth.org.in/news/agriculture/shortage-of-labourers-gunny-bags-punjab-in-a-spot-over-wheat-procurement-76444"
+   }
+  ],
+  "caveats": "Fuel and toll figures are sourced; freight rates are cost-built estimates (diesel + tolls + driver + EMI/depreciation + tyres/maintenance + 10-15% margin) cross-checked against national ranges (Rs 22-40/km for 16-20 t trucks in 2025 blogs; CMIE Delhi-origin 15 t lanes). Grain flows are scaled from Punjab totals using Moga's historical ~6-7% share."
+ },
+ "fuel": {
+  "dieselInrPerLitrePunjab": 95.59,
+  "dieselInrPerLitreChandigarh": 89.47,
+  "petrolInrPerLitrePunjab": 105.69,
+  "petrolInrPerLitreChandigarh": 101.51,
+  "asOf": "2026-10-10",
+  "notes": "Moga retail prices (The Core). 2026 rises: Rs 3/L on 15 May + 0.90 on 19 May (crude/Hormuz disruption, weak rupee), more later; Moga petrol was Rs 96.60 a year earlier (Oct 2025). Chandigarh is ~Rs 6/L cheaper on diesel due to lower VAT, so trucks on Moga-tricity lanes fill up in Chandigarh. Some aggregators wrongly show Rs 89.47 for 'Punjab' - that is the Chandigarh price.",
+  "sourceIds": [
+   "s8",
+   "s9",
+   "s10",
+   "s11"
+  ]
+ },
+ "truckTypes": [
+  {
+   "id": "tractor_trolley",
+   "name": "Tractor + trolley (farm-to-mandi, local cartage)",
+   "payloadTonnes": 8,
+   "kmPerLitreLoaded": 4.5,
+   "capexInr": 1100000,
+   "driverWageInrPerMonth": 12000,
+   "share": 0.0,
+   "notes": "Owned by most farm households (tractor ~Rs 8-9 lakh + trolley ~Rs 2-3 lakh, est.). Carries >90% of farm-to-mandi grain; also used (and officially permitted in shortages) for mandi-to-godown moves. Not counted in truck fleet shares."
+  },
+  {
+   "id": "lcv",
+   "name": "LCV / pickup (Tata Ace, Mahindra Bolero Pik-up; 1-1.7 t)",
+   "payloadTonnes": 1.5,
+   "kmPerLitreLoaded": 13,
+   "capexInr": 800000,
+   "driverWageInrPerMonth": 14000,
+   "share": 0.4,
+   "notes": "Kiryana/FMCG distribution, e-commerce, dairy cans. Est."
+  },
+  {
+   "id": "t6",
+   "name": "6-wheeler (16 t GVW, 9-10 t payload)",
+   "payloadTonnes": 9,
+   "kmPerLitreLoaded": 5.5,
+   "capexInr": 2600000,
+   "driverWageInrPerMonth": 18000,
+   "share": 0.15,
+   "notes": "Intra-district cartage, building materials. Est."
+  },
+  {
+   "id": "t10",
+   "name": "10-wheeler (28 t GVW, 16-19 t payload)",
+   "payloadTonnes": 18,
+   "kmPerLitreLoaded": 4.0,
+   "capexInr": 4400000,
+   "driverWageInrPerMonth": 22000,
+   "share": 0.25,
+   "notes": "Workhorse for grain/CMR, fertilizer, FMCG. Tata Signa 2823.T ex-showroom Rs 35.99-37.16 lakh (Dec 2025) + body/registration/insurance -> ~Rs 44 lakh on road (est.). Driver Rs 20-25k/month + trip bhatta Rs 300-500/day (est.; national band Rs 19.5-41.5k)."
+  },
+  {
+   "id": "t12",
+   "name": "12-wheeler (35 t GVW, ~25 t payload)",
+   "payloadTonnes": 25,
+   "kmPerLitreLoaded": 3.5,
+   "capexInr": 5000000,
+   "driverWageInrPerMonth": 25000,
+   "share": 0.12,
+   "notes": "Long-haul (Delhi, Gujarat ports). Est."
+  },
+  {
+   "id": "t14_trailer",
+   "name": "14-wheeler / tractor-trailer (42-55 t GVW, 30-40 t payload)",
+   "payloadTonnes": 32,
+   "kmPerLitreLoaded": 2.8,
+   "capexInr": 5800000,
+   "driverWageInrPerMonth": 28000,
+   "share": 0.08,
+   "notes": "Steel, cement, containers. Est."
+  },
+  {
+   "id": "milk_tanker",
+   "name": "Insulated milk tanker (10-15 kL)",
+   "payloadTonnes": 12,
+   "kmPerLitreLoaded": 4.2,
+   "capexInr": 3600000,
+   "driverWageInrPerMonth": 20000,
+   "share": 0.0,
+   "notes": "Nestle/Verka chilling-centre-to-plant runs; contracted to ancillary transporters. Est."
+  }
+ ],
+ "freightRates": [
+  {
+   "lane": "Moga-Chandigarh/Mohali",
+   "km": 165,
+   "inrPerTonne": 800,
+   "inrPerTripFullTruck": 15000,
+   "basis": "10-wheeler 18 t, one-way loaded with empty return; cost build: diesel ~74 L (41 L loaded @4 km/L + 33 L empty @5 km/L) x Rs 95.6 = ~Rs 7,100; tolls Gurhe+Ghulal return ~Rs 900; driver/helper ~Rs 1,500; EMI/depreciation/insurance ~Rs 3,300; tyres/maintenance ~Rs 1,300 => ~Rs 14,100 cost + margin. With backhaul ~Rs 11,000. Estimate."
+  },
+  {
+   "lane": "Moga-Ludhiana",
+   "km": 60,
+   "inrPerTonne": 330,
+   "inrPerTripFullTruck": 6000,
+   "basis": "10-wheeler 18 t short haul (est.); Ludhiana is the C&F/wholesale hub for both Moga and much of tricity supply."
+  },
+  {
+   "lane": "Ludhiana-Chandigarh",
+   "km": 105,
+   "inrPerTonne": 500,
+   "inrPerTripFullTruck": 9000,
+   "basis": "10-wheeler, includes Ghulal toll (Rs 390 single, Jul 2026). Estimate."
+  },
+  {
+   "lane": "Moga-Delhi (Narela/Azadpur)",
+   "km": 370,
+   "inrPerTonne": 1500,
+   "inrPerTripFullTruck": 27000,
+   "basis": "10-wheeler 18 t; ~Rs 70/km incl. NH-44 tolls (~Rs 2,500-3,000 one way, est.). Estimate."
+  },
+  {
+   "lane": "Chandigarh-Delhi",
+   "km": 250,
+   "inrPerTonne": 1100,
+   "inrPerTripFullTruck": 20000,
+   "basis": "10-wheeler, strong two-way traffic so lower per-km. Estimate."
+  },
+  {
+   "lane": "Moga-Mundra/Kandla port (basmati export)",
+   "km": 1150,
+   "inrPerTonne": 3200,
+   "inrPerTripFullTruck": 80000,
+   "basis": "12-wheeler 25 t; ~Rs 70/km; CMIE 15 t Delhi-origin lanes ~Rs 43-96/km (2024). Estimate."
+  },
+  {
+   "lane": "Mandi-to-godown/shellers (Moga cluster, 0-25 km)",
+   "km": 15,
+   "inrPerTonne": 180,
+   "inrPerTripFullTruck": 3200,
+   "basis": "Govt tender schedule-of-rates per quintal by distance slab plus bid premium (capped at 120% of SOR in 2018); paid by state agency to transport contractor. Estimate for 2026."
+  },
+  {
+   "lane": "Farm-to-mandi (tractor-trolley, 3-12 km)",
+   "km": 8,
+   "inrPerTonne": 150,
+   "inrPerTripFullTruck": 1200,
+   "basis": "Usually own tractor (cost = diesel ~Rs 300-500 per trip); hired trolley ~Rs 12-20/qtl. Estimate."
+  },
+  {
+   "lane": "Village chilling centre-to-Nestle Moga (milk tanker)",
+   "km": 40,
+   "inrPerTonne": 250,
+   "inrPerTripFullTruck": 3000,
+   "basis": "Contracted per-km rates to ancillary transporters. Estimate."
+  }
+ ],
+ "tolls": [
+  {
+   "plaza": "Gurhe (Chowkiman), Km 104.85",
+   "highway": "NH-05 (old NH-95) Ludhiana-Jagraon-Moga-Talwandi Bhai",
+   "inrPerTripHeavy": 205,
+   "notes": "NHAI 2022-23 notice: 2-axle bus/truck Rs 180 single, Rs 270 return; 2026 value is an estimate (+~4%/yr WPI revision). Multi-axle est. ~Rs 320.",
+   "sourceIds": [
+    "s13"
+   ]
+  },
+  {
+   "plaza": "Ghulal",
+   "highway": "NH-05 Chandigarh-Kharar-Samrala-Ludhiana",
+   "inrPerTripHeavy": 390,
+   "notes": "Bus/truck Rs 390 single, Rs 580 return (from 15 Jul 2026). Axle slabs (Oct 2024): 4-6 axle Rs 560, 7+ axle Rs 680 single; monthly pass Rs 12,970 (3-axle).",
+   "sourceIds": [
+    "s12",
+    "s14"
+   ]
+  },
+  {
+   "plaza": "Ladhowal",
+   "highway": "NH-44 Ludhiana-Jalandhar (Moga-Jalandhar/Amritsar traffic via Ludhiana)",
+   "inrPerTripHeavy": 745,
+   "notes": "Bus/truck Rs 745 single, Rs 1,120 return (2024-25 report); car Rs 245 from Jul 2026. One of India's highest-grossing plazas.",
+   "sourceIds": [
+    "s15",
+    "s12"
+   ]
+  },
+  {
+   "plaza": "Kalajhar",
+   "highway": "NH-07 Patiala bypass (Sangrur-Patiala-Chandigarh alternative)",
+   "inrPerTripHeavy": 390,
+   "notes": "Bus/truck Rs 390 single, Rs 585 return (Jul 2026).",
+   "sourceIds": [
+    "s12"
+   ]
+  }
+ ],
+ "flows": [
+  {
+   "from": "moga_farms",
+   "to": "moga_mandis",
+   "commodity": "wheat",
+   "mode": "tractor_trolley",
+   "tonnesPerYear": 750000,
+   "season": "Apr-May",
+   "notes": "Est. Moga ~6% of Punjab wheat procurement (Punjab 2026-27 ~121 LMT; target 122, ~1,900 centres). Farmer sells via arhtiya at MSP Rs 2,585/qtl (RMS 2026-27).",
+   "sourceIds": [
+    "s34",
+    "s36",
+    "s37"
+   ]
+  },
+  {
+   "from": "moga_mandis",
+   "to": "moga_godowns_and_adani_silo",
+   "commodity": "wheat",
+   "mode": "truck",
+   "tonnesPerYear": 750000,
+   "season": "Apr-Jun",
+   "notes": "Tendered transport/labour contractors move bags to FCI/PUNGRAIN/Markfed/Warehousing godowns and plinths; bulk to Adani silo at Dagru (Moga), 2 LMT capacity, FCI 20-yr contract since 2007.",
+   "sourceIds": [
+    "s29",
+    "s40",
+    "s41"
+   ]
+  },
+  {
+   "from": "moga",
+   "to": "out_of_state_deficit_regions",
+   "commodity": "wheat",
+   "mode": "rail",
+   "tonnesPerYear": 600000,
+   "season": "Year-round (FCI movement plan)",
+   "notes": "FCI rakes (~2,600 t each) from Moga/Baghapurana railheads; Adani silo dedicated rakes to field depots in Chennai, Coimbatore, Bangalore. Statewide 95 LMT moved on 2,684 rakes Apr-Oct 2024. Est.",
+   "sourceIds": [
+    "s39",
+    "s40",
+    "s41"
+   ]
+  },
+  {
+   "from": "moga_farms",
+   "to": "moga_mandis",
+   "commodity": "paddy",
+   "mode": "tractor_trolley",
+   "tonnesPerYear": 1250000,
+   "season": "Oct-Nov",
+   "notes": "Est. Moga procured 14.5 LMT in record 2020 (7.1% of 204 LMT); Punjab KMS 2025-26 expected ~175 LMT (floods), 1,822 purchase centres. MSP Rs 2,369 (KMS 2025-26) -> Rs 2,441/qtl (KMS 2026-27).",
+   "sourceIds": [
+    "s33",
+    "s35",
+    "s57"
+   ]
+  },
+  {
+   "from": "moga_mandis",
+   "to": "moga_rice_shellers",
+   "commodity": "paddy",
+   "mode": "truck",
+   "tonnesPerYear": 1250000,
+   "season": "Oct-Dec",
+   "notes": "Paddy allotted to shellers by Food & Civil Supplies (online allocation); stored in miller custody.",
+   "sourceIds": [
+    "s31",
+    "s32"
+   ]
+  },
+  {
+   "from": "moga_rice_shellers",
+   "to": "fci_depots",
+   "commodity": "custom_milled_rice",
+   "mode": "truck",
+   "tonnesPerYear": 840000,
+   "season": "Dec-Sep",
+   "notes": "~67% outturn norm. Delivery slowed by storage-space crunch in FCI godowns.",
+   "sourceIds": [
+    "s30",
+    "s38"
+   ]
+  },
+  {
+   "from": "moga",
+   "to": "out_of_state_deficit_regions",
+   "commodity": "rice",
+   "mode": "rail",
+   "tonnesPerYear": 800000,
+   "season": "Year-round",
+   "notes": "Punjab sends ~8-10 LMT rice/month out of state via FCI rakes. Est. Moga share.",
+   "sourceIds": [
+    "s38",
+    "s39"
+   ]
+  },
+  {
+   "from": "moga_villages",
+   "to": "nestle_moga",
+   "commodity": "milk",
+   "mode": "milk_tanker",
+   "tonnesPerYear": 420000,
+   "season": "Flush Nov-Mar, lean Apr-Jul",
+   "notes": "Factory intake >1.3-1.5 million kg/day in flush from >110,000 farmers across a ~30,000 sq km catchment (not all in Moga district). Annual figure est. at ~1.15 Mkg/day average.",
+   "sourceIds": [
+    "s16",
+    "s17"
+   ]
+  },
+  {
+   "from": "nestle_moga",
+   "to": "chandigarh",
+   "commodity": "packaged_foods",
+   "mode": "truck",
+   "tonnesPerYear": 8000,
+   "season": "Year-round",
+   "notes": "Via Nestle C&F/distributors (often routed through Ludhiana/Zirakpur warehouses). Estimate from tricity population x per-capita consumption.",
+   "sourceIds": []
+  },
+  {
+   "from": "moga",
+   "to": "chandigarh",
+   "commodity": "rice_atta_pulses_vegetables",
+   "mode": "truck",
+   "tonnesPerYear": 40000,
+   "season": "Year-round; potatoes/peas Dec-Mar",
+   "notes": "Estimate; tricity is supplied mainly via Sector 26 grain & vegetable markets and Ludhiana wholesalers.",
+   "sourceIds": []
+  },
+  {
+   "from": "chandigarh",
+   "to": "moga",
+   "commodity": "manufactured_goods (tractors, auto parts, pharma, FMCG, electronics)",
+   "mode": "truck",
+   "tonnesPerYear": 60000,
+   "season": "Year-round; tractors peak Mar-Apr & Sep-Oct",
+   "notes": "Estimate. Swaraj tractors from Mohali; pharma from Panchkula/Baddi; much FMCG reaches Moga through Ludhiana C&F rather than tricity.",
+   "sourceIds": []
+  },
+  {
+   "from": "rail_rake_points",
+   "to": "moga",
+   "commodity": "fertilizer (urea, DAP)",
+   "mode": "rail",
+   "tonnesPerYear": 180000,
+   "season": "Jun-Aug (urea) and Oct-Dec (DAP)",
+   "notes": "Estimate: ~5% of Punjab's ~3.5-4 Mt urea+DAP; last mile by truck to PACS and dealers.",
+   "sourceIds": []
+  },
+  {
+   "from": "moga",
+   "to": "mundra_kandla_port",
+   "commodity": "basmati_rice",
+   "mode": "truck",
+   "tonnesPerYear": 30000,
+   "season": "Nov-Jun",
+   "notes": "Estimate; private basmati sold through arhtiyas to exporters (many in Amritsar/Haryana).",
+   "sourceIds": []
+  },
+  {
+   "from": "delhi_ncr",
+   "to": "chandigarh",
+   "commodity": "general_cargo_fmcg_ecommerce",
+   "mode": "truck",
+   "tonnesPerYear": 2500000,
+   "season": "Year-round; festive peak Sep-Oct",
+   "notes": "Estimate: tricity ~2.6M people x ~1 t/person/yr inbound consumer & construction goods, majority via NH-44 Delhi-Ambala-Zirakpur.",
+   "sourceIds": []
+  }
+ ],
+ "unionDynamics": "Until 2017, every Punjab town had a truck operators' union (134 statewide) that ran a 'bari' (turn) system: only member trucks could load in its area, freight was fixed by the union, and outside trucks were blocked; industry bodies said union rates were 50-60% above open-market rates, and unions doubled as political muscle. The Congress government notified the Punjab Goods Carriages (Regulation and Prevention of Cartelisation) Rules, 2017, dissolving the unions and giving Regional Transport Authorities power to fix tariff bands; Amarinder Singh refused to roll it back in Jul 2017 despite strikes, highway blockades and truck burnings (e.g. Nakodar), citing High Court judgments. Compliance was patchy: e.g. the Abohar union kept allotting trucks in defiance of the DC; in Apr 2018 unions boycotted grain-transport tenders, forcing the state to let arhtiyas/shellers bid. In Dec 2021 Kejriwal promised to revive unions; the outgoing Congress government issued a revival notification on 7 Jan 2022 just before the model code, opposed by Mohali Industries Association, CICU and FOPSIA. Unions de facto persist in many towns under AAP-era leadership contests (e.g. Bhawanigarh union split, NH blocked, Apr 2026). Model as: local trucking market with a probability-weighted cartel (in Moga a union-coordinated 'bari' likely still governs mandi/sheller loads; open market governs FMCG/industrial loads to tricity). Cartel markup 20-50% on local loads; enforcement weak; periodic strikes in procurement season.",
+ "transportTenderNotes": "Mandi-to-storage transport and mandi labour for wheat/paddy are awarded annually by the Punjab Department of Food, Civil Supplies & Consumer Affairs via cluster-wise open e-tenders under the yearly Punjab Food Grains Transportation Policy (e.g. 2022 policy: open competitive tendering, security Rs 5/MT of cluster capacity). Bids are quoted as a % over the Schedule of Rates (SOR) that FCI reimburses; in 2018 the state capped premiums at 120% over SOR, prompting a union boycott; where no valid bids come after three attempts, arhtiyas and rice shellers may bid and the Mandi Board fixes per-quintal-per-km rates. CAG (2015) criticised Punjab's flat per-quintal rates that ignored distance versus Haryana's per-qtl-per-km schedule. Labour (unloading, cleaning, weighing, filling, stitching, loading) is paid per bag (paddy Rs 17.50 -> 19.26/37.5 kg bag after a 10% hike; unions cite Rs 16.05/35 kg bag) through arhtiyas/contractors, with wages required via RTGS/PF; palledars allege they get ~Rs 2 of a Rs 5/bag entitlement. Transport bills are paid by agencies after delivery verification, often with multi-month lags, so contractors need working capital from arhtiyas or banks.",
+ "sourceIds": [
+  "s2",
+  "s3",
+  "s4",
+  "s5",
+  "s6",
+  "s7",
+  "s24",
+  "s25",
+  "s26",
+  "s27",
+  "s28",
+  "s29",
+  "s30"
+ ]
+}

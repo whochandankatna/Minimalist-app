@@ -1,0 +1,1637 @@
+{
+ "meta": {
+  "compiledOn": "2026-10-11",
+  "currencyBasis": "Nominal INR per month, household level, approx. 2025-26 prices (extrapolated; see research/psychographics.md).",
+  "notes": "Traits are modelling parameters derived from cited evidence plus explicit assumptions. Shares are approximate agent-population weights by household within each region (sum to 1 per region). Not a statistical estimate.",
+  "traitDefinitions": {
+   "riskAversion": "0-1. Willingness to give up expected return for certainty (0 = risk-neutral/seeking, 1 = extremely averse). 0.6 ~ Binswanger's 'moderate' class.",
+   "timePreference": "0-1. Present bias / effective discount rate (0 = very patient, 1 = spends windfalls immediately, borrows against future).",
+   "priceSensitivity": "0-1. Probability-weighted elasticity of switching seller/brand for a given price gap (1 = switches for ~1% saving).",
+   "socialConformity": "0-1. Weight on what kin, biradari/village or peer network does when choosing (crops, purchases, ceremonies).",
+   "statusConsumption": "0-1. Share of discretionary spending allocated to visible/positional goods (weddings, SUVs, kothis, phones).",
+   "brandLoyalty": "0-1. Persistence with the same brand OR the same trading partner (kiryana, arhtiya, dealer) across periods.",
+   "digitalAdoption": "0-1. Propensity to use UPI, e-commerce, app-based services; also speed of adopting new digital channels.",
+   "creditAppetite": "0-1. Willingness to borrow (formal or informal), including for consumption and ceremonies.",
+   "trustInInstitutions": "0-1. Trust in formal banks, insurers, government schemes and procurement relative to informal networks.",
+   "migrationAspiration": "0-1. Desire of the household to place a member abroad (or, for migrants, to keep circulating).",
+   "religiosity": "0-1. Weight of religious observance in time/spending (gurdwara/mandir donations, path, pilgrimages). MODELLING ASSUMPTION for all profiles; no Punjab-segment survey found.",
+   "lossAversion": "Prospect-theory coefficient lambda (losses weigh lambda x gains); literature benchmark ~2.25 (Tversky & Kahneman 1992). Per-profile values are MODELLING ASSUMPTIONS."
+  },
+  "sources": [
+   {
+    "id": "s1",
+    "title": "MoSPI, Household Consumption Expenditure Survey 2023-24: Press Note / Fact Sheet (Jan 2025) - state MPCE, Gini, item-group shares",
+    "url": "https://mospi.gov.in/sites/default/files/press_release/HCES_Report202324_Press_Note_30012025.pdf"
+   },
+   {
+    "id": "s2",
+    "title": "Drishti IAS summary of HCES 2023-24 (Chandigarh MPCE Rural Rs 8,857 / Urban Rs 13,425)",
+    "url": "https://www.drishtiias.com/daily-updates/daily-news-analysis/household-consumption-expenditure-survey-2023-24"
+   },
+   {
+    "id": "s3",
+    "title": "Rajya Sabha unstarred Q. (23-12-2022): NSS 77th round SAS 2019 - avg outstanding loan per agricultural household, Punjab Rs 2,03,249",
+    "url": "https://rsdebate.nic.in/bitstream/123456789/734761/1/PQ_258_23122022_U1943_p107_p110.pdf"
+   },
+   {
+    "id": "s4",
+    "title": "The India Forum, 'How much do agricultural households earn from farming?' (NSS 77th round; Punjab Rs 26,701/month in 2018-19)",
+    "url": "https://theindiaforum.in/forum/how-much-do-agricultural-households-earn-farming"
+   },
+   {
+    "id": "s5",
+    "title": "NABARD All-India Rural Financial Inclusion Survey (NAFIS) 2021-22, PIB summary",
+    "url": "https://static.pib.gov.in/WriteReadData/specificdocs/documents/2024/oct/doc20241010414001.pdf"
+   },
+   {
+    "id": "s6",
+    "title": "Census 2011 via citypopulation.de - Moga district (pop 995,746; 768,500 rural; 363,417 SC)",
+    "url": "https://citypopulation.de/en/india/punjab/admin/042__moga/"
+   },
+   {
+    "id": "s7",
+    "title": "Dept of Social Justice, Punjab - SC population 31.94% (Census 2011)",
+    "url": "https://welfare.punjab.gov.in/Static/SCPopulation.html"
+   },
+   {
+    "id": "s8",
+    "title": "Bedi, S. (2021) Mainstream Weekly - SCs own ~3.6% of land in Punjab",
+    "url": "https://www.mainstreamweekly.net/article10729.html"
+   },
+   {
+    "id": "s9",
+    "title": "Punjab Assembly, Scheduled Caste Sub-Plan document citing Agriculture Census 2015-16 (SC: 5.76% of holdings, 3.58% of operated area)",
+    "url": "https://punjabassembly.gov.in/Images/docs/Special%20Component%20Plan%20FY%202021-22%20English.pdf"
+   },
+   {
+    "id": "s10",
+    "title": "Agricultural Census 2010-11 Punjab size-class distribution (reproduced in NDDB Dairy Knowledge Portal doc 7.4)",
+    "url": "https://www.dairyknowledge.in/dkp/sites/default/files/7.4.pdf"
+   },
+   {
+    "id": "s11",
+    "title": "Binswanger, H. (1980) Attitudes toward risk: experimental measurement in rural India. AJAE 62(3)",
+    "url": "https://ideas.repec.org/a/oup/ajagec/v62y1980i3p395-407..html"
+   },
+   {
+    "id": "s12",
+    "title": "Singh, S. & Dhaliwal, T.K. (PAU) study of arhtiyas and farmer credit, reported by Governance Now",
+    "url": "https://www.governancenow.com/views/think-tanks/arhtiyas-no-good-punjab-agriculture-study"
+   },
+   {
+    "id": "s13",
+    "title": "Johnson, D.K.N. et al. (2023) The Deadly Cost of Informal Lending: An Economic Model of Agrarian Suicide in Punjab. Millennial Asia",
+    "url": "https://consensus.app/papers/details/43ac86c54f2659cd9ef9399efe93e9e2/"
+   },
+   {
+    "id": "s14",
+    "title": "Dandekar, A. & Bhattacharya, S. (2017) Lives in Debt: Narratives of Agrarian Distress and Farmer Suicides (EPW; Sangrur fieldwork)",
+    "url": "https://consensus.app/papers/details/d07723a0bf4a555f80cf396c5ed898ad/"
+   },
+   {
+    "id": "s15",
+    "title": "Bloch, F., Rao, V. & Desai, S. (2004) Wedding Celebrations as Conspicuous Consumption. J. Human Resources",
+    "url": "https://consensus.app/papers/details/6b0444fdc1645f10bf683452a8d8d6ff/"
+   },
+   {
+    "id": "s16",
+    "title": "Sharma, K. et al. (2025) Contextualising international student migration to Canada: the case of Indian Punjab youths. JEMS",
+    "url": "https://consensus.app/papers/details/876610006c1c5b33bf73c325647f95e9/"
+   },
+   {
+    "id": "s17",
+    "title": "Singh, G. et al. Punjabi University household survey of international migration from rural Punjab (2,597 households, 12 districts)",
+    "url": "https://www.giss.org/jsps_vol_32/14-singh_et_al.pdf"
+   },
+   {
+    "id": "s18",
+    "title": "The Tribune: Students from Punjab spent $3.7 bn to pursue studies in Canada (2023-24)",
+    "url": "https://www.tribuneindia.com/news/punjab/students-from-punjab-spent-3-7-bn-to-pursue-studies-in-canada-last-year"
+   },
+   {
+    "id": "s19",
+    "title": "The Wire: 50% drop in study permits issued to Indian students by Canada in 2025",
+    "url": "https://thewire.in/education/50-drop-in-study-permits-issued-to-indian-students-by-canada-in-2025-report"
+   },
+   {
+    "id": "s20",
+    "title": "VisaVerge / Tribune Amritsar: IELTS centre closures in Punjab after Canada SDS ended (Nov 2024)",
+    "url": "https://www.visaverge.com/visa/canada-visa-rule-changes-force-closures-of-ielts-centres-in-punjab"
+   },
+   {
+    "id": "s21",
+    "title": "Punjab Opioid Dependence Survey 2015 (AIIMS/PGIMER/MoSJE), GHDx record",
+    "url": "https://ghdx.healthdata.org/record/india-punjab-opioid-dependence-survey-2015"
+   },
+   {
+    "id": "s22",
+    "title": "CRRID/Punjab Khet Mazdoor Union study on landless labourer debt purposes, Hindustan Times (2017)",
+    "url": "https://www.pressreader.com/india/hindustan-times-bathinda/20171103/281681140144733"
+   },
+   {
+    "id": "s23",
+    "title": "Dairy share of farm business income, marginal and small farms in Punjab (Sidhu & Bhullar 2004, cited in AgEcon Search paper)",
+    "url": "https://ageconsearch.umn.edu/record/47679/files/11-Mandeep-Singh.pdf"
+   },
+   {
+    "id": "s24",
+    "title": "Sucha Singh Gill et al., migrant workers in Punjab (1.6 mn 1991 -> 2.32 mn 2011)",
+    "url": "https://apgin.org/wp-content/uploads/2022/03/42-2-6-SuchaS.pdf"
+   },
+   {
+    "id": "s25",
+    "title": "The Tribune: migrant workers fear loss of income if farmers shift to direct paddy sowing (seasonal savings Rs 35-40k)",
+    "url": "https://www.tribuneindia.com/news/punjab/migrant-workers-fear-loss-of-income-if-farmers-shift-to-direct-paddy-sowing-631507"
+   },
+   {
+    "id": "s26",
+    "title": "The Tribune: Govt raises wheat MSP to Rs 2,585/qtl for RMS 2026-27",
+    "url": "https://www.tribuneindia.com/news/india/govt-raises-wheat-msp-by-6-59-to-rs-2585-per-quintal-for-2026-27"
+   },
+   {
+    "id": "s27",
+    "title": "PIB: MSP for kharif 2025-26 (common paddy Rs 2,369/qtl)",
+    "url": "https://static.pib.gov.in/WriteReadData/specificdocs/documents/2025/oct/doc20251010662401.pdf"
+   },
+   {
+    "id": "s28",
+    "title": "Punjab Minimum Wages notification March 2024 summary (agriculture Rs 437.26/day without meals)",
+    "url": "https://www.dcpsol.com/punjab-minimum-wages-notification-march-2024"
+   },
+   {
+    "id": "s29",
+    "title": "IIM Bangalore CDPG: Is digital public infrastructure truly scalable? (UPI per-capita: Delhi, Puducherry, Chandigarh top)",
+    "url": "https://www.iimb.ac.in/cdpg/pdf/digital-public-infrastructure-truly-scalable.pdf"
+   },
+   {
+    "id": "s30",
+    "title": "Lok Sabha reply on per capita NSDP 2023-24 (Chandigarh Rs 2,56,912), via Sakshi Post",
+    "url": "https://www.sakshipost.com/news/national/goa-emerges-india-s-richest-state-lok-sabha-reply-reveals-income-disparities-431799"
+   },
+   {
+    "id": "s31",
+    "title": "RBI Bulletin (Mar 2025): Changing Dynamics of India's Remittances - Sixth Round of India's Remittances Survey",
+    "url": "https://rbi.org.in/Scripts/BS_ViewBulletin.aspx?Id=23260"
+   },
+   {
+    "id": "s32",
+    "title": "Hofstede Insights country comparison - India (PDI 77, IDV 48, MAS 56, UAI 40, LTO 51, IVR 26)",
+    "url": "https://www.hofstede-insights.com/country-comparison-tool?countries=india"
+   },
+   {
+    "id": "s33",
+    "title": "Down To Earth: Punjab and Haryana unable to get out of paddy-wheat cycle; IAS Parliament explainer on procurement (~90% of arrivals procured at MSP)",
+    "url": "https://www.downtoearth.org.in/news/agriculture/punjab-and-haryana-are-unable-to-get-out-of-paddy-wheat-cycle-why-is-that--90289"
+   },
+   {
+    "id": "s34",
+    "title": "Agnihotri, N. et al. (2022) Punjab to Abroad - remittance use in rural Doaba (consumer durables, cars, loan repayment)",
+    "url": "https://consensus.app/papers/details/7ce9614fc6205d15b98dfdd56ad9a3ee/"
+   },
+   {
+    "id": "s35",
+    "title": "Govt reply to Parliament: youth (15-29) unemployment rate 10.2% in 2023-24 (PLFS, usual status)",
+    "url": "https://dge.gov.in/dge/sites/default/files/2025-05/3232_e.pdf"
+   },
+   {
+    "id": "s36",
+    "title": "Tversky, A. & Kahneman, D. (1992) Advances in prospect theory: cumulative representation of uncertainty (lambda ~2.25)",
+    "url": "https://doi.org/10.1007/BF00122574"
+   },
+   {
+    "id": "s37",
+    "title": "Singh, G. (2025) Magnitude and Determinants of Indebtedness Among Farmers in Punjab. Artha J. Soc. Sci.",
+    "url": "https://consensus.app/papers/details/ba2395509c535e8b9fcd6e99209341b8/"
+   },
+   {
+    "id": "s38",
+    "title": "Robitaille, M-C. (2019) Conspicuous Daughters: Exogamy, Marriage Expenditures, and Son Preference in India. J. Dev. Studies",
+    "url": "https://consensus.app/papers/details/2245acb773f25600be7ed1419eecad9d/"
+   }
+  ]
+ },
+ "profiles": [
+  {
+   "id": "marginal_farmer",
+   "name": "Marginal farmer (<2.5 acres) with livestock and wage work",
+   "region": "moga",
+   "shareOfHouseholds": 0.04,
+   "monthlyIncomeInr": {
+    "min": 9000,
+    "median": 18000,
+    "max": 30000
+   },
+   "incomeSources": {
+    "crops": 0.4,
+    "dairy": 0.25,
+    "remittance": 0.05,
+    "wages": 0.3,
+    "salary": 0,
+    "business": 0
+   },
+   "traits": {
+    "riskAversion": 0.75,
+    "timePreference": 0.7,
+    "priceSensitivity": 0.85,
+    "socialConformity": 0.75,
+    "statusConsumption": 0.4,
+    "brandLoyalty": 0.45,
+    "digitalAdoption": 0.4,
+    "creditAppetite": 0.55,
+    "trustInInstitutions": 0.4,
+    "migrationAspiration": 0.55,
+    "religiosity": 0.65,
+    "lossAversion": 2.5
+   },
+   "savingsRate": 0.03,
+   "consumptionShares": {
+    "food": 0.46,
+    "fuel_light": 0.07,
+    "clothing": 0.065,
+    "education": 0.045,
+    "health": 0.085,
+    "transport": 0.06,
+    "durables": 0.04,
+    "ceremonies": 0.05,
+    "housing": 0.03,
+    "other": 0.095
+   },
+   "paymentMix": {
+    "cash": 0.53,
+    "upi": 0.25,
+    "card": 0.0,
+    "udhaar_credit": 0.22
+   },
+   "shopsAt": [
+    "kiryana",
+    "village_shop",
+    "mandi_town_wholesale",
+    "cooperative_society"
+   ],
+   "decisionRules": [
+    "Grows wheat-paddy on all owned land; will not try a non-MSP crop unless an assured buyer exists",
+    "Sells paddy/wheat through the same arhtiya who advanced input credit; accepts deductions from payment",
+    "Buys groceries on monthly udhaar from village kiryana and settles after harvest (Apr-May, Oct-Nov)",
+    "Takes casual wage work (own or neighbours' fields, construction) in slack season",
+    "Cuts health and clothing spending first when a crop is lost; borrows informally for ceremonies rather than skipping them"
+   ],
+   "triggers": [
+    "MSP/procurement change",
+    "crop loss from flood, pest or heat",
+    "milch animal death or illness",
+    "daughter's wedding",
+    "hospitalisation",
+    "loan waiver announcement"
+   ],
+   "sourceIds": [
+    "s1",
+    "s3",
+    "s4",
+    "s10",
+    "s11",
+    "s12",
+    "s22",
+    "s23",
+    "s33",
+    "s37"
+   ]
+  },
+  {
+   "id": "small_farmer",
+   "name": "Small farmer (2.5-5 acres), wheat-paddy with dairy",
+   "region": "moga",
+   "shareOfHouseholds": 0.05,
+   "monthlyIncomeInr": {
+    "min": 16000,
+    "median": 30000,
+    "max": 48000
+   },
+   "incomeSources": {
+    "crops": 0.62,
+    "dairy": 0.2,
+    "remittance": 0.05,
+    "wages": 0.08,
+    "salary": 0,
+    "business": 0.05
+   },
+   "traits": {
+    "riskAversion": 0.7,
+    "timePreference": 0.6,
+    "priceSensitivity": 0.75,
+    "socialConformity": 0.75,
+    "statusConsumption": 0.5,
+    "brandLoyalty": 0.55,
+    "digitalAdoption": 0.5,
+    "creditAppetite": 0.55,
+    "trustInInstitutions": 0.45,
+    "migrationAspiration": 0.65,
+    "religiosity": 0.65,
+    "lossAversion": 2.4
+   },
+   "savingsRate": 0.06,
+   "consumptionShares": {
+    "food": 0.43,
+    "fuel_light": 0.065,
+    "clothing": 0.065,
+    "education": 0.06,
+    "health": 0.075,
+    "transport": 0.075,
+    "durables": 0.055,
+    "ceremonies": 0.06,
+    "housing": 0.03,
+    "other": 0.085
+   },
+   "paymentMix": {
+    "cash": 0.5,
+    "upi": 0.33,
+    "card": 0.0,
+    "udhaar_credit": 0.17
+   },
+   "shopsAt": [
+    "kiryana",
+    "village_shop",
+    "mandi_town_wholesale",
+    "cooperative_society",
+    "ecommerce"
+   ],
+   "decisionRules": [
+    "Sticks to wheat-paddy; plants paddy at the earliest permitted date",
+    "Uses a mix of cooperative-society/KCC credit and arhtiya advances; prioritises repaying arhtiya to keep the relationship",
+    "Hires custom combine and tractor services rather than owning; may lease in 1-3 acres if cash allows",
+    "Spends on private English-medium schooling and coaching if a child is seen as 'abroad material'",
+    "Matches village norms on wedding scale even when it requires borrowing"
+   ],
+   "triggers": [
+    "MSP hike",
+    "delayed paddy lifting at mandi",
+    "fertiliser/DAP shortage",
+    "child's IELTS band score",
+    "land lease rate change",
+    "wedding in family"
+   ],
+   "sourceIds": [
+    "s1",
+    "s3",
+    "s4",
+    "s10",
+    "s11",
+    "s12",
+    "s15",
+    "s23",
+    "s33",
+    "s37"
+   ]
+  },
+  {
+   "id": "jat_medium_farmer",
+   "name": "Medium landowning farmer (5-10 acres, semi-medium holding)",
+   "region": "moga",
+   "shareOfHouseholds": 0.08,
+   "monthlyIncomeInr": {
+    "min": 30000,
+    "median": 52000,
+    "max": 90000
+   },
+   "incomeSources": {
+    "crops": 0.65,
+    "dairy": 0.12,
+    "remittance": 0.1,
+    "wages": 0.0,
+    "salary": 0.05,
+    "business": 0.08
+   },
+   "traits": {
+    "riskAversion": 0.62,
+    "timePreference": 0.55,
+    "priceSensitivity": 0.6,
+    "socialConformity": 0.7,
+    "statusConsumption": 0.65,
+    "brandLoyalty": 0.7,
+    "digitalAdoption": 0.55,
+    "creditAppetite": 0.6,
+    "trustInInstitutions": 0.45,
+    "migrationAspiration": 0.75,
+    "religiosity": 0.6,
+    "lossAversion": 2.2
+   },
+   "savingsRate": 0.1,
+   "consumptionShares": {
+    "food": 0.38,
+    "fuel_light": 0.06,
+    "clothing": 0.065,
+    "education": 0.08,
+    "health": 0.07,
+    "transport": 0.1,
+    "durables": 0.07,
+    "ceremonies": 0.07,
+    "housing": 0.03,
+    "other": 0.075
+   },
+   "paymentMix": {
+    "cash": 0.43,
+    "upi": 0.4,
+    "card": 0.05,
+    "udhaar_credit": 0.12
+   },
+   "shopsAt": [
+    "kiryana",
+    "mandi_town_wholesale",
+    "cooperative_society",
+    "mall",
+    "ecommerce",
+    "dealer_showroom"
+   ],
+   "decisionRules": [
+    "Sells paddy through same arhtiya every season even if a rival offers ~1% better terms",
+    "Owns a tractor (often financed); buys implements when neighbours do",
+    "Diversifies only partially (e.g., 1 acre maize/vegetables) when a buyback contract exists",
+    "Earmarks land-backed loans or sale of 1-2 acres to fund a child's study visa",
+    "Spends on visible items (SUV, house extension, wedding at a palace) after good harvests or remittance inflows"
+   ],
+   "triggers": [
+    "MSP hike or procurement delay",
+    "crop failure / heat stress on wheat",
+    "child's IELTS score or visa refusal",
+    "Canadian/Australian visa policy change",
+    "land price change",
+    "bank KCC limit revision"
+   ],
+   "sourceIds": [
+    "s1",
+    "s3",
+    "s4",
+    "s10",
+    "s11",
+    "s12",
+    "s14",
+    "s15",
+    "s16",
+    "s33",
+    "s37"
+   ]
+  },
+  {
+   "id": "large_farmer_arhtiya",
+   "name": "Large landowner (10+ acres) / arhtiya commission-agent family",
+   "region": "moga",
+   "shareOfHouseholds": 0.07,
+   "monthlyIncomeInr": {
+    "min": 70000,
+    "median": 160000,
+    "max": 600000
+   },
+   "incomeSources": {
+    "crops": 0.5,
+    "dairy": 0.03,
+    "remittance": 0.07,
+    "wages": 0,
+    "salary": 0.05,
+    "business": 0.35
+   },
+   "traits": {
+    "riskAversion": 0.45,
+    "timePreference": 0.4,
+    "priceSensitivity": 0.35,
+    "socialConformity": 0.6,
+    "statusConsumption": 0.8,
+    "brandLoyalty": 0.75,
+    "digitalAdoption": 0.7,
+    "creditAppetite": 0.7,
+    "trustInInstitutions": 0.55,
+    "migrationAspiration": 0.7,
+    "religiosity": 0.6,
+    "lossAversion": 1.9
+   },
+   "savingsRate": 0.25,
+   "consumptionShares": {
+    "food": 0.28,
+    "fuel_light": 0.05,
+    "clothing": 0.07,
+    "education": 0.1,
+    "health": 0.06,
+    "transport": 0.12,
+    "durables": 0.09,
+    "ceremonies": 0.09,
+    "housing": 0.04,
+    "other": 0.1
+   },
+   "paymentMix": {
+    "cash": 0.35,
+    "upi": 0.45,
+    "card": 0.15,
+    "udhaar_credit": 0.05
+   },
+   "shopsAt": [
+    "mandi_town_wholesale",
+    "mall",
+    "ecommerce",
+    "dealer_showroom",
+    "kiryana"
+   ],
+   "decisionRules": [
+    "Acts as lender: advances input and consumption credit to client farmers, recovered from mandi payments (15-18%+ p.a. reported)",
+    "Leases out part of land to smaller farmers or leases in from NRI-owned land",
+    "Invests surplus in land, urban plots, vehicles, and children's overseas education",
+    "Highly brand-conscious on vehicles, phones and wedding services; sets the local status benchmark",
+    "Lobbies collectively (arhtiya associations / farm unions) against procurement changes that bypass commission agents"
+   ],
+   "triggers": [
+    "change to arhtiya commission rate or direct-to-farmer payment",
+    "MSP hike",
+    "land price change",
+    "Canada/US/Australia immigration rules",
+    "interest rate change"
+   ],
+   "sourceIds": [
+    "s3",
+    "s4",
+    "s10",
+    "s12",
+    "s13",
+    "s15",
+    "s33",
+    "s38"
+   ]
+  },
+  {
+   "id": "dalit_agri_labourer",
+   "name": "Landless Dalit (SC) agricultural and casual labour household",
+   "region": "moga",
+   "shareOfHouseholds": 0.22,
+   "monthlyIncomeInr": {
+    "min": 9000,
+    "median": 20000,
+    "max": 35000
+   },
+   "incomeSources": {
+    "crops": 0.0,
+    "dairy": 0.08,
+    "remittance": 0.02,
+    "wages": 0.82,
+    "salary": 0.05,
+    "business": 0.03
+   },
+   "traits": {
+    "riskAversion": 0.8,
+    "timePreference": 0.75,
+    "priceSensitivity": 0.9,
+    "socialConformity": 0.65,
+    "statusConsumption": 0.3,
+    "brandLoyalty": 0.4,
+    "digitalAdoption": 0.4,
+    "creditAppetite": 0.45,
+    "trustInInstitutions": 0.45,
+    "migrationAspiration": 0.45,
+    "religiosity": 0.65,
+    "lossAversion": 2.6
+   },
+   "savingsRate": 0.02,
+   "consumptionShares": {
+    "food": 0.5,
+    "fuel_light": 0.075,
+    "clothing": 0.065,
+    "education": 0.04,
+    "health": 0.085,
+    "transport": 0.055,
+    "durables": 0.035,
+    "ceremonies": 0.04,
+    "housing": 0.03,
+    "other": 0.075
+   },
+   "paymentMix": {
+    "cash": 0.55,
+    "upi": 0.2,
+    "card": 0.0,
+    "udhaar_credit": 0.25
+   },
+   "shopsAt": [
+    "kiryana",
+    "village_shop",
+    "fair_price_shop",
+    "mandi_town_wholesale"
+   ],
+   "decisionRules": [
+    "Income peaks in paddy transplanting (Jun-Jul) and harvests; borrows in lean months",
+    "Relies on Public Distribution System wheat and MGNREGA days when farm work is scarce",
+    "Borrows from employers, shopkeepers or relatives for illness and house repair before weddings (CRRID: illness 20%, house 24%, marriage 14% of debt)",
+    "Highly price-sensitive; buys small pack sizes and loose staples",
+    "Works for the same landowner families season to season, sometimes tied by advances"
+   ],
+   "triggers": [
+    "paddy mechanisation / direct-seeded rice adoption reducing labour days",
+    "minimum wage revision",
+    "MGNREGA allocation change",
+    "illness of earner",
+    "ration/benefit eligibility change",
+    "caste-related social conflict over wages or village common land"
+   ],
+   "sourceIds": [
+    "s1",
+    "s6",
+    "s7",
+    "s8",
+    "s9",
+    "s22",
+    "s25",
+    "s28"
+   ]
+  },
+  {
+   "id": "migrant_labourer",
+   "name": "Migrant labourer from UP/Bihar (seasonal or settled)",
+   "region": "moga",
+   "shareOfHouseholds": 0.06,
+   "monthlyIncomeInr": {
+    "min": 8000,
+    "median": 14000,
+    "max": 22000
+   },
+   "incomeSources": {
+    "crops": 0,
+    "dairy": 0,
+    "remittance": 0,
+    "wages": 0.97,
+    "salary": 0,
+    "business": 0.03
+   },
+   "traits": {
+    "riskAversion": 0.7,
+    "timePreference": 0.45,
+    "priceSensitivity": 0.9,
+    "socialConformity": 0.6,
+    "statusConsumption": 0.2,
+    "brandLoyalty": 0.4,
+    "digitalAdoption": 0.55,
+    "creditAppetite": 0.3,
+    "trustInInstitutions": 0.35,
+    "migrationAspiration": 0.85,
+    "religiosity": 0.6,
+    "lossAversion": 2.4
+   },
+   "savingsRate": 0.35,
+   "consumptionShares": {
+    "food": 0.5,
+    "fuel_light": 0.06,
+    "clothing": 0.05,
+    "education": 0.02,
+    "health": 0.05,
+    "transport": 0.08,
+    "durables": 0.03,
+    "ceremonies": 0.02,
+    "housing": 0.1,
+    "other": 0.09
+   },
+   "paymentMix": {
+    "cash": 0.52,
+    "upi": 0.4,
+    "card": 0.0,
+    "udhaar_credit": 0.08
+   },
+   "shopsAt": [
+    "kiryana",
+    "weekly_haat",
+    "mandi_town_wholesale"
+   ],
+   "decisionRules": [
+    "Remits a large share of earnings home (savingsRate here = share remitted/saved, not spent locally)",
+    "Arrives for paddy transplanting (Jun-Jul) and stays for harvest; leaves for home festivals and own harvests",
+    "Minimises local consumption: shared rooms, cooks own food, buys loose staples",
+    "Uses UPI mainly to send money home and receive wages from contractors",
+    "Negotiates per-acre piece rates as a group (toli) through a contractor"
+   ],
+   "triggers": [
+    "DSR/mechanisation reducing transplanting demand",
+    "wage rate per acre change",
+    "train ticket availability / festival calendar",
+    "harassment or local hostility to migrants",
+    "crop timing shift in home state"
+   ],
+   "sourceIds": [
+    "s24",
+    "s25",
+    "s29"
+   ]
+  },
+  {
+   "id": "dairy_household",
+   "name": "Dairy-focused household (8-20 milch animals, 0-3 acres)",
+   "region": "moga",
+   "shareOfHouseholds": 0.05,
+   "monthlyIncomeInr": {
+    "min": 15000,
+    "median": 30000,
+    "max": 60000
+   },
+   "incomeSources": {
+    "crops": 0.15,
+    "dairy": 0.7,
+    "remittance": 0,
+    "wages": 0.1,
+    "salary": 0,
+    "business": 0.05
+   },
+   "traits": {
+    "riskAversion": 0.6,
+    "timePreference": 0.5,
+    "priceSensitivity": 0.7,
+    "socialConformity": 0.6,
+    "statusConsumption": 0.45,
+    "brandLoyalty": 0.7,
+    "digitalAdoption": 0.55,
+    "creditAppetite": 0.6,
+    "trustInInstitutions": 0.55,
+    "migrationAspiration": 0.5,
+    "religiosity": 0.6,
+    "lossAversion": 2.2
+   },
+   "savingsRate": 0.1,
+   "consumptionShares": {
+    "food": 0.42,
+    "fuel_light": 0.07,
+    "clothing": 0.06,
+    "education": 0.06,
+    "health": 0.08,
+    "transport": 0.07,
+    "durables": 0.05,
+    "ceremonies": 0.05,
+    "housing": 0.04,
+    "other": 0.1
+   },
+   "paymentMix": {
+    "cash": 0.5,
+    "upi": 0.35,
+    "card": 0.0,
+    "udhaar_credit": 0.15
+   },
+   "shopsAt": [
+    "kiryana",
+    "feed_dealer",
+    "mandi_town_wholesale",
+    "cooperative_society"
+   ],
+   "decisionRules": [
+    "Sells milk to the same buyer (Milkfed/Verka society, private dairy or dodhi) on a 10-15 day payment cycle",
+    "Buys feed and mineral mixture on credit from the same dealer",
+    "Expands herd via bank/cooperative dairy loans when milk price is stable",
+    "Switches milk buyer for a higher fat-based price only after repeated payment delays"
+   ],
+   "triggers": [
+    "milk procurement price change",
+    "fodder/feed price spike",
+    "lumpy-skin or FMD outbreak",
+    "dairy subsidy scheme",
+    "heatwave reducing yields"
+   ],
+   "sourceIds": [
+    "s1",
+    "s5",
+    "s23"
+   ]
+  },
+  {
+   "id": "nri_remittance_household",
+   "name": "NRI-remittance household (member settled in Canada/UK/Australia/Gulf)",
+   "region": "moga",
+   "shareOfHouseholds": 0.09,
+   "monthlyIncomeInr": {
+    "min": 25000,
+    "median": 55000,
+    "max": 200000
+   },
+   "incomeSources": {
+    "crops": 0.2,
+    "dairy": 0.05,
+    "remittance": 0.6,
+    "wages": 0,
+    "salary": 0.1,
+    "business": 0.05
+   },
+   "traits": {
+    "riskAversion": 0.5,
+    "timePreference": 0.5,
+    "priceSensitivity": 0.45,
+    "socialConformity": 0.7,
+    "statusConsumption": 0.8,
+    "brandLoyalty": 0.7,
+    "digitalAdoption": 0.65,
+    "creditAppetite": 0.4,
+    "trustInInstitutions": 0.5,
+    "migrationAspiration": 0.9,
+    "religiosity": 0.7,
+    "lossAversion": 2.0
+   },
+   "savingsRate": 0.15,
+   "consumptionShares": {
+    "food": 0.34,
+    "fuel_light": 0.06,
+    "clothing": 0.07,
+    "education": 0.07,
+    "health": 0.08,
+    "transport": 0.1,
+    "durables": 0.09,
+    "ceremonies": 0.08,
+    "housing": 0.05,
+    "other": 0.06
+   },
+   "paymentMix": {
+    "cash": 0.43,
+    "upi": 0.4,
+    "card": 0.12,
+    "udhaar_credit": 0.05
+   },
+   "shopsAt": [
+    "kiryana",
+    "mall",
+    "ecommerce",
+    "dealer_showroom",
+    "mandi_town_wholesale"
+   ],
+   "decisionRules": [
+    "Leases out farmland (theka) rather than cultivating; land kept as security and status",
+    "Spends remittances on house construction/renovation, cars, furniture and loan repayment",
+    "Funds visa/fees for next family member; household network makes further migration easier",
+    "Peaks consumption during NRI visits (Dec-Feb) and weddings",
+    "Elderly parents left behind rely on paid help and private hospitals"
+   ],
+   "triggers": [
+    "exchange rate (CAD/INR) movement",
+    "host-country immigration rule change",
+    "NRI visit season",
+    "property tax/land dispute",
+    "host-country job loss"
+   ],
+   "sourceIds": [
+    "s16",
+    "s17",
+    "s18",
+    "s31",
+    "s34",
+    "s15"
+   ]
+  },
+  {
+   "id": "small_town_trader",
+   "name": "Small-town trader / shopkeeper (Moga city, mandi towns)",
+   "region": "moga",
+   "shareOfHouseholds": 0.14,
+   "monthlyIncomeInr": {
+    "min": 20000,
+    "median": 45000,
+    "max": 120000
+   },
+   "incomeSources": {
+    "crops": 0.05,
+    "dairy": 0,
+    "remittance": 0.05,
+    "wages": 0,
+    "salary": 0.05,
+    "business": 0.85
+   },
+   "traits": {
+    "riskAversion": 0.55,
+    "timePreference": 0.4,
+    "priceSensitivity": 0.65,
+    "socialConformity": 0.6,
+    "statusConsumption": 0.6,
+    "brandLoyalty": 0.65,
+    "digitalAdoption": 0.7,
+    "creditAppetite": 0.6,
+    "trustInInstitutions": 0.55,
+    "migrationAspiration": 0.55,
+    "religiosity": 0.65,
+    "lossAversion": 2.2
+   },
+   "savingsRate": 0.18,
+   "consumptionShares": {
+    "food": 0.36,
+    "fuel_light": 0.065,
+    "clothing": 0.06,
+    "education": 0.08,
+    "health": 0.06,
+    "transport": 0.09,
+    "durables": 0.07,
+    "ceremonies": 0.06,
+    "housing": 0.08,
+    "other": 0.075
+   },
+   "paymentMix": {
+    "cash": 0.35,
+    "upi": 0.5,
+    "card": 0.08,
+    "udhaar_credit": 0.07
+   },
+   "shopsAt": [
+    "mandi_town_wholesale",
+    "kiryana",
+    "mall",
+    "ecommerce"
+   ],
+   "decisionRules": [
+    "Extends udhaar to regular farm-family customers and collects after harvest",
+    "Business revenue swings with harvest cash flow and NRI season",
+    "Accepts UPI (QR) for most sales but keeps cash for wholesale purchases",
+    "Responds to e-commerce competition by stocking branded fast-movers and offering home delivery"
+   ],
+   "triggers": [
+    "harvest payment delay",
+    "GST rule change",
+    "quick-commerce/e-commerce entry into Moga",
+    "festival/wedding season demand",
+    "bad debts from farmer customers"
+   ],
+   "sourceIds": [
+    "s1",
+    "s29"
+   ]
+  },
+  {
+   "id": "ielts_aspirant",
+   "name": "Aspiring student (IELTS/PTE, 17-24) in farm or trader household",
+   "region": "moga",
+   "shareOfHouseholds": 0.06,
+   "monthlyIncomeInr": {
+    "min": 20000,
+    "median": 45000,
+    "max": 100000
+   },
+   "incomeSources": {
+    "crops": 0.55,
+    "dairy": 0.1,
+    "remittance": 0.1,
+    "wages": 0,
+    "salary": 0.1,
+    "business": 0.15
+   },
+   "traits": {
+    "riskAversion": 0.4,
+    "timePreference": 0.6,
+    "priceSensitivity": 0.6,
+    "socialConformity": 0.75,
+    "statusConsumption": 0.7,
+    "brandLoyalty": 0.65,
+    "digitalAdoption": 0.85,
+    "creditAppetite": 0.75,
+    "trustInInstitutions": 0.4,
+    "migrationAspiration": 0.95,
+    "religiosity": 0.5,
+    "lossAversion": 2.0
+   },
+   "savingsRate": 0.08,
+   "consumptionShares": {
+    "food": 0.36,
+    "fuel_light": 0.05,
+    "clothing": 0.07,
+    "education": 0.16,
+    "health": 0.05,
+    "transport": 0.08,
+    "durables": 0.06,
+    "ceremonies": 0.04,
+    "housing": 0.03,
+    "other": 0.1
+   },
+   "paymentMix": {
+    "cash": 0.35,
+    "upi": 0.55,
+    "card": 0.05,
+    "udhaar_credit": 0.05
+   },
+   "shopsAt": [
+    "kiryana",
+    "mall",
+    "ecommerce",
+    "coaching_centre"
+   ],
+   "decisionRules": [
+    "Household income is the parents'; the agent controls coaching, test fees and phone/clothing spend",
+    "Retakes IELTS/PTE until target band is met; pays consultant (agent) fees",
+    "Family is willing to borrow, mortgage or sell land to fund fees and show funds",
+    "Switches destination country when a policy door closes (Canada -> Australia/UK/Germany)"
+   ],
+   "triggers": [
+    "IELTS/PTE band score",
+    "visa approval or refusal",
+    "Canada/Australia/UK study-permit caps",
+    "exchange rate",
+    "friends'/cousins' migration success"
+   ],
+   "sourceIds": [
+    "s16",
+    "s17",
+    "s18",
+    "s19",
+    "s20"
+   ]
+  },
+  {
+   "id": "truck_owner_operator",
+   "name": "Truck driver / owner-operator (1-2 trucks)",
+   "region": "moga",
+   "shareOfHouseholds": 0.04,
+   "monthlyIncomeInr": {
+    "min": 18000,
+    "median": 35000,
+    "max": 70000
+   },
+   "incomeSources": {
+    "crops": 0.1,
+    "dairy": 0,
+    "remittance": 0,
+    "wages": 0.05,
+    "salary": 0,
+    "business": 0.85
+   },
+   "traits": {
+    "riskAversion": 0.5,
+    "timePreference": 0.6,
+    "priceSensitivity": 0.75,
+    "socialConformity": 0.6,
+    "statusConsumption": 0.5,
+    "brandLoyalty": 0.6,
+    "digitalAdoption": 0.55,
+    "creditAppetite": 0.7,
+    "trustInInstitutions": 0.4,
+    "migrationAspiration": 0.5,
+    "religiosity": 0.6,
+    "lossAversion": 2.3
+   },
+   "savingsRate": 0.08,
+   "consumptionShares": {
+    "food": 0.4,
+    "fuel_light": 0.06,
+    "clothing": 0.06,
+    "education": 0.06,
+    "health": 0.07,
+    "transport": 0.08,
+    "durables": 0.06,
+    "ceremonies": 0.05,
+    "housing": 0.04,
+    "other": 0.12
+   },
+   "paymentMix": {
+    "cash": 0.45,
+    "upi": 0.4,
+    "card": 0.03,
+    "udhaar_credit": 0.12
+   },
+   "shopsAt": [
+    "kiryana",
+    "dhaba",
+    "mandi_town_wholesale",
+    "dealer_showroom"
+   ],
+   "decisionRules": [
+    "Income tied to grain movement after procurement seasons; idle time between",
+    "Truck financed by NBFC loan; EMI is the first claim on cash",
+    "Diesel price is the key cost; passes increases on with a lag",
+    "Considers driving abroad (Canada/US trucking) as a migration path"
+   ],
+   "triggers": [
+    "diesel price change",
+    "freight rate / mandi movement season",
+    "EMI default notice",
+    "toll/permit changes",
+    "overseas trucking visa route"
+   ],
+   "sourceIds": [
+    "s1"
+   ]
+  },
+  {
+   "id": "unemployed_rural_youth",
+   "name": "Rural youth (18-29) not in stable work",
+   "region": "moga",
+   "shareOfHouseholds": 0.1,
+   "monthlyIncomeInr": {
+    "min": 10000,
+    "median": 25000,
+    "max": 50000
+   },
+   "incomeSources": {
+    "crops": 0.4,
+    "dairy": 0.1,
+    "remittance": 0.1,
+    "wages": 0.3,
+    "salary": 0,
+    "business": 0.1
+   },
+   "traits": {
+    "riskAversion": 0.45,
+    "timePreference": 0.8,
+    "priceSensitivity": 0.75,
+    "socialConformity": 0.75,
+    "statusConsumption": 0.65,
+    "brandLoyalty": 0.55,
+    "digitalAdoption": 0.75,
+    "creditAppetite": 0.55,
+    "trustInInstitutions": 0.25,
+    "migrationAspiration": 0.85,
+    "religiosity": 0.45,
+    "lossAversion": 2.1
+   },
+   "savingsRate": 0.02,
+   "consumptionShares": {
+    "food": 0.42,
+    "fuel_light": 0.06,
+    "clothing": 0.08,
+    "education": 0.05,
+    "health": 0.06,
+    "transport": 0.1,
+    "durables": 0.06,
+    "ceremonies": 0.04,
+    "housing": 0.03,
+    "other": 0.1
+   },
+   "paymentMix": {
+    "cash": 0.4,
+    "upi": 0.5,
+    "card": 0.0,
+    "udhaar_credit": 0.1
+   },
+   "shopsAt": [
+    "kiryana",
+    "mall",
+    "ecommerce",
+    "village_shop"
+   ],
+   "decisionRules": [
+    "Lives in parental household; income above is household income, personal earnings are small and irregular",
+    "Spends personal money on mobile data, motorcycle fuel, clothing and socialising",
+    "Rejects farm labour seen as low-status but takes gig/driving/security jobs or govt recruitment exam prep",
+    "Small modelled probability of substance dependence, which raises spending on intoxicants and lowers household savings"
+   ],
+   "triggers": [
+    "govt recruitment drive (police, army Agniveer, teachers)",
+    "migration opportunity",
+    "peer migration",
+    "de-addiction programme or police drive",
+    "local factory/warehouse hiring"
+   ],
+   "sourceIds": [
+    "s16",
+    "s21",
+    "s35"
+   ]
+  },
+  {
+   "id": "govt_employee",
+   "name": "Central/State/UT government employee household",
+   "region": "chandigarh",
+   "shareOfHouseholds": 0.26,
+   "monthlyIncomeInr": {
+    "min": 45000,
+    "median": 95000,
+    "max": 250000
+   },
+   "incomeSources": {
+    "crops": 0.05,
+    "dairy": 0,
+    "remittance": 0.03,
+    "wages": 0,
+    "salary": 0.88,
+    "business": 0.04
+   },
+   "traits": {
+    "riskAversion": 0.7,
+    "timePreference": 0.35,
+    "priceSensitivity": 0.5,
+    "socialConformity": 0.65,
+    "statusConsumption": 0.55,
+    "brandLoyalty": 0.7,
+    "digitalAdoption": 0.75,
+    "creditAppetite": 0.5,
+    "trustInInstitutions": 0.75,
+    "migrationAspiration": 0.4,
+    "religiosity": 0.55,
+    "lossAversion": 2.2
+   },
+   "savingsRate": 0.25,
+   "consumptionShares": {
+    "food": 0.3,
+    "fuel_light": 0.055,
+    "clothing": 0.06,
+    "education": 0.1,
+    "health": 0.05,
+    "transport": 0.1,
+    "durables": 0.08,
+    "ceremonies": 0.05,
+    "housing": 0.1,
+    "other": 0.105
+   },
+   "paymentMix": {
+    "cash": 0.25,
+    "upi": 0.55,
+    "card": 0.2,
+    "udhaar_credit": 0.0
+   },
+   "shopsAt": [
+    "kiryana",
+    "mall",
+    "ecommerce",
+    "sector_market",
+    "csd_canteen"
+   ],
+   "decisionRules": [
+    "Stable salary on the 1st of each month; spending spikes around DA hikes and arrears",
+    "Prefers safe instruments: PF/NPS/UPS, FDs, LIC, property",
+    "Takes housing and car loans readily because income is secure",
+    "Shops at sector markets and malls; adopts UPI and online grocery"
+   ],
+   "triggers": [
+    "Pay Commission / DA revision",
+    "pension scheme change (NPS/UPS/OPS)",
+    "transfer posting",
+    "property price change",
+    "interest rate change"
+   ],
+   "sourceIds": [
+    "s2",
+    "s29",
+    "s30",
+    "s32"
+   ]
+  },
+  {
+   "id": "it_professional",
+   "name": "IT/ITES professional household (Mohali/Chandigarh IT Park)",
+   "region": "chandigarh",
+   "shareOfHouseholds": 0.14,
+   "monthlyIncomeInr": {
+    "min": 35000,
+    "median": 100000,
+    "max": 400000
+   },
+   "incomeSources": {
+    "crops": 0,
+    "dairy": 0,
+    "remittance": 0,
+    "wages": 0,
+    "salary": 0.95,
+    "business": 0.05
+   },
+   "traits": {
+    "riskAversion": 0.4,
+    "timePreference": 0.45,
+    "priceSensitivity": 0.5,
+    "socialConformity": 0.4,
+    "statusConsumption": 0.6,
+    "brandLoyalty": 0.5,
+    "digitalAdoption": 0.95,
+    "creditAppetite": 0.7,
+    "trustInInstitutions": 0.6,
+    "migrationAspiration": 0.65,
+    "religiosity": 0.4,
+    "lossAversion": 1.8
+   },
+   "savingsRate": 0.28,
+   "consumptionShares": {
+    "food": 0.27,
+    "fuel_light": 0.05,
+    "clothing": 0.06,
+    "education": 0.07,
+    "health": 0.04,
+    "transport": 0.11,
+    "durables": 0.08,
+    "ceremonies": 0.03,
+    "housing": 0.16,
+    "other": 0.13
+   },
+   "paymentMix": {
+    "cash": 0.1,
+    "upi": 0.6,
+    "card": 0.3,
+    "udhaar_credit": 0.0
+   },
+   "shopsAt": [
+    "ecommerce",
+    "quick_commerce",
+    "mall",
+    "sector_market"
+   ],
+   "decisionRules": [
+    "Defaults to e-commerce and quick-commerce for groceries and electronics",
+    "Invests in equity mutual funds via SIP; tolerates market risk",
+    "Uses credit cards and buy-now-pay-later for big-ticket items",
+    "Keeps open option of onsite/overseas jobs"
+   ],
+   "triggers": [
+    "layoffs / hiring freeze",
+    "appraisal cycle",
+    "overseas onsite opportunity",
+    "stock market moves",
+    "rent increase"
+   ],
+   "sourceIds": [
+    "s2",
+    "s29",
+    "s30",
+    "s32"
+   ]
+  },
+  {
+   "id": "business_owner",
+   "name": "Business owner household (traders, manufacturers, professionals)",
+   "region": "chandigarh",
+   "shareOfHouseholds": 0.14,
+   "monthlyIncomeInr": {
+    "min": 50000,
+    "median": 150000,
+    "max": 1000000
+   },
+   "incomeSources": {
+    "crops": 0.05,
+    "dairy": 0,
+    "remittance": 0.05,
+    "wages": 0,
+    "salary": 0.05,
+    "business": 0.85
+   },
+   "traits": {
+    "riskAversion": 0.45,
+    "timePreference": 0.4,
+    "priceSensitivity": 0.45,
+    "socialConformity": 0.6,
+    "statusConsumption": 0.8,
+    "brandLoyalty": 0.65,
+    "digitalAdoption": 0.8,
+    "creditAppetite": 0.65,
+    "trustInInstitutions": 0.5,
+    "migrationAspiration": 0.6,
+    "religiosity": 0.6,
+    "lossAversion": 2.0
+   },
+   "savingsRate": 0.28,
+   "consumptionShares": {
+    "food": 0.25,
+    "fuel_light": 0.05,
+    "clothing": 0.07,
+    "education": 0.1,
+    "health": 0.05,
+    "transport": 0.12,
+    "durables": 0.09,
+    "ceremonies": 0.08,
+    "housing": 0.08,
+    "other": 0.11
+   },
+   "paymentMix": {
+    "cash": 0.2,
+    "upi": 0.45,
+    "card": 0.3,
+    "udhaar_credit": 0.05
+   },
+   "shopsAt": [
+    "mall",
+    "ecommerce",
+    "sector_market",
+    "dealer_showroom",
+    "kiryana"
+   ],
+   "decisionRules": [
+    "Income lumpy and cyclical; spends on visible status goods (cars, destination weddings)",
+    "Invests in property in tricity and Zirakpur/Kharar belt",
+    "Uses formal credit lines plus informal finance within community",
+    "Sends children abroad for study as a family strategy"
+   ],
+   "triggers": [
+    "GST/tax changes",
+    "property market cycle",
+    "interest rate change",
+    "wedding season",
+    "local demand from Punjab farm economy"
+   ],
+   "sourceIds": [
+    "s2",
+    "s15",
+    "s29",
+    "s30"
+   ]
+  },
+  {
+   "id": "retired_pensioner",
+   "name": "Retired government/defence pensioner household",
+   "region": "chandigarh",
+   "shareOfHouseholds": 0.12,
+   "monthlyIncomeInr": {
+    "min": 30000,
+    "median": 70000,
+    "max": 180000
+   },
+   "incomeSources": {
+    "crops": 0.05,
+    "dairy": 0,
+    "remittance": 0.15,
+    "wages": 0,
+    "salary": 0.75,
+    "business": 0.05
+   },
+   "traits": {
+    "riskAversion": 0.85,
+    "timePreference": 0.25,
+    "priceSensitivity": 0.65,
+    "socialConformity": 0.7,
+    "statusConsumption": 0.35,
+    "brandLoyalty": 0.85,
+    "digitalAdoption": 0.45,
+    "creditAppetite": 0.15,
+    "trustInInstitutions": 0.75,
+    "migrationAspiration": 0.4,
+    "religiosity": 0.8,
+    "lossAversion": 2.5
+   },
+   "savingsRate": 0.25,
+   "consumptionShares": {
+    "food": 0.33,
+    "fuel_light": 0.07,
+    "clothing": 0.04,
+    "education": 0.01,
+    "health": 0.14,
+    "transport": 0.06,
+    "durables": 0.05,
+    "ceremonies": 0.06,
+    "housing": 0.08,
+    "other": 0.16
+   },
+   "paymentMix": {
+    "cash": 0.5,
+    "upi": 0.35,
+    "card": 0.15,
+    "udhaar_credit": 0.0
+   },
+   "shopsAt": [
+    "kiryana",
+    "sector_market",
+    "csd_canteen",
+    "chemist",
+    "mall"
+   ],
+   "decisionRules": [
+    "Pension is income; salary key used for pension in this sim",
+    "Keeps savings in FDs, Senior Citizens Savings Scheme, post office; avoids equities",
+    "Very brand/shop loyal; slow to adopt new apps but uses UPI with family help",
+    "Health spending rises with age; children abroad may send support"
+   ],
+   "triggers": [
+    "DA/pension revision",
+    "FD interest rate change",
+    "health shock",
+    "children's visit from abroad",
+    "fraud/scam incident"
+   ],
+   "sourceIds": [
+    "s2",
+    "s29",
+    "s32"
+   ]
+  },
+  {
+   "id": "student",
+   "name": "University/college student (PU, PGIMER, private universities), living in PG/hostel",
+   "region": "chandigarh",
+   "shareOfHouseholds": 0.1,
+   "monthlyIncomeInr": {
+    "min": 6000,
+    "median": 15000,
+    "max": 40000
+   },
+   "incomeSources": {
+    "crops": 0,
+    "dairy": 0,
+    "remittance": 0.85,
+    "wages": 0.1,
+    "salary": 0.05,
+    "business": 0
+   },
+   "traits": {
+    "riskAversion": 0.4,
+    "timePreference": 0.75,
+    "priceSensitivity": 0.75,
+    "socialConformity": 0.75,
+    "statusConsumption": 0.65,
+    "brandLoyalty": 0.4,
+    "digitalAdoption": 0.95,
+    "creditAppetite": 0.4,
+    "trustInInstitutions": 0.45,
+    "migrationAspiration": 0.75,
+    "religiosity": 0.35,
+    "lossAversion": 1.9
+   },
+   "savingsRate": 0.03,
+   "consumptionShares": {
+    "food": 0.35,
+    "fuel_light": 0.03,
+    "clothing": 0.08,
+    "education": 0.15,
+    "health": 0.02,
+    "transport": 0.08,
+    "durables": 0.04,
+    "ceremonies": 0.01,
+    "housing": 0.15,
+    "other": 0.09
+   },
+   "paymentMix": {
+    "cash": 0.1,
+    "upi": 0.85,
+    "card": 0.05,
+    "udhaar_credit": 0.0
+   },
+   "shopsAt": [
+    "ecommerce",
+    "quick_commerce",
+    "sector_market",
+    "mall"
+   ],
+   "decisionRules": [
+    "Income is transfer from parents ('remittance' key used for parental transfers)",
+    "Heavy UPI and app-based food delivery use",
+    "Very price-sensitive on food, but spends on phones and fashion for peer status",
+    "Considers foreign postgraduate study"
+   ],
+   "triggers": [
+    "parental transfer change",
+    "exam results / placements",
+    "hostel/PG rent change",
+    "new delivery app discounts"
+   ],
+   "sourceIds": [
+    "s16",
+    "s29"
+   ]
+  },
+  {
+   "id": "domestic_informal_worker",
+   "name": "Domestic / informal worker household (housemaids, construction, vendors)",
+   "region": "chandigarh",
+   "shareOfHouseholds": 0.24,
+   "monthlyIncomeInr": {
+    "min": 9000,
+    "median": 18000,
+    "max": 35000
+   },
+   "incomeSources": {
+    "crops": 0,
+    "dairy": 0,
+    "remittance": 0,
+    "wages": 0.9,
+    "salary": 0,
+    "business": 0.1
+   },
+   "traits": {
+    "riskAversion": 0.75,
+    "timePreference": 0.7,
+    "priceSensitivity": 0.9,
+    "socialConformity": 0.6,
+    "statusConsumption": 0.3,
+    "brandLoyalty": 0.45,
+    "digitalAdoption": 0.55,
+    "creditAppetite": 0.45,
+    "trustInInstitutions": 0.4,
+    "migrationAspiration": 0.45,
+    "religiosity": 0.65,
+    "lossAversion": 2.6
+   },
+   "savingsRate": 0.06,
+   "consumptionShares": {
+    "food": 0.48,
+    "fuel_light": 0.07,
+    "clothing": 0.06,
+    "education": 0.05,
+    "health": 0.06,
+    "transport": 0.06,
+    "durables": 0.03,
+    "ceremonies": 0.03,
+    "housing": 0.12,
+    "other": 0.04
+   },
+   "paymentMix": {
+    "cash": 0.45,
+    "upi": 0.4,
+    "card": 0.0,
+    "udhaar_credit": 0.15
+   },
+   "shopsAt": [
+    "kiryana",
+    "weekly_haat",
+    "fair_price_shop",
+    "sector_market"
+   ],
+   "decisionRules": [
+    "Many are inter-state migrants who remit to native villages",
+    "Works for several employer households; wages paid monthly, often via UPI",
+    "Buys groceries on credit from local shops near colonies",
+    "Takes informal loans from employers in emergencies"
+   ],
+   "triggers": [
+    "employer household job loss",
+    "wage revision / minimum wage",
+    "slum rehabilitation / eviction",
+    "illness",
+    "festival travel home"
+   ],
+   "sourceIds": [
+    "s2",
+    "s24",
+    "s28",
+    "s29"
+   ]
+  }
+ ]
+}

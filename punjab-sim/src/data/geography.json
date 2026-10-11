@@ -1,0 +1,2118 @@
+{
+ "meta": {
+  "compiledOn": "2026-10-11",
+  "notes": "Coordinates from OpenStreetMap (Nominatim) unless flagged approx; highway waypoints from OSRM routing over OSM resampled every ~6 km (WGS84, 4 dp). Populations Census 2011 (municipal/town figures; village_cluster populations are rough estimates). Toll plaza positions approximate (snapped to route geometry); Punjab has closed several state tolls since 2022 so operational status varies. Facility coordinates (Moga main mandi, Adani Dagru silo, FCI depot, Verka Ludhiana) are approximate. Extra field 'lengthKm' on highways is routed length.",
+  "sources": [
+   {
+    "id": "s1",
+    "title": "OpenStreetMap Nominatim geocoder (place/station/landuse coordinates)",
+    "url": "https://nominatim.openstreetmap.org/"
+   },
+   {
+    "id": "s2",
+    "title": "OSRM routing on OpenStreetMap road network (highway geometry, distances)",
+    "url": "https://router.project-osrm.org/"
+   },
+   {
+    "id": "s3",
+    "title": "Wikipedia: National Highway 5 (India)",
+    "url": "https://en.wikipedia.org/wiki/National_Highway_5_(India)"
+   },
+   {
+    "id": "s4",
+    "title": "Wikipedia: National Highway 703 (India)",
+    "url": "https://en.wikipedia.org/wiki/National_Highway_703_(India)"
+   },
+   {
+    "id": "s5",
+    "title": "Wikipedia: National Highway 54 (India)",
+    "url": "https://en.wikipedia.org/wiki/National_Highway_54_(India)"
+   },
+   {
+    "id": "s6",
+    "title": "Wikipedia: National Highway 7 (India)",
+    "url": "https://en.wikipedia.org/wiki/National_Highway_7_(India)"
+   },
+   {
+    "id": "s7",
+    "title": "CityPopulation.de: Punjab (India) cities and towns, Census 2011",
+    "url": "https://www.citypopulation.de/en/india/punjab/"
+   },
+   {
+    "id": "s8",
+    "title": "Wikipedia: List of cities in Punjab, India by population",
+    "url": "https://en.wikipedia.org/wiki/List_of_cities_in_Punjab,_India_by_population"
+   },
+   {
+    "id": "s9",
+    "title": "Nestle India: dairy farmers / Moga factory (1961)",
+    "url": "https://www.nestle.in/csv/communities/dairy-farmers"
+   },
+   {
+    "id": "s10",
+    "title": "The Tribune: FCI asks Moga, Faridkot admins to liquidate wheat stock (Adani silos Dagru)",
+    "url": "https://www.tribuneindia.com/news/punjab/liquidate-wheat-stock-fci-to-moga-faridkot-admns-317485"
+   },
+   {
+    "id": "s11",
+    "title": "Wikipedia: National Highway 105B (India)",
+    "url": "https://en.wikipedia.org/wiki/National_Highway_105B_(India)"
+   },
+   {
+    "id": "s12",
+    "title": "The Tribune: Ladhowal toll plaza 7th highest collector in country",
+    "url": "https://www.tribuneindia.com/news/ladhowal-toll-plaza-7th-highest-collector-in-country"
+   },
+   {
+    "id": "s13",
+    "title": "Wikipedia: Chandigarh-Sahnewal line",
+    "url": "https://en.wikipedia.org/wiki/Chandigarh%E2%80%93Sahnewal_line"
+   },
+   {
+    "id": "s14",
+    "title": "etrain.info: Firozpur Cantt-Ludhiana passenger 54052 schedule (station sequence)",
+    "url": "https://etrain.info/train/Fzr-Ldh-Passenger-54052/schedule"
+   },
+   {
+    "id": "s15",
+    "title": "The Tribune: Singhawala toll plaza on Moga-Kotkapura road made free",
+    "url": "https://www.tribuneindia.com/news/punjab/singhawala-toll-plaza-on-moga-kotakpura-road-made-free-cm-mann-said-the-operator-was-flouting-norms-523026"
+   },
+   {
+    "id": "s16",
+    "title": "Adani Agri Logistics business page",
+    "url": "https://adani.com/businesses/agri-logistics"
+   },
+   {
+    "id": "s17",
+    "title": "Third World Centre: Creating Shared Value - how Nestle succeeded in Moga",
+    "url": "https://thirdworldcentre.org/2014/09/creating-shared-value-how-nestle-succeeded-in-indian-city-of-moga/"
+   }
+  ]
+ },
+ "places": [
+  {
+   "id": "moga",
+   "name": "Moga",
+   "type": "city",
+   "lat": 30.8165,
+   "lon": 75.1717,
+   "population": 163397,
+   "district": "Moga",
+   "notes": "Census 2011 Municipal Council incl. outgrowth (UA figure 168,443). District HQ; district pop. 995,746 (2011). Hub of corridor's west end.",
+   "sourceIds": [
+    "s1",
+    "s7",
+    "s8"
+   ]
+  },
+  {
+   "id": "chandigarh",
+   "name": "Chandigarh",
+   "type": "city",
+   "lat": 30.7334,
+   "lon": 76.7797,
+   "population": 960787,
+   "district": "Chandigarh (UT)",
+   "notes": "Census 2011 city; UT total 1,055,450. Capital of Punjab and Haryana; east terminus of corridor.",
+   "sourceIds": [
+    "s1",
+    "s8"
+   ]
+  },
+  {
+   "id": "mohali",
+   "name": "Mohali (SAS Nagar)",
+   "type": "city",
+   "lat": 30.6909,
+   "lon": 76.7115,
+   "population": 146104,
+   "district": "SAS Nagar",
+   "notes": "Census 2011 Municipal Corporation (UA 166,864).",
+   "sourceIds": [
+    "s1",
+    "s8"
+   ]
+  },
+  {
+   "id": "panchkula",
+   "name": "Panchkula",
+   "type": "city",
+   "lat": 30.6975,
+   "lon": 76.8551,
+   "population": 211355,
+   "district": "Panchkula (Haryana)",
+   "notes": "Census 2011 city figure from memory of Census tables (not re-verified this session); in Haryana, part of Chandigarh tricity.",
+   "sourceIds": [
+    "s1"
+   ]
+  },
+  {
+   "id": "zirakpur",
+   "name": "Zirakpur",
+   "type": "town",
+   "lat": 30.6557,
+   "lon": 76.8201,
+   "population": 95553,
+   "district": "SAS Nagar",
+   "notes": "Census 2011 Municipal Council. Junction of NH-5/NH-7/NH-152 and Chandigarh-Ambala road.",
+   "sourceIds": [
+    "s1",
+    "s7"
+   ]
+  },
+  {
+   "id": "kharar",
+   "name": "Kharar",
+   "type": "town",
+   "lat": 30.7488,
+   "lon": 76.6429,
+   "population": 74460,
+   "district": "SAS Nagar",
+   "notes": "Census 2011 Municipal Council. NH-5 enters Mohali/Chandigarh here.",
+   "sourceIds": [
+    "s1",
+    "s7"
+   ]
+  },
+  {
+   "id": "ludhiana",
+   "name": "Ludhiana",
+   "type": "city",
+   "lat": 30.909,
+   "lon": 75.8516,
+   "population": 1618879,
+   "district": "Ludhiana",
+   "notes": "Census 2011 Municipal Corporation/UA. Largest industrial city of Punjab; NH-44 x NH-5.",
+   "sourceIds": [
+    "s1",
+    "s8"
+   ]
+  },
+  {
+   "id": "jagraon",
+   "name": "Jagraon",
+   "type": "town",
+   "lat": 30.8042,
+   "lon": 75.4754,
+   "population": 65240,
+   "district": "Ludhiana",
+   "notes": "Census 2011 Municipal Council. On NH-5 between Moga and Ludhiana; large grain mandi.",
+   "sourceIds": [
+    "s1",
+    "s7"
+   ]
+  },
+  {
+   "id": "ferozepur",
+   "name": "Ferozepur (Firozpur)",
+   "type": "city",
+   "lat": 30.9612,
+   "lon": 74.6092,
+   "population": 110313,
+   "district": "Firozpur",
+   "notes": "Census 2011 Municipal Council (city table in s8 lists 146,897 incl. cantonment). West terminus of NH-5 and rail line.",
+   "sourceIds": [
+    "s1",
+    "s7",
+    "s8"
+   ]
+  },
+  {
+   "id": "bathinda",
+   "name": "Bathinda",
+   "type": "city",
+   "lat": 30.2068,
+   "lon": 74.9464,
+   "population": 285813,
+   "district": "Bathinda",
+   "notes": "Census 2011 UA figure. NH-7 x NH-54; refinery and thermal plants nearby.",
+   "sourceIds": [
+    "s1",
+    "s8"
+   ]
+  },
+  {
+   "id": "faridkot",
+   "name": "Faridkot",
+   "type": "city",
+   "lat": 30.673,
+   "lon": 74.7517,
+   "population": 87695,
+   "district": "Faridkot",
+   "notes": "Census 2011 Municipal Council incl. outgrowth (s8 lists 110,694).",
+   "sourceIds": [
+    "s1",
+    "s7"
+   ]
+  },
+  {
+   "id": "kotkapura",
+   "name": "Kotkapura",
+   "type": "town",
+   "lat": 30.5792,
+   "lon": 74.8211,
+   "population": 91979,
+   "district": "Faridkot",
+   "notes": "Census 2011 Municipal Council. Rail junction; NH-54. Adani also operates a silo at Kotkapura.",
+   "sourceIds": [
+    "s1",
+    "s7"
+   ]
+  },
+  {
+   "id": "jalandhar",
+   "name": "Jalandhar",
+   "type": "city",
+   "lat": 31.3324,
+   "lon": 75.5769,
+   "population": 862196,
+   "district": "Jalandhar",
+   "notes": "Census 2011 Municipal Corporation (UA 873,725). North end of NH-703 and on NH-44.",
+   "sourceIds": [
+    "s1",
+    "s8"
+   ]
+  },
+  {
+   "id": "barnala",
+   "name": "Barnala",
+   "type": "city",
+   "lat": 30.3762,
+   "lon": 75.5436,
+   "population": 116454,
+   "district": "Barnala",
+   "notes": "Census 2011 city. On NH-7 and NH-703 (Moga-Barnala).",
+   "sourceIds": [
+    "s1",
+    "s8"
+   ]
+  },
+  {
+   "id": "sangrur",
+   "name": "Sangrur",
+   "type": "town",
+   "lat": 30.2432,
+   "lon": 75.8358,
+   "population": 88043,
+   "district": "Sangrur",
+   "notes": "Census 2011 Municipal Council. On NH-7.",
+   "sourceIds": [
+    "s1",
+    "s7"
+   ]
+  },
+  {
+   "id": "patiala",
+   "name": "Patiala",
+   "type": "city",
+   "lat": 30.3302,
+   "lon": 76.4008,
+   "population": 445196,
+   "district": "Patiala",
+   "notes": "Census 2011 Municipal Corporation (UA 446,246). On NH-7.",
+   "sourceIds": [
+    "s1",
+    "s8"
+   ]
+  },
+  {
+   "id": "rajpura",
+   "name": "Rajpura",
+   "type": "town",
+   "lat": 30.4777,
+   "lon": 76.5938,
+   "population": 112193,
+   "district": "Patiala",
+   "notes": "Census 2011 city figure per s8. NH-44 x NH-7; rail junction.",
+   "sourceIds": [
+    "s1",
+    "s8"
+   ]
+  },
+  {
+   "id": "dharamkot",
+   "name": "Dharamkot",
+   "type": "town",
+   "lat": 30.9432,
+   "lon": 75.2328,
+   "population": 19057,
+   "district": "Moga",
+   "notes": "Census 2011 Municipal Council. Tehsil HQ, Moga district; on Moga-Shahkot (NH-703) road.",
+   "sourceIds": [
+    "s1",
+    "s7"
+   ]
+  },
+  {
+   "id": "baghapurana",
+   "name": "Bagha Purana",
+   "type": "town",
+   "lat": 30.6879,
+   "lon": 75.0961,
+   "population": 25206,
+   "district": "Moga",
+   "notes": "Census 2011 Municipal Council. Tehsil HQ; on NH-105B Moga-Bajakhana.",
+   "sourceIds": [
+    "s1",
+    "s7"
+   ]
+  },
+  {
+   "id": "nihalsinghwala",
+   "name": "Nihal Singh Wala",
+   "type": "town",
+   "lat": 30.5897,
+   "lon": 75.2805,
+   "population": 9000,
+   "district": "Moga",
+   "notes": "Tehsil HQ, Moga district. Population is a rough estimate (not in s7 urban tables; treated as rural).",
+   "sourceIds": [
+    "s1"
+   ]
+  },
+  {
+   "id": "badhnikalan",
+   "name": "Badhni Kalan",
+   "type": "town",
+   "lat": 30.6802,
+   "lon": 75.2904,
+   "population": 6786,
+   "district": "Moga",
+   "notes": "Census 2011 Nagar Panchayat. On NH-703 Moga-Barnala.",
+   "sourceIds": [
+    "s1",
+    "s7"
+   ]
+  },
+  {
+   "id": "kotisekhan",
+   "name": "Kot Ise Khan",
+   "type": "town",
+   "lat": 30.9431,
+   "lon": 75.1372,
+   "population": 12800,
+   "district": "Moga",
+   "notes": "Census 2011 Census Town. On NH-703B (Moga-Makhu/Zira side).",
+   "sourceIds": [
+    "s1",
+    "s7"
+   ]
+  },
+  {
+   "id": "ajitwal",
+   "name": "Ajitwal",
+   "type": "village_cluster",
+   "lat": 30.8138,
+   "lon": 75.338,
+   "population": 5000,
+   "district": "Moga",
+   "notes": "Large village on NH-5 / rail station between Moga and Jagraon. Population approximate (rough estimate).",
+   "sourceIds": [
+    "s1",
+    "s14"
+   ]
+  },
+  {
+   "id": "samrala",
+   "name": "Samrala",
+   "type": "town",
+   "lat": 30.8369,
+   "lon": 76.1914,
+   "population": 19678,
+   "district": "Ludhiana",
+   "notes": "Census 2011 Municipal Council. On NH-5 Ludhiana-Kharar; station on Chandigarh-Sahnewal line.",
+   "sourceIds": [
+    "s1",
+    "s7",
+    "s13"
+   ]
+  },
+  {
+   "id": "rupnagar",
+   "name": "Rupnagar (Ropar)",
+   "type": "town",
+   "lat": 30.9688,
+   "lon": 76.5261,
+   "population": 56038,
+   "district": "Rupnagar",
+   "notes": "Census 2011 Municipal Council. Off-corridor north of Morinda/Kurali.",
+   "sourceIds": [
+    "s1",
+    "s7"
+   ]
+  },
+  {
+   "id": "khanna",
+   "name": "Khanna",
+   "type": "town",
+   "lat": 30.7006,
+   "lon": 76.2221,
+   "population": 128130,
+   "district": "Ludhiana",
+   "notes": "Census 2011 city per s8. On NH-44; Khanna grain market is one of Asia's largest.",
+   "sourceIds": [
+    "s1",
+    "s8"
+   ]
+  },
+  {
+   "id": "morinda",
+   "name": "Morinda",
+   "type": "town",
+   "lat": 30.7908,
+   "lon": 76.4985,
+   "population": 24022,
+   "district": "Rupnagar",
+   "notes": "Census 2011 Municipal Council. On NH-5; New Morinda rail junction.",
+   "sourceIds": [
+    "s1",
+    "s7"
+   ]
+  },
+  {
+   "id": "sirhind",
+   "name": "Sirhind-Fatehgarh Sahib",
+   "type": "town",
+   "lat": 30.625,
+   "lon": 76.3854,
+   "population": 58097,
+   "district": "Fatehgarh Sahib",
+   "notes": "Census 2011 Municipal Council. Rail junction on Ambala-Ludhiana main line.",
+   "sourceIds": [
+    "s1",
+    "s7"
+   ]
+  },
+  {
+   "id": "nakodar",
+   "name": "Nakodar",
+   "type": "town",
+   "lat": 31.1264,
+   "lon": 75.4761,
+   "population": 36973,
+   "district": "Jalandhar",
+   "notes": "Census 2011 Municipal Council. On NH-703 Jalandhar-Moga.",
+   "sourceIds": [
+    "s1",
+    "s7",
+    "s4"
+   ]
+  },
+  {
+   "id": "doraha",
+   "name": "Doraha",
+   "type": "town",
+   "lat": 30.7989,
+   "lon": 76.0373,
+   "population": 25424,
+   "district": "Ludhiana",
+   "notes": "Census 2011 Municipal Council. On NH-44.",
+   "sourceIds": [
+    "s1",
+    "s7"
+   ]
+  },
+  {
+   "id": "sahnewal",
+   "name": "Sahnewal",
+   "type": "town",
+   "lat": 30.8402,
+   "lon": 75.9836,
+   "population": 22484,
+   "district": "Ludhiana",
+   "notes": "Census 2011 Nagar Panchayat. Ludhiana airport, ICD, rail junction.",
+   "sourceIds": [
+    "s1",
+    "s7"
+   ]
+  },
+  {
+   "id": "mullanpurdakha",
+   "name": "Mullanpur Dakha",
+   "type": "town",
+   "lat": 30.8538,
+   "lon": 75.6592,
+   "population": 16356,
+   "district": "Ludhiana",
+   "notes": "Census 2011 Nagar Panchayat. On NH-5 Jagraon-Ludhiana.",
+   "sourceIds": [
+    "s1",
+    "s7"
+   ]
+  },
+  {
+   "id": "vc_daudhar",
+   "name": "Daudhar village cluster",
+   "type": "village_cluster",
+   "lat": 30.722,
+   "lon": 75.3426,
+   "population": 8000,
+   "district": "Moga",
+   "notes": "Large village SE of Moga (Moga tehsil); has own Dana Mandi. Population approx.",
+   "sourceIds": [
+    "s1"
+   ]
+  },
+  {
+   "id": "vc_lopon",
+   "name": "Lopon village cluster",
+   "type": "village_cluster",
+   "lat": 30.6706,
+   "lon": 75.3434,
+   "population": 5000,
+   "district": "Moga",
+   "notes": "Nihal Singh Wala tehsil, near Badhni Kalan. Population approx.",
+   "sourceIds": [
+    "s1"
+   ]
+  },
+  {
+   "id": "vc_samalsar",
+   "name": "Samalsar village cluster",
+   "type": "village_cluster",
+   "lat": 30.637,
+   "lon": 74.9974,
+   "population": 6000,
+   "district": "Moga",
+   "notes": "Bagha Purana tehsil, SW of Moga near Faridkot border. Population approx.",
+   "sourceIds": [
+    "s1"
+   ]
+  },
+  {
+   "id": "vc_dhudike",
+   "name": "Dhudike village cluster",
+   "type": "village_cluster",
+   "lat": 30.775,
+   "lon": 75.342,
+   "population": 5000,
+   "district": "Moga",
+   "notes": "Moga tehsil, between Moga and Jagraon (Lala Lajpat Rai's birthplace). Population approx.",
+   "sourceIds": [
+    "s1"
+   ]
+  },
+  {
+   "id": "vc_ghalkalan",
+   "name": "Ghal Kalan village cluster",
+   "type": "village_cluster",
+   "lat": 30.8191,
+   "lon": 75.1058,
+   "population": 4000,
+   "district": "Moga",
+   "notes": "Moga tehsil, west of Moga on NH-5 / rail towards Dagru. Population approx.",
+   "sourceIds": [
+    "s1"
+   ]
+  },
+  {
+   "id": "vc_rauke",
+   "name": "Rauke Kalan village cluster",
+   "type": "village_cluster",
+   "lat": 30.6594,
+   "lon": 75.2663,
+   "population": 5000,
+   "district": "Moga",
+   "notes": "Nihal Singh Wala tehsil. Population approx.",
+   "sourceIds": [
+    "s1"
+   ]
+  },
+  {
+   "id": "vc_kokri",
+   "name": "Kokri Kalan village cluster",
+   "type": "village_cluster",
+   "lat": 30.8456,
+   "lon": 75.3311,
+   "population": 6000,
+   "district": "Moga",
+   "notes": "Moga tehsil, NE of Ajitwal. Population approx.",
+   "sourceIds": [
+    "s1"
+   ]
+  },
+  {
+   "id": "vc_mehna",
+   "name": "Mehna village cluster",
+   "type": "village_cluster",
+   "lat": 30.8024,
+   "lon": 75.2701,
+   "population": 4000,
+   "district": "Moga",
+   "notes": "Moga tehsil, just east of Moga on NH-5. Population approx.",
+   "sourceIds": [
+    "s1"
+   ]
+  },
+  {
+   "id": "vc_ransih",
+   "name": "Ransih Kalan village cluster",
+   "type": "village_cluster",
+   "lat": 30.6043,
+   "lon": 75.2936,
+   "population": 3500,
+   "district": "Moga",
+   "notes": "Nihal Singh Wala tehsil (known for no-stubble-burning model). Population approx.",
+   "sourceIds": [
+    "s1"
+   ]
+  },
+  {
+   "id": "vc_bilaspur",
+   "name": "Bilaspur village cluster",
+   "type": "village_cluster",
+   "lat": 30.5754,
+   "lon": 75.3666,
+   "population": 5000,
+   "district": "Moga",
+   "notes": "Nihal Singh Wala tehsil, southern edge of district. Population approx.",
+   "sourceIds": [
+    "s1"
+   ]
+  },
+  {
+   "id": "mandi_moga_main",
+   "name": "Moga main grain market (Anaj/Dana Mandi)",
+   "type": "mandi",
+   "lat": 30.8285,
+   "lon": 75.1575,
+   "population": null,
+   "district": "Moga",
+   "notes": "Principal yard of Market Committee Moga. Position approximated from OSM 'Dana Mandi Road' in Moga city; exact yard polygon not verified.",
+   "sourceIds": [
+    "s1"
+   ]
+  },
+  {
+   "id": "mandi_dharamkot",
+   "name": "Dharamkot grain market",
+   "type": "mandi",
+   "lat": 30.935,
+   "lon": 75.235,
+   "population": null,
+   "district": "Moga",
+   "notes": "OSM marketplace on SH-20, Dharamkot.",
+   "sourceIds": [
+    "s1"
+   ]
+  },
+  {
+   "id": "mandi_baghapurana",
+   "name": "Bagha Purana grain market",
+   "type": "mandi",
+   "lat": 30.6799,
+   "lon": 75.0833,
+   "population": null,
+   "district": "Moga",
+   "notes": "OSM marketplace on Kotkapura-Moga road.",
+   "sourceIds": [
+    "s1"
+   ]
+  },
+  {
+   "id": "mandi_nihalsinghwala",
+   "name": "Nihal Singh Wala grain market",
+   "type": "mandi",
+   "lat": 30.6004,
+   "lon": 75.2781,
+   "population": null,
+   "district": "Moga",
+   "notes": "OSM marketplace 'Nihal Singh Wala Dana Mandi'.",
+   "sourceIds": [
+    "s1"
+   ]
+  },
+  {
+   "id": "mandi_kotisekhan",
+   "name": "Kot Ise Khan grain market",
+   "type": "mandi",
+   "lat": 30.939,
+   "lon": 75.1381,
+   "population": null,
+   "district": "Moga",
+   "notes": "OSM marketplace on NH-703B.",
+   "sourceIds": [
+    "s1"
+   ]
+  },
+  {
+   "id": "mandi_buttar",
+   "name": "Buttar (Badhni) grain market",
+   "type": "mandi",
+   "lat": 30.7206,
+   "lon": 75.2805,
+   "population": null,
+   "district": "Moga",
+   "notes": "OSM marketplace on Buttar-Badhni Khurd road; sub-yard serving Badhni area.",
+   "sourceIds": [
+    "s1"
+   ]
+  },
+  {
+   "id": "mandi_daudhar",
+   "name": "Daudhar grain market",
+   "type": "mandi",
+   "lat": 30.7183,
+   "lon": 75.3529,
+   "population": null,
+   "district": "Moga",
+   "notes": "OSM marketplace (purchase centre/sub-yard).",
+   "sourceIds": [
+    "s1"
+   ]
+  },
+  {
+   "id": "mandi_charik_road",
+   "name": "Grain market, Moga-Charik road (Budh Singh Wala)",
+   "type": "mandi",
+   "lat": 30.7401,
+   "lon": 75.174,
+   "population": null,
+   "district": "Moga",
+   "notes": "OSM marketplace south of Moga; likely purchase centre/sub-yard.",
+   "sourceIds": [
+    "s1"
+   ]
+  },
+  {
+   "id": "mandi_jogewala",
+   "name": "Grain market, Ferozepur road (Joge Wala)",
+   "type": "mandi",
+   "lat": 30.8717,
+   "lon": 75.0328,
+   "population": null,
+   "district": "Moga",
+   "notes": "OSM marketplace west of Moga near Dagru.",
+   "sourceIds": [
+    "s1"
+   ]
+  },
+  {
+   "id": "mandi_kotlaraika",
+   "name": "Grain market, Kotla Rai Ka",
+   "type": "mandi",
+   "lat": 30.5808,
+   "lon": 75.1259,
+   "population": null,
+   "district": "Moga",
+   "notes": "OSM marketplace on NH-254, Bagha Purana tehsil.",
+   "sourceIds": [
+    "s1"
+   ]
+  },
+  {
+   "id": "mandi_khanna",
+   "name": "Khanna grain market",
+   "type": "mandi",
+   "lat": 30.7006,
+   "lon": 76.2221,
+   "population": null,
+   "district": "Ludhiana",
+   "notes": "Reputedly Asia's largest grain market; point placed at town centre (approx).",
+   "sourceIds": [
+    "s1"
+   ]
+  },
+  {
+   "id": "mandi_chd_sec26",
+   "name": "Chandigarh Sector 26 Grain Market / Mandi",
+   "type": "mandi",
+   "lat": 30.73,
+   "lon": 76.8091,
+   "population": null,
+   "district": "Chandigarh (UT)",
+   "notes": "Sector 26 centroid (grain market + fruit & vegetable mandi). Wholesale/consumption node.",
+   "sourceIds": [
+    "s1"
+   ]
+  },
+  {
+   "id": "chd_sec17",
+   "name": "Chandigarh Sector 17 (city centre)",
+   "type": "city",
+   "lat": 30.7401,
+   "lon": 76.7826,
+   "population": null,
+   "district": "Chandigarh (UT)",
+   "notes": "CBD/retail plaza; type 'city' used as no commercial-centre type exists in schema.",
+   "sourceIds": [
+    "s1"
+   ]
+  },
+  {
+   "id": "nestle_moga",
+   "name": "Nestle India Moga factory",
+   "type": "plant",
+   "lat": 30.8232,
+   "lon": 75.1541,
+   "population": null,
+   "district": "Moga",
+   "notes": "Nestle's first Indian factory (began 15 Nov 1961); milk powders/dairy. Coordinate is OSM 'Nestle Road' adjacent to the plant (approx). Milk shed ~30,000 sq km, >1 million kg/day in flush season (company data).",
+   "sourceIds": [
+    "s1",
+    "s9",
+    "s17"
+   ]
+  },
+  {
+   "id": "adani_silo_dagru",
+   "name": "Adani Agri Logistics silo complex, Dagru (Moga)",
+   "type": "godown",
+   "lat": 30.829,
+   "lon": 75.06,
+   "population": null,
+   "district": "Moga",
+   "notes": "Bulk wheat silos built for FCI under 20-yr BOO guarantee (~2 lakh t, some reports say 3 lakh t), with rail siding at Dagru station. Coordinate approximated next to Dagru station; exact footprint not verified.",
+   "sourceIds": [
+    "s1",
+    "s10",
+    "s16"
+   ]
+  },
+  {
+   "id": "fci_moga_depot",
+   "name": "FCI / state agency godowns, Moga (representative)",
+   "type": "godown",
+   "lat": 30.816,
+   "lon": 75.164,
+   "population": null,
+   "district": "Moga",
+   "notes": "Representative point for FCI/PUNGRAIN/Markfed/PSWC covered godowns and CAP storage near Moga goods shed. Location is an assumption; individual depots not geolocated.",
+   "sourceIds": [
+    "s1"
+   ]
+  },
+  {
+   "id": "rail_moga",
+   "name": "Moga railway station",
+   "type": "railhead",
+   "lat": 30.8175,
+   "lon": 75.1688,
+   "population": null,
+   "district": "Moga",
+   "notes": "Ferozepur-Ludhiana line; grain rakes loaded here and at Dagru.",
+   "sourceIds": [
+    "s1",
+    "s14"
+   ]
+  },
+  {
+   "id": "rail_dagru",
+   "name": "Dagru railway station",
+   "type": "railhead",
+   "lat": 30.8286,
+   "lon": 75.0632,
+   "population": null,
+   "district": "Moga",
+   "notes": "Siding for Adani silos.",
+   "sourceIds": [
+    "s1",
+    "s14"
+   ]
+  },
+  {
+   "id": "rail_ludhiana",
+   "name": "Ludhiana Junction",
+   "type": "railhead",
+   "lat": 30.9123,
+   "lon": 75.8494,
+   "population": null,
+   "district": "Ludhiana",
+   "notes": "Main line junction (Ambala-Amritsar, Ferozepur, Chandigarh, Dhuri lines).",
+   "sourceIds": [
+    "s1"
+   ]
+  },
+  {
+   "id": "icd_dhandari",
+   "name": "CONCOR ICD Ludhiana (Dhandari Kalan dry port)",
+   "type": "railhead",
+   "lat": 30.8744,
+   "lon": 75.9133,
+   "population": null,
+   "district": "Ludhiana",
+   "notes": "CONCOR inland container depot at Focal Point / Dhandari Kalan; export-import gateway on the Western DFC feeder.",
+   "sourceIds": [
+    "s1"
+   ]
+  },
+  {
+   "id": "icd_sahnewal",
+   "name": "Gateway Rail Freight ICD, Sahnewal",
+   "type": "railhead",
+   "lat": 30.8317,
+   "lon": 75.9885,
+   "population": null,
+   "district": "Ludhiana",
+   "notes": "Private container terminal (GRFL) near Sahnewal.",
+   "sourceIds": [
+    "s1"
+   ]
+  },
+  {
+   "id": "rail_chandigarh",
+   "name": "Chandigarh railway station",
+   "type": "railhead",
+   "lat": 30.7022,
+   "lon": 76.8215,
+   "population": null,
+   "district": "Chandigarh (UT)",
+   "notes": "Ambala-Kalka line and Chandigarh-Sahnewal line.",
+   "sourceIds": [
+    "s1"
+   ]
+  },
+  {
+   "id": "concor_lalru",
+   "name": "CONCOR terminal, Lahli (Dera Bassi/Lalru)",
+   "type": "railhead",
+   "lat": 30.5168,
+   "lon": 76.8079,
+   "population": null,
+   "district": "SAS Nagar",
+   "notes": "OSM-tagged CONCOR facility near Lalru on Ambala-Chandigarh line; operational status not verified.",
+   "sourceIds": [
+    "s1"
+   ]
+  },
+  {
+   "id": "chd_ia_ph1",
+   "name": "Chandigarh Industrial Area Phase I",
+   "type": "industrial",
+   "lat": 30.7054,
+   "lon": 76.801,
+   "population": null,
+   "district": "Chandigarh (UT)",
+   "notes": "OSM industrial landuse.",
+   "sourceIds": [
+    "s1"
+   ]
+  },
+  {
+   "id": "chd_ia_ph2",
+   "name": "Chandigarh Industrial Area Phase II",
+   "type": "industrial",
+   "lat": 30.6981,
+   "lon": 76.788,
+   "population": null,
+   "district": "Chandigarh (UT)",
+   "notes": "OSM industrial landuse.",
+   "sourceIds": [
+    "s1"
+   ]
+  },
+  {
+   "id": "mohali_industrial",
+   "name": "Mohali Industrial Area (Phases 7-9)",
+   "type": "industrial",
+   "lat": 30.7178,
+   "lon": 76.6985,
+   "population": null,
+   "district": "SAS Nagar",
+   "notes": "Representative point (Phase 8/Sector 73 area); approx.",
+   "sourceIds": [
+    "s1"
+   ]
+  },
+  {
+   "id": "ldh_focal_point",
+   "name": "Ludhiana Focal Point",
+   "type": "industrial",
+   "lat": 30.8861,
+   "lon": 75.9154,
+   "population": null,
+   "district": "Ludhiana",
+   "notes": "Large industrial estate (cycles, auto parts, hosiery) adjoining Dhandari Kalan ICD.",
+   "sourceIds": [
+    "s1"
+   ]
+  },
+  {
+   "id": "mandi_gobindgarh",
+   "name": "Mandi Gobindgarh steel cluster",
+   "type": "industrial",
+   "lat": 30.6693,
+   "lon": 76.2974,
+   "population": null,
+   "district": "Fatehgarh Sahib",
+   "notes": "Secondary steel/rolling mills cluster on NH-44; point at railway station.",
+   "sourceIds": [
+    "s1"
+   ]
+  },
+  {
+   "id": "verka_mohali",
+   "name": "Verka Milk Plant Mohali (Milkfed)",
+   "type": "dairy",
+   "lat": 30.7352,
+   "lon": 76.707,
+   "population": null,
+   "district": "SAS Nagar",
+   "notes": "Milkfed Punjab plant, Sector 57 Mohali on NH-5 (Phase 6 area).",
+   "sourceIds": [
+    "s1"
+   ]
+  },
+  {
+   "id": "verka_ludhiana",
+   "name": "Verka Milk Plant Ludhiana (Milkfed)",
+   "type": "dairy",
+   "lat": 30.8942,
+   "lon": 75.8019,
+   "population": null,
+   "district": "Ludhiana",
+   "notes": "Milkfed Punjab plant, Ferozepur Road area, Ludhiana (approx, OSM service road).",
+   "sourceIds": [
+    "s1"
+   ]
+  },
+  {
+   "id": "pau_ludhiana",
+   "name": "Punjab Agricultural University, Ludhiana",
+   "type": "education",
+   "lat": 30.901,
+   "lon": 75.807,
+   "population": null,
+   "district": "Ludhiana",
+   "notes": "Agri research/extension hub (approx centroid).",
+   "sourceIds": [
+    "s1"
+   ]
+  },
+  {
+   "id": "pu_chandigarh",
+   "name": "Panjab University, Chandigarh",
+   "type": "education",
+   "lat": 30.7605,
+   "lon": 76.7681,
+   "population": null,
+   "district": "Chandigarh (UT)",
+   "notes": "Sector 14/25 campus (approx centroid).",
+   "sourceIds": [
+    "s1"
+   ]
+  }
+ ],
+ "highways": [
+  {
+   "id": "nh5",
+   "name": "NH-5 (Ferozepur–Moga–Jagraon–Ludhiana–Samrala–Morinda–Kharar–Chandigarh)",
+   "lanes": 4,
+   "waypoints": [
+    [
+     30.9612,
+     74.6092
+    ],
+    [
+     30.926,
+     74.6351
+    ],
+    [
+     30.8977,
+     74.6899
+    ],
+    [
+     30.8742,
+     74.7463
+    ],
+    [
+     30.8635,
+     74.8082
+    ],
+    [
+     30.8531,
+     74.8702
+    ],
+    [
+     30.8531,
+     74.9264
+    ],
+    [
+     30.8428,
+     74.9476
+    ],
+    [
+     30.8372,
+     75.0132
+    ],
+    [
+     30.8317,
+     75.076
+    ],
+    [
+     30.8263,
+     75.1391
+    ],
+    [
+     30.8132,
+     75.1898
+    ],
+    [
+     30.815,
+     75.2495
+    ],
+    [
+     30.8122,
+     75.3133
+    ],
+    [
+     30.8112,
+     75.3765
+    ],
+    [
+     30.811,
+     75.4421
+    ],
+    [
+     30.8108,
+     75.4826
+    ],
+    [
+     30.8171,
+     75.5456
+    ],
+    [
+     30.8279,
+     75.608
+    ],
+    [
+     30.8442,
+     75.6702
+    ],
+    [
+     30.8656,
+     75.7306
+    ],
+    [
+     30.8869,
+     75.7895
+    ],
+    [
+     30.9081,
+     75.8499
+    ],
+    [
+     30.9094,
+     75.8834
+    ],
+    [
+     30.8855,
+     75.9419
+    ],
+    [
+     30.869,
+     76.0
+    ],
+    [
+     30.8534,
+     76.0603
+    ],
+    [
+     30.8486,
+     76.1237
+    ],
+    [
+     30.8383,
+     76.1812
+    ],
+    [
+     30.8278,
+     76.2379
+    ],
+    [
+     30.82,
+     76.3017
+    ],
+    [
+     30.8068,
+     76.3635
+    ],
+    [
+     30.7876,
+     76.4221
+    ],
+    [
+     30.789,
+     76.4848
+    ],
+    [
+     30.7812,
+     76.538
+    ],
+    [
+     30.7649,
+     76.5979
+    ],
+    [
+     30.7485,
+     76.6461
+    ],
+    [
+     30.7331,
+     76.7056
+    ],
+    [
+     30.7134,
+     76.745
+    ],
+    [
+     30.7332,
+     76.7794
+    ]
+   ],
+   "tollPlazas": [
+    {
+     "name": "Ghulal Toll Plaza (Ludhiana–Kharar section)",
+     "lat": 30.8481,
+     "lon": 76.129
+    }
+   ],
+   "lengthKm": 236.4,
+   "notes": "Old NH-95. Four-lane Ferozepur–Ludhiana (Ludhiana–Talwandi Bhai 4-laning) and Ludhiana–Kharar; 6-lane elevated Kharar–Mohali. Includes the Ludhiana–Chandigarh via Samrala route requested separately. Toll on Moga–Ludhiana/Ferozepur stretch not confirmed (none listed). Ghulal toll position snapped from OSM village location, approx. Geometry: OSRM route on OSM, resampled ~6 km; routed length 236.4 km, free-flow time 3.45 h.",
+   "sourceIds": [
+    "s2",
+    "s3",
+    "s1"
+   ]
+  },
+  {
+   "id": "nh44",
+   "name": "NH-44 (Jalandhar–Phagwara–Ludhiana–Khanna–Rajpura–Shambhu–Ambala)",
+   "lanes": 6,
+   "waypoints": [
+    [
+     31.3321,
+     75.5771
+    ],
+    [
+     31.3079,
+     75.623
+    ],
+    [
+     31.2786,
+     75.6749
+    ],
+    [
+     31.2508,
+     75.7272
+    ],
+    [
+     31.2198,
+     75.7684
+    ],
+    [
+     31.1772,
+     75.7733
+    ],
+    [
+     31.1226,
+     75.7761
+    ],
+    [
+     31.0682,
+     75.7824
+    ],
+    [
+     31.0181,
+     75.7836
+    ],
+    [
+     30.9754,
+     75.8015
+    ],
+    [
+     30.935,
+     75.8388
+    ],
+    [
+     30.8948,
+     75.8688
+    ],
+    [
+     30.866,
+     75.924
+    ],
+    [
+     30.8345,
+     75.9765
+    ],
+    [
+     30.8364,
+     75.9739
+    ],
+    [
+     30.8023,
+     76.0246
+    ],
+    [
+     30.7702,
+     76.0721
+    ],
+    [
+     30.744,
+     76.1306
+    ],
+    [
+     30.7187,
+     76.1901
+    ],
+    [
+     30.6987,
+     76.2333
+    ],
+    [
+     30.6682,
+     76.2854
+    ],
+    [
+     30.6449,
+     76.324
+    ],
+    [
+     30.6115,
+     76.3803
+    ],
+    [
+     30.5786,
+     76.4366
+    ],
+    [
+     30.5465,
+     76.4913
+    ],
+    [
+     30.5157,
+     76.5438
+    ],
+    [
+     30.4931,
+     76.5988
+    ],
+    [
+     30.468,
+     76.6255
+    ],
+    [
+     30.4368,
+     76.6796
+    ],
+    [
+     30.416,
+     76.7155
+    ],
+    [
+     30.3934,
+     76.7727
+    ],
+    [
+     30.3841,
+     76.7703
+    ]
+   ],
+   "tollPlazas": [
+    {
+     "name": "Ladhowal Toll Plaza (Sutlej, Ludhiana)",
+     "lat": 30.9745,
+     "lon": 75.7974
+    },
+    {
+     "name": "Shambhu Toll Plaza (Punjab–Haryana border)",
+     "lat": 30.429,
+     "lon": 76.6839
+    }
+   ],
+   "lengthKm": 185.6,
+   "notes": "Old NH-1 / GT Road; six-lane Jalandhar–Ambala. Punjab portion ends at Shambhu (Ghaggar) border; last point is Ambala Cantt. Toll positions approximate (snapped). Ladhowal is among India's highest-collecting plazas (s12). Geometry: OSRM route on OSM, resampled ~6 km; routed length 185.6 km, free-flow time 2.84 h.",
+   "sourceIds": [
+    "s2",
+    "s1",
+    "s12"
+   ]
+  },
+  {
+   "id": "nh703_jalandhar_moga",
+   "name": "NH-703 (Jalandhar–Nakodar–Shahkot–Dharamkot–Moga)",
+   "lanes": 2,
+   "waypoints": [
+    [
+     31.3321,
+     75.5771
+    ],
+    [
+     31.2842,
+     75.5527
+    ],
+    [
+     31.2376,
+     75.5212
+    ],
+    [
+     31.1864,
+     75.5012
+    ],
+    [
+     31.1354,
+     75.484
+    ],
+    [
+     31.1244,
+     75.4396
+    ],
+    [
+     31.1247,
+     75.3759
+    ],
+    [
+     31.0958,
+     75.3374
+    ],
+    [
+     31.0515,
+     75.3229
+    ],
+    [
+     31.0057,
+     75.292
+    ],
+    [
+     30.9657,
+     75.2492
+    ],
+    [
+     30.9363,
+     75.2334
+    ],
+    [
+     30.8871,
+     75.2158
+    ],
+    [
+     30.8459,
+     75.1777
+    ],
+    [
+     30.8165,
+     75.1717
+    ]
+   ],
+   "tollPlazas": [],
+   "lengthKm": 82.1,
+   "notes": "Mostly 2-lane with paved shoulders; NHAI 4-lane greenfield Jalandhar–Moga project under tender/construction (2026), not modelled. Route via Dharamkot inferred from OSRM/OSM tagging (63 km tagged NH703). Geometry: OSRM route on OSM, resampled ~6 km; routed length 82.1 km, free-flow time 1.31 h.",
+   "sourceIds": [
+    "s2",
+    "s4"
+   ]
+  },
+  {
+   "id": "nh703_moga_barnala",
+   "name": "NH-703 (Moga–Badhni Kalan–Barnala)",
+   "lanes": 2,
+   "waypoints": [
+    [
+     30.8165,
+     75.1717
+    ],
+    [
+     30.8126,
+     75.2221
+    ],
+    [
+     30.7665,
+     75.2505
+    ],
+    [
+     30.7225,
+     75.2833
+    ],
+    [
+     30.6799,
+     75.2988
+    ],
+    [
+     30.6393,
+     75.3146
+    ],
+    [
+     30.5961,
+     75.348
+    ],
+    [
+     30.5536,
+     75.3793
+    ],
+    [
+     30.506,
+     75.4079
+    ],
+    [
+     30.458,
+     75.4276
+    ],
+    [
+     30.4056,
+     75.4326
+    ],
+    [
+     30.3877,
+     75.4933
+    ],
+    [
+     30.3761,
+     75.5436
+    ]
+   ],
+   "tollPlazas": [],
+   "lengthKm": 72.3,
+   "notes": "NH-703 continues Moga–Badhni–Barnala–Mansa per Wikipedia; 2-lane. Geometry: OSRM route on OSM, resampled ~6 km; routed length 72.3 km, free-flow time 1.0 h.",
+   "sourceIds": [
+    "s2",
+    "s4"
+   ]
+  },
+  {
+   "id": "moga_kotkapura_bathinda",
+   "name": "Moga–Bagha Purana (NH-105B) – Kotkapura (SH-16) – Bathinda (NH-54)",
+   "lanes": 2,
+   "waypoints": [
+    [
+     30.8165,
+     75.1717
+    ],
+    [
+     30.7784,
+     75.1347
+    ],
+    [
+     30.7311,
+     75.1058
+    ],
+    [
+     30.6847,
+     75.0923
+    ],
+    [
+     30.6565,
+     75.0393
+    ],
+    [
+     30.6331,
+     74.9819
+    ],
+    [
+     30.6143,
+     74.9224
+    ],
+    [
+     30.5939,
+     74.8616
+    ],
+    [
+     30.5831,
+     74.8186
+    ],
+    [
+     30.5619,
+     74.8743
+    ],
+    [
+     30.5336,
+     74.9277
+    ],
+    [
+     30.4987,
+     74.9751
+    ],
+    [
+     30.4444,
+     74.9841
+    ],
+    [
+     30.3899,
+     74.9855
+    ],
+    [
+     30.3424,
+     74.9558
+    ],
+    [
+     30.306,
+     74.9362
+    ],
+    [
+     30.2542,
+     74.9344
+    ],
+    [
+     30.2088,
+     74.9458
+    ],
+    [
+     30.2068,
+     74.9461
+    ]
+   ],
+   "tollPlazas": [],
+   "lengthKm": 103.6,
+   "notes": "Designation uncertain: OSM tags Moga–Bagha Purana as NH-105B (spur of NH-5 to Bajakhana, s11); Moga–Kotkapura road historically SH-16 (Singhawala toll on it was made free, s15); Kotkapura–Bathinda is NH-54 (4-lane). Fastest Moga–Bathinda road (OSRM) is ~78 km via NH-105B/Bajakhana rather than Kotkapura (~104 km). Lanes: 2 to Kotkapura, 4 on NH-54. Geometry: OSRM route on OSM, resampled ~6 km; routed length 103.6 km, free-flow time 1.39 h.",
+   "sourceIds": [
+    "s2",
+    "s5",
+    "s11",
+    "s15"
+   ]
+  },
+  {
+   "id": "zirakpur_chandigarh_kharar",
+   "name": "Zirakpur–Chandigarh–Mohali–Kharar urban arterial",
+   "lanes": 6,
+   "waypoints": [
+    [
+     30.6557,
+     76.82
+    ],
+    [
+     30.6937,
+     76.8168
+    ],
+    [
+     30.7215,
+     76.7905
+    ],
+    [
+     30.7119,
+     76.7456
+    ],
+    [
+     30.7068,
+     76.6979
+    ],
+    [
+     30.7435,
+     76.6574
+    ],
+    [
+     30.7491,
+     76.643
+    ]
+   ],
+   "tollPlazas": [],
+   "lengthKm": 32.4,
+   "notes": "Zirakpur flyover – Chandigarh (Purv Marg/Industrial Area) – Sector 17 – Mohali (Airport Rd/SH-12A) – Kharar. Urban, signalised in Chandigarh; no tolls. Geometry: OSRM route on OSM, resampled ~6 km; routed length 32.4 km, free-flow time 0.64 h.",
+   "sourceIds": [
+    "s2",
+    "s1"
+   ]
+  },
+  {
+   "id": "nh7",
+   "name": "NH-7 (Bathinda–Rampura Phul–Barnala–Sangrur–Patiala–Rajpura–Banur–Zirakpur)",
+   "lanes": 4,
+   "waypoints": [
+    [
+     30.2068,
+     74.9461
+    ],
+    [
+     30.2243,
+     74.9887
+    ],
+    [
+     30.2232,
+     75.0511
+    ],
+    [
+     30.2365,
+     75.1103
+    ],
+    [
+     30.2527,
+     75.1711
+    ],
+    [
+     30.2622,
+     75.2301
+    ],
+    [
+     30.2721,
+     75.2913
+    ],
+    [
+     30.2868,
+     75.3526
+    ],
+    [
+     30.3014,
+     75.4134
+    ],
+    [
+     30.3229,
+     75.4707
+    ],
+    [
+     30.3481,
+     75.5232
+    ],
+    [
+     30.3652,
+     75.5482
+    ],
+    [
+     30.3137,
+     75.5656
+    ],
+    [
+     30.2728,
+     75.5985
+    ],
+    [
+     30.2492,
+     75.6512
+    ],
+    [
+     30.2568,
+     75.7133
+    ],
+    [
+     30.2643,
+     75.7752
+    ],
+    [
+     30.2496,
+     75.832
+    ],
+    [
+     30.2265,
+     75.8662
+    ],
+    [
+     30.2524,
+     75.9237
+    ],
+    [
+     30.2564,
+     75.9864
+    ],
+    [
+     30.265,
+     76.0498
+    ],
+    [
+     30.2617,
+     76.1149
+    ],
+    [
+     30.2711,
+     76.1776
+    ],
+    [
+     30.2803,
+     76.2393
+    ],
+    [
+     30.2985,
+     76.2976
+    ],
+    [
+     30.3184,
+     76.3553
+    ],
+    [
+     30.3291,
+     76.4072
+    ],
+    [
+     30.3567,
+     76.455
+    ],
+    [
+     30.3937,
+     76.5015
+    ],
+    [
+     30.4339,
+     76.5432
+    ],
+    [
+     30.4733,
+     76.5867
+    ],
+    [
+     30.5032,
+     76.6236
+    ],
+    [
+     30.5311,
+     76.6771
+    ],
+    [
+     30.5646,
+     76.7259
+    ],
+    [
+     30.6042,
+     76.7709
+    ],
+    [
+     30.648,
+     76.8107
+    ],
+    [
+     30.6557,
+     76.82
+    ]
+   ],
+   "tollPlazas": [
+    {
+     "name": "Lehra Bega Toll Plaza",
+     "lat": 30.2405,
+     "lon": 75.1254
+    },
+    {
+     "name": "Badbar Toll Plaza",
+     "lat": 30.251,
+     "lon": 75.6651
+    },
+    {
+     "name": "Kalajhar Toll Plaza",
+     "lat": 30.2666,
+     "lon": 76.1515
+    },
+    {
+     "name": "Dharheri Jattan Toll Plaza",
+     "lat": 30.3956,
+     "lon": 76.5036
+    }
+   ],
+   "lengthKm": 220.6,
+   "notes": "Old NH-64. Four-lane. Toll names from memory and positions snapped from OSM village locations: treat as approximate; Dharheri Jattan location especially uncertain. Geometry: OSRM route on OSM, resampled ~6 km; routed length 220.6 km, free-flow time 3.23 h.",
+   "sourceIds": [
+    "s2",
+    "s6",
+    "s1"
+   ]
+  }
+ ],
+ "railways": [
+  {
+   "id": "rail_fzr_ldh",
+   "name": "Ferozepur Cantt–Moga–Jagraon–Ludhiana line (single track, broad gauge)",
+   "waypoints": [
+    [
+     30.9406,
+     74.6175
+    ],
+    [
+     30.8834,
+     74.8047
+    ],
+    [
+     30.8609,
+     74.9241
+    ],
+    [
+     30.8286,
+     75.0632
+    ],
+    [
+     30.8175,
+     75.1688
+    ],
+    [
+     30.8083,
+     75.3353
+    ],
+    [
+     30.8008,
+     75.4725
+    ],
+    [
+     30.8147,
+     75.5664
+    ],
+    [
+     30.8377,
+     75.6649
+    ],
+    [
+     30.86,
+     75.745
+    ],
+    [
+     30.8918,
+     75.8364
+    ],
+    [
+     30.9123,
+     75.8494
+    ]
+   ],
+   "notes": "Stations: Ferozepur Cantt, Ferozeshah, Talwandi, Dagru, Moga, Ajitwal, Jagraon, Chauki Man, Mullanpur, Baddowal (approx), Model Gram, Ludhiana. 124 km.",
+   "sourceIds": [
+    "s1",
+    "s14"
+   ]
+  },
+  {
+   "id": "rail_ldh_jal",
+   "name": "Ludhiana–Phillaur–Phagwara–Jalandhar (Ambala–Attari main line)",
+   "waypoints": [
+    [
+     30.9123,
+     75.8494
+    ],
+    [
+     30.9777,
+     75.7966
+    ],
+    [
+     31.0168,
+     75.7861
+    ],
+    [
+     31.1208,
+     75.7787
+    ],
+    [
+     31.2175,
+     75.7654
+    ],
+    [
+     31.2909,
+     75.6212
+    ],
+    [
+     31.3312,
+     75.5907
+    ]
+   ],
+   "notes": "Double track electrified. Goraya and Jalandhar Cantt points approx (town/landuse).",
+   "sourceIds": [
+    "s1"
+   ]
+  },
+  {
+   "id": "rail_ldh_ambala",
+   "name": "Ludhiana–Khanna–Sirhind–Rajpura–Ambala Cantt (main line)",
+   "waypoints": [
+    [
+     30.9123,
+     75.8494
+    ],
+    [
+     30.873,
+     75.918
+    ],
+    [
+     30.8402,
+     75.9836
+    ],
+    [
+     30.8038,
+     76.0436
+    ],
+    [
+     30.7087,
+     76.2234
+    ],
+    [
+     30.6693,
+     76.2974
+    ],
+    [
+     30.6238,
+     76.3824
+    ],
+    [
+     30.4863,
+     76.5936
+    ],
+    [
+     30.4288,
+     76.6838
+    ],
+    [
+     30.3382,
+     76.8286
+    ]
+   ],
+   "notes": "Double track; parallels NH-44. Dhandari Kalan and Sahnewal points approx. Eastern DFC/WDFC freight corridors terminate near Ludhiana (Sahnewal) – not modelled separately.",
+   "sourceIds": [
+    "s1"
+   ]
+  },
+  {
+   "id": "rail_ambala_chd",
+   "name": "Ambala Cantt–Lalru–Chandigarh (Ambala–Kalka line)",
+   "waypoints": [
+    [
+     30.3382,
+     76.8286
+    ],
+    [
+     30.4797,
+     76.7944
+    ],
+    [
+     30.5208,
+     76.8145
+    ],
+    [
+     30.7022,
+     76.8215
+    ]
+   ],
+   "notes": "Completes Ludhiana–Rajpura–Chandigarh by rail (no direct Rajpura–Mohali line yet). Dappar point is village, approx.",
+   "sourceIds": [
+    "s1"
+   ]
+  },
+  {
+   "id": "rail_chd_sahnewal",
+   "name": "Chandigarh–Mohali–Kharar–New Morinda–Samrala–Sahnewal–Ludhiana line",
+   "waypoints": [
+    [
+     30.7022,
+     76.8215
+    ],
+    [
+     30.666,
+     76.7396
+    ],
+    [
+     30.7267,
+     76.6362
+    ],
+    [
+     30.776,
+     76.4885
+    ],
+    [
+     30.82,
+     76.35
+    ],
+    [
+     30.8252,
+     76.1775
+    ],
+    [
+     30.8402,
+     75.9836
+    ],
+    [
+     30.873,
+     75.918
+    ],
+    [
+     30.9123,
+     75.8494
+    ]
+   ],
+   "notes": "Opened in phases 2006–2013 (~112 km). Khamano point approximate.",
+   "sourceIds": [
+    "s1",
+    "s13"
+   ]
+  }
+ ]
+}

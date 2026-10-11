@@ -1,0 +1,1565 @@
+{
+ "meta": {
+  "compiledOn": "2026-10-11",
+  "sources": [
+   {
+    "id": "s1",
+    "title": "MSME-DI Ludhiana, Brief Industrial Profile of District Moga (data 2010-11)",
+    "url": "https://dcmsme.gov.in/old/dips/Moga.pdf"
+   },
+   {
+    "id": "s2",
+    "title": "Tribune: Now RTAs to fix freight charges (134 truck unions to be dissolved, 2017)",
+    "url": "https://m.tribuneindia.com/news/archive/punjab/now-rtas-to-fix-freight-charges-429001"
+   },
+   {
+    "id": "s3",
+    "title": "Udayavani/PTI: Amarinder rules out revoking truck union ban (Jul 2017)",
+    "url": "https://www.udayavani.com/english-news/amarinder-rules-out-revoking-truck-union-ban"
+   },
+   {
+    "id": "s4",
+    "title": "Tribune: Kejriwal draws flak over statement on reviving truck unions in Punjab (Dec 2021)",
+    "url": "https://www.tribuneindia.com/news/chandigarh/kejriwal-draws-flak-over-statement-on-reviving-truck-unions-in-punjab-356828/amp"
+   },
+   {
+    "id": "s5",
+    "title": "Hindustan Times: Industry opposes revival of truck unions in Punjab (11 Jan 2022)",
+    "url": "https://www.pressreader.com/india/hindustan-times-bathinda/20220111/281702618068406"
+   },
+   {
+    "id": "s6",
+    "title": "Tribune: Industrialists protest as Abohar truck union defies DC's directive",
+    "url": "https://www.tribuneindia.com/news/punjab/industrialists-protest-as-abohar-truck-union-defies-dcs-directive-505783/amp"
+   },
+   {
+    "id": "s7",
+    "title": "Aaj Tak: Sangrur AAP splits into two factions over truck union leadership, highway blocked (25 Apr 2026)",
+    "url": "https://www.aajtak.in/india/punjab/story/sangrur-aap-splits-into-two-factions-over-truck-union-leadership-national-highway-blocked-lclnt-strc-2533568-2026-04-25"
+   },
+   {
+    "id": "s8",
+    "title": "The Core energy tracker: Petrol/diesel price in Moga (10 Oct 2026)",
+    "url": "https://energy.thecore.in/fuel/petrol-price/moga"
+   },
+   {
+    "id": "s9",
+    "title": "The Core energy tracker: Petrol/diesel price in Chandigarh (10 Oct 2026)",
+    "url": "https://energy.thecore.in/fuel/petrol-price/chandigarh"
+   },
+   {
+    "id": "s10",
+    "title": "Business Today: Petrol, diesel prices hiked in Chandigarh again (May 2026)",
+    "url": "https://www.businesstoday.in/india/story/petrol-diesel-prices-hiked-in-chandigarh-check-new-rates-here-531746-2026-05-15"
+   },
+   {
+    "id": "s11",
+    "title": "Upstox: Petrol price in Moga (history to 11 Oct 2026)",
+    "url": "https://upstox.com/petrol-price/petrol-price-in-moga/"
+   },
+   {
+    "id": "s12",
+    "title": "Sunday Guardian: NHAI hikes toll rates at key plazas in Punjab, Haryana (effective 15 Jul 2026)",
+    "url": "https://sundayguardianlive.com/india/nhai-hikes-toll-rates-at-key-plazas-in-punjab-haryana-check-revised-charges-for-cars-buses-and-trucks-237000/"
+   },
+   {
+    "id": "s13",
+    "title": "NHAI public notice: Gurhe (Chowkiman) toll plaza, NH-95/new NH-05, rates 2022-23",
+    "url": "https://tis.nhai.gov.in/UploadGazatte/LocalNews/Gurhe.pdf"
+   },
+   {
+    "id": "s14",
+    "title": "Bajaj Finserv: Ghulal toll plaza axle-wise rates (Oct 2024 listing)",
+    "url": "https://www.bajajfinserv.in/ghulal-toll-plaza"
+   },
+   {
+    "id": "s15",
+    "title": "Tribune: Toll rates increased at Ladhowal plaza",
+    "url": "https://www.tribuneindia.com/news/archive/ludhiana/toll-rates-increased-at-ladhowal-plaza-646329"
+   },
+   {
+    "id": "s16",
+    "title": "Nestle India: Milk farmers (Moga milk district)",
+    "url": "https://www.nestle.in/csv/case-studies/milk-farmers"
+   },
+   {
+    "id": "s17",
+    "title": "Business Standard/IANS: Fields to dairy - Nestle helps Punjab farmers (2015)",
+    "url": "https://www.business-standard.com/article/news-ians/fields-to-dairy-nestle-helps-punjab-farmers-break-new-ground-115042400225_1.html"
+   },
+   {
+    "id": "s18",
+    "title": "Tribune: Chandigarh's GST kitty grows 7% in June (Q1 FY27; ~33,800 registered taxpayers)",
+    "url": "https://www.tribuneindia.com/news/chandigarh/chandigarhs-gst-kitty-grows-7-in-june-but-collections-swing-sharply-through-the-quarter/"
+   },
+   {
+    "id": "s19",
+    "title": "Tribune: Fix arhtiyas' commission at 2.5% of MSP - Meet Hayer in Lok Sabha",
+    "url": "https://www.tribuneindia.com/news/punjab/fix-arhtiyas-commission-at-2-5-of-msp-meet-hayer-in-lok-sabha"
+   },
+   {
+    "id": "s20",
+    "title": "PARI (P. Sainath): Punjab's arhtiyas - sins of commission (2018)",
+    "url": "https://ruralindiaonline.org/article/punjabs-arhtiyas-sins-of-commission"
+   },
+   {
+    "id": "s21",
+    "title": "Sukhpal Singh & T.K. Dhaliwal (PAU): commission agents in Punjab (AgEcon Search)",
+    "url": "https://ageconsearch.umn.edu/record/204788/files/07-Sukhpal%20Singh.pdf"
+   },
+   {
+    "id": "s22",
+    "title": "Tribune: Do away with arhtiya system, Punjab told (interest 18-37%)",
+    "url": "https://www.tribuneindia.com/news/archive/punjab/do-away-with-arhtiya-system-punjab-told-736296"
+   },
+   {
+    "id": "s23",
+    "title": "Tribune: Have no choice - Punjab to make direct MSP payment to farmers (2021)",
+    "url": "https://www.tribuneindia.com/news/punjab/have-no-choice-punjab-to-make-direct-msp-payment-to-farmers-as-centre-rejects-plea-for-exemption-236402/amp"
+   },
+   {
+    "id": "s24",
+    "title": "Tribune: Mandi labour rate hiked 10% (paddy Rs 17.50 -> 19.26 per bag)",
+    "url": "https://www.tribuneindia.com/news/punjab/mandi-labour-rate-hiked-10"
+   },
+   {
+    "id": "s25",
+    "title": "Tribune: SDM's meeting with arhtiyas, labourers remains unfruitful (commission frozen ~Rs 45.88/qtl; labour Rs 16.05/bag)",
+    "url": "https://www.tribuneindia.com/news/jalandhar/sdms-meeting-with-arhtiyas-labourers-remains-unfruitful"
+   },
+   {
+    "id": "s26",
+    "title": "Tribune: Palledars being exploited in mandis, alleges Bajwa",
+    "url": "https://www.tribuneindia.com/news/punjab/palledars-being-exploited-in-mandis-alleges-bajwa-595907"
+   },
+   {
+    "id": "s27",
+    "title": "Hindustan Times: Grain transport - rate row persists as truck unions stick to strike (Apr 2018)",
+    "url": "https://www.pressreader.com/india/hindustan-times-bathinda/20180401/281573766253608"
+   },
+   {
+    "id": "s28",
+    "title": "Hindustan Times: Govt ropes in arhtiyas for transporting wheat, tells Mandi Board to fix rate (Apr 2018)",
+    "url": "https://www.pressreader.com/india/hindustan-times-patiala/20180404/281625305867134"
+   },
+   {
+    "id": "s29",
+    "title": "TeamLease RegTech: Punjab Food Grains Transportation Policy, 2022",
+    "url": "https://www.teamleaseregtech.com/updates/article/15674/punjab-food-grains-transportation-policy-2022"
+   },
+   {
+    "id": "s30",
+    "title": "CAG Report 31 of 2015, Ch.4: Procurement and milling of paddy",
+    "url": "https://cag.gov.in/uploads/download_audit_report/2015/Union_Performance_Procurement_Milling_of_Paddy_Central_Pool_31_2015_chap_4.pdf"
+   },
+   {
+    "id": "s31",
+    "title": "Tribune: 85.4 LMT paddy procured in Punjab; 4,132 millers allotted (Nov 2024)",
+    "url": "https://www.tribuneindia.com/news/punjab/85-4-lmt-paddy-procured-in-punjab-rs-19800-crore-paid-to-4-lakh-farmers-centre/amp"
+   },
+   {
+    "id": "s32",
+    "title": "IANS: Measures to ensure seamless paddy procurement in Punjab - Pralhad Joshi (Oct 2024)",
+    "url": "https://ianslive.in/measures-to-ensure-seamless-paddy-procurement-in-punjab-union-minister-joshi--20241027170905"
+   },
+   {
+    "id": "s33",
+    "title": "Hindustan Times: At 204L tonne, all-time high paddy procured (Moga 14.5 LMT, 2020)",
+    "url": "https://www.pressreader.com/india/hindustan-times-amritsar/20201203/281655372641660"
+   },
+   {
+    "id": "s34",
+    "title": "Tribune: Govt raises wheat MSP to Rs 2,585/qtl for 2026-27",
+    "url": "https://www.tribuneindia.com/news/india/govt-raises-wheat-msp-by-6-59-to-rs-2585-per-quintal-for-2026-27"
+   },
+   {
+    "id": "s35",
+    "title": "DT Next: Paddy MSP hiked by Rs 72 to Rs 2,441/qtl (KMS 2026-27)",
+    "url": "https://www.dtnext.in/news/business/govt-hikes-paddy-msp-by-rs-72-to-rs-2441qtl-sunflower-seed-sees-steepest-rise-at-rs-622"
+   },
+   {
+    "id": "s36",
+    "title": "All India Radio: Punjab to procure 132 LMT wheat against target of 122 LMT (Mar 2026)",
+    "url": "https://www.newsonair.gov.in/punjab-to-procure-132-lmt-wheat-against-the-target-of-122-lmt-during-procurement-season"
+   },
+   {
+    "id": "s37",
+    "title": "Daily Pioneer: Wheat procurement rises to 35 MT (Punjab 12.1 MT, 2026-27)",
+    "url": "https://www.dailypioneer.com/news/wheat-procurement-rises-to-35-mt-exceeds-target-for-2026-27"
+   },
+   {
+    "id": "s38",
+    "title": "Tribune: 10 lakh MT rice moved out, FCI clears godowns",
+    "url": "https://www.tribuneindia.com/news/punjab/10-lakh-mt-rice-moved-out-fci-clears-godowns-for-kharif-crops"
+   },
+   {
+    "id": "s39",
+    "title": "Tribune: 95 LMT grain moved out of state on 2,684 rakes - Bittu",
+    "url": "https://tribuneindia.com/news/95-lmt-grain-moved-out-of-state-on-2684-rakes-bittu"
+   },
+   {
+    "id": "s40",
+    "title": "Tribune: Adani group keen to set up silos in Punjab (Moga silo 2 LMT)",
+    "url": "https://m.tribuneindia.com/news/archive/business/adani-group-keen-to-set-up-silos-in-punjab-73948"
+   },
+   {
+    "id": "s41",
+    "title": "Adani Agri Logistics business page",
+    "url": "https://adani.com/businesses/agri-logistics"
+   },
+   {
+    "id": "s42",
+    "title": "Tribune: Amid curbs, IELTS hubs lose sheen",
+    "url": "https://www.tribuneindia.com/news/punjab/amid-curbs-ielts-hubs-lose-sheen-94528/amp"
+   },
+   {
+    "id": "s43",
+    "title": "VisaVerge: Canada visa rule changes force closures of IELTS centres in Punjab",
+    "url": "https://www.visaverge.com/visa/canada-visa-rule-changes-force-closures-of-ielts-centres-in-punjab"
+   },
+   {
+    "id": "s44",
+    "title": "TargetStudy directory: IELTS coaching centres in Moga (47 listed)",
+    "url": "https://targetstudy.com/coaching/ielts-coaching-in-moga.htm"
+   },
+   {
+    "id": "s45",
+    "title": "Tribune: Licences of 263 immigration firms, IELTS centres revoked (Jalandhar)",
+    "url": "https://www.tribuneindia.com/news/jalandhar/licences-of-263-immigration-firms-ielts-centres-revoked-486964"
+   },
+   {
+    "id": "s46",
+    "title": "Tribune: Punjab offers IT-friendly ecosystem (150+ IT units, ~35,000 professionals; Quark City 70+ firms)",
+    "url": "https://m.tribuneindia.com/news/punjab/punjab-offers-it-friendly-ecosystem-gurmeet-singh-meet-hayer-482797"
+   },
+   {
+    "id": "s47",
+    "title": "Amar Ujala: Punjab invites Infosys to set up campus in Mohali (Infosys Chandigarh ~6,000 staff)",
+    "url": "https://www.amarujala.com/punjab-invites-infosys-to-set-up-campus-in-mohali"
+   },
+   {
+    "id": "s48",
+    "title": "Tribune: Week on, no shopkeeper willing to stay open 24x7 (13,900 registered vs ~40,000 shops in Chandigarh)",
+    "url": "https://www.tribuneindia.com/news/chandigarh/week-on-no-shopkeeper-willing-to-stay-open-24x7-636791/amp"
+   },
+   {
+    "id": "s49",
+    "title": "India Environment Portal/Tribune: 2,600 brick kilns in state shut, await green clearance (2014)",
+    "url": "https://indiaenvironmentportal.org.in/news-clippings/2600-brick-kilns-in-state-shut-await-green-clearance"
+   },
+   {
+    "id": "s50",
+    "title": "TrucksBuses: Tata Signa 2823.T price (Dec 2025)",
+    "url": "https://www.trucksbuses.com/trucks/cargo-truck/tata-signa-2823t/price"
+   },
+   {
+    "id": "s51",
+    "title": "WageIndicator: Heavy truck and lorry drivers pay, India",
+    "url": "https://prd.wageindicator.org/en-in/work-in-india/role-and-pay/india-heavy-truck-and-lorry-drivers"
+   },
+   {
+    "id": "s52",
+    "title": "Business Standard: Truck freight rates dip for smaller cities (CMIE, Apr 2024)",
+    "url": "https://www.business-standard.com/industry/news/truck-freight-rates-dip-for-smaller-cities-remain-flat-for-bigger-ones-124050500187_1.html"
+   },
+   {
+    "id": "s53",
+    "title": "Business Standard: Road freight rates to cool off 10-12% following diesel price cut - IFTRT (2021)",
+    "url": "https://www.business-standard.com/amp/article/economy-policy/road-freight-rates-to-cool-off-10-12-following-diesel-price-cut-iftrt-121110400733_1.html"
+   },
+   {
+    "id": "s54",
+    "title": "Rome2Rio: Moga to Chandigarh (road ~165 km)",
+    "url": "https://www.rome2rio.com/s/Moga/Chand%C4%ABgarh"
+   },
+   {
+    "id": "s55",
+    "title": "IIM Bangalore CDPG: Is digital public infrastructure truly scalable? (UPI per-capita by state)",
+    "url": "https://www.iimb.ac.in/cdpg/pdf/digital-public-infrastructure-truly-scalable.pdf"
+   },
+   {
+    "id": "s56",
+    "title": "RBI: Impact of UPI on cash demand (Sep 2025)",
+    "url": "https://website.rbi.org.in/documents/d/rbi/impact-of-upi-on-cash-demand_sep2025"
+   },
+   {
+    "id": "s57",
+    "title": "Tribune: Farmers paid Rs 7,472 cr for paddy, 100% lifting ensured, says CM (KMS 2025-26; 1,822 purchase centres)",
+    "url": "https://www.tribuneindia.com/news/punjab/farmers-paid-rs-7472-cr-for-paddy-100-lifting-ensured-says-cm"
+   },
+   {
+    "id": "s58",
+    "title": "Tribune: Licences of 4 immigration firms cancelled (Mohali 471 registered travel agents)",
+    "url": "https://www.tribuneindia.com/news/chandigarh/licences-of-4-immigration-firms-cancelled-354189"
+   },
+   {
+    "id": "s59",
+    "title": "LBS Wheeler Institute: Between trust and trade - informal credit networks in India",
+    "url": "https://wheelerblog.london.edu/between-trust-and-trade-on-informal-credit-networks-in-india-2/"
+   },
+   {
+    "id": "s60",
+    "title": "Down To Earth: Shortage of labourers, gunny bags - Punjab in a spot over wheat procurement (2021)",
+    "url": "https://www.downtoearth.org.in/news/agriculture/shortage-of-labourers-gunny-bags-punjab-in-a-spot-over-wheat-procurement-76444"
+   }
+  ],
+  "caveats": "Counts for Moga are anchored on the DIC/MSME-DI 2010-11 profile (s1) and scaled to 2026 with population (~1.1M Moga district, ~2.6M tricity urban) and per-capita density heuristics; every figure marked 'est.' in notes is a modelling estimate, not an official statistic. Revenues in INR per establishment per year."
+ },
+ "sectors": [
+  {
+   "id": "arhtiya",
+   "name": "Arhtiyas (commission agents, grain mandis)",
+   "region": "moga",
+   "estimatedCount": 1100,
+   "employeesTypical": 6,
+   "annualRevenueInrTypical": 12000000,
+   "grossMarginPct": 60,
+   "buysFrom": [
+    "farmer"
+   ],
+   "sellsTo": [
+    "fci",
+    "state_agency",
+    "rice_sheller",
+    "private_trader"
+   ],
+   "paymentTerms": "Govt agencies pay MSP directly into farmer bank accounts since Rabi 2021 (PFMS/DBT); arhtiya commission (~Rs 46/qtl) paid by agency to arhtiya account; labour charges reimbursed per bag; side lending and input sales settled in cash/khata at harvest",
+   "creditPractice": "Core rural lender: running khata per farmer family, advances for inputs, weddings, medical, tractor down-payments; interest commonly 1-1.5%/month (12-18% p.a.), reports up to 18-37%; loan recovered by netting against harvest proceeds (now via farmer handing over payment after DBT). Farmers owe arhtiyas an estimated Rs 17,000-20,000 cr statewide",
+   "seasonality": "Two procurement peaks: wheat 1 Apr-31 May, paddy 1 Oct-30 Nov (90% of commission income); lending peaks Jun-Sep and Dec-Mar",
+   "informalShare": 0.45,
+   "notes": "Punjab: ~47,000 licences but ~20,232 operating families (PAU study) and ~24,000-28,000 licensed active. Moga ~5-6% of state procurement -> est. 1,800-2,000 licences, ~1,100 active firms. Commission was 2.5% of MSP (since 1998) but frozen by Centre at ~Rs 45.88/qtl (~1.8-1.9% of MSP now). Moga throughput est. ~20 LMT wheat+paddy -> ~Rs 95 cr commission/yr district-wide (~Rs 85 lakh/firm) plus interest income and labour-contract margin. Revenue figure = commission + interest + margin, not grain turnover (grain value passing through a typical firm ~Rs 45-55 cr).",
+   "sourceIds": [
+    "s19",
+    "s20",
+    "s21",
+    "s22",
+    "s23",
+    "s25",
+    "s33"
+   ]
+  },
+  {
+   "id": "rice_sheller",
+   "name": "Rice shellers / mills (custom milling + private basmati)",
+   "region": "moga",
+   "estimatedCount": 260,
+   "employeesTypical": 25,
+   "annualRevenueInrTypical": 40000000,
+   "grossMarginPct": 7,
+   "buysFrom": [
+    "fci",
+    "state_agency",
+    "arhtiya",
+    "farmer"
+   ],
+   "sellsTo": [
+    "fci",
+    "exporter",
+    "private_trader",
+    "cattle_feed_maker"
+   ],
+   "paymentTerms": "Custom-milled rice delivered to FCI against agency-allotted paddy; milling charges and byproduct sale; private basmati bought cash/RTGS via arhtiyas, sold to exporters on 30-60 day credit",
+   "creditPractice": "Bank working-capital limits (CC) secured on plant; bank guarantee/security to state agency for paddy held in custody; delayed FCI acceptance and storage-space crunch tie up capital for months; heavy reliance on arhtiya relationships for private paddy",
+   "seasonality": "Paddy intake Oct-Dec; milling and CMR delivery Dec-Jun (deadlines often extended to Sep); idle in monsoon",
+   "informalShare": 0.2,
+   "notes": "Punjab ~5,500 shelling units (Punjab Rice Industry Assn ~5,520); 4,132 allotted paddy in KMS 2024-25. Average allotment ~4,000-4,500 t paddy/miller (175 LMT/4,132). Moga share est. ~5% -> ~260 units (DIC 2010-11 lists 445 food-product units incl. shellers, spice, dairy). Revenue mix (est.): byproducts (bran ~7%, husk ~22%, broken), milling charge, private basmati trading. Gross margin thin and volatile; outturn 67% norm is a recurring dispute.",
+   "sourceIds": [
+    "s1",
+    "s30",
+    "s31",
+    "s32"
+   ]
+  },
+  {
+   "id": "atta_chakki",
+   "name": "Village flour chakkis / small atta mills",
+   "region": "moga",
+   "estimatedCount": 1400,
+   "employeesTypical": 2,
+   "annualRevenueInrTypical": 1200000,
+   "grossMarginPct": 35,
+   "buysFrom": [
+    "farmer",
+    "household"
+   ],
+   "sellsTo": [
+    "household",
+    "kiryana"
+   ],
+   "paymentTerms": "Cash or UPI per pisai (grinding) job; households bring own wheat",
+   "creditPractice": "Small udhaar for regular households; settled monthly",
+   "seasonality": "Steady; spikes before festivals and weddings",
+   "informalShare": 0.85,
+   "notes": "Est. ~4 per village x 323 villages + ~200 urban. Many run on PSPCL agricultural/commercial power. Revenue is grinding fees (~Rs 3-5/kg) plus some packed atta sales.",
+   "sourceIds": [
+    "s1"
+   ]
+  },
+  {
+   "id": "roller_flour_mill",
+   "name": "Roller flour mills (maida, sooji, atta) / packed atta",
+   "region": "both",
+   "estimatedCount": 25,
+   "employeesTypical": 40,
+   "annualRevenueInrTypical": 300000000,
+   "grossMarginPct": 8,
+   "buysFrom": [
+    "fci",
+    "private_trader",
+    "arhtiya"
+   ],
+   "sellsTo": [
+    "wholesaler_fmcg",
+    "bakery",
+    "kiryana",
+    "modern_retail"
+   ],
+   "paymentTerms": "Wheat bought from FCI OMSS e-auctions (RTGS advance) or private trade; sells to distributors on 15-30 day credit",
+   "creditPractice": "Distributor credit 15-30 days; bank CC limits",
+   "seasonality": "Wheat buying Apr-Jun; sales steady",
+   "informalShare": 0.1,
+   "notes": "Est. ~8 in Moga district and ~17 in Mohali/Panchkula/Derabassi belt. Tricity bakery/HoReCa demand drives maida.",
+   "sourceIds": [
+    "s1"
+   ]
+  },
+  {
+   "id": "cold_store",
+   "name": "Cold stores (potato, fruit/veg, dairy)",
+   "region": "moga",
+   "estimatedCount": 35,
+   "employeesTypical": 12,
+   "annualRevenueInrTypical": 15000000,
+   "grossMarginPct": 30,
+   "buysFrom": [
+    "farmer",
+    "private_trader"
+   ],
+   "sellsTo": [
+    "private_trader",
+    "wholesaler_fmcg",
+    "food_processor"
+   ],
+   "paymentTerms": "Rent per bag/quintal per season; collected at withdrawal; part cash",
+   "creditPractice": "Store owners advance loans to farmers/traders against stored stock (pledge), ~1-1.5%/month",
+   "seasonality": "Load Feb-Mar (potato), withdraw Jun-Nov",
+   "informalShare": 0.3,
+   "notes": "DIC 2010-11: 26 cold storage/aux units, Rs 18.5 cr investment, 178 employees. Est. 30-40 now. Cold storage listed as potential new-MSME area.",
+   "sourceIds": [
+    "s1"
+   ]
+  },
+  {
+   "id": "agri_input_dealer",
+   "name": "Seed / fertilizer / pesticide dealers",
+   "region": "moga",
+   "estimatedCount": 750,
+   "employeesTypical": 3,
+   "annualRevenueInrTypical": 15000000,
+   "grossMarginPct": 10,
+   "buysFrom": [
+    "fertilizer_company",
+    "seed_company",
+    "pesticide_distributor",
+    "coop_society"
+   ],
+   "sellsTo": [
+    "farmer"
+   ],
+   "paymentTerms": "Fertilizer at fixed MRP via PoS (Aadhaar-authenticated); pesticides and seed often on udhaar until harvest; UPI growing for cash sales",
+   "creditPractice": "Crop-cycle credit: farmer settles after wheat (May) or paddy (Nov); implicit interest via higher price or 1.5-2%/month; tie-in sales (urea with unwanted products) reported during shortages",
+   "seasonality": "Peaks Oct-Dec (wheat sowing: DAP) and Jun-Aug (paddy: urea, zinc, herbicides)",
+   "informalShare": 0.4,
+   "notes": "Est. ~2.3 per village. Many arhtiyas also run input shops, so input credit and grain sale are netted on the same khata. PACS (cooperatives) sell ~40-50% of fertilizer in Punjab (est.).",
+   "sourceIds": [
+    "s20"
+   ]
+  },
+  {
+   "id": "tractor_dealer",
+   "name": "Tractor & implement dealerships",
+   "region": "moga",
+   "estimatedCount": 25,
+   "employeesTypical": 25,
+   "annualRevenueInrTypical": 150000000,
+   "grossMarginPct": 7,
+   "buysFrom": [
+    "tractor_oem",
+    "implement_maker",
+    "bank"
+   ],
+   "sellsTo": [
+    "farmer",
+    "custom_hirer"
+   ],
+   "paymentTerms": "Down-payment 15-25% cash/UPI; balance via bank/NBFC tractor loan (half-yearly instalments aligned to harvests)",
+   "creditPractice": "Dealer gives short credit on spares/service; trade-ins of old tractors common",
+   "seasonality": "Sales peak Mar-Apr and Sep-Oct (pre-harvest, after paddy payments), Dhanteras/Diwali",
+   "informalShare": 0.1,
+   "notes": "Est. Moga ~800-1,000 new tractors/yr. Brands: Mahindra/Swaraj (Swaraj made in Mohali), Sonalika, John Deere, New Holland, Eicher, Farmtrac. Punjab has very high tractor density (over-capitalisation widely noted).",
+   "sourceIds": []
+  },
+  {
+   "id": "implement_maker",
+   "name": "Agricultural implement / combine-part manufacturers (Focal Point cluster)",
+   "region": "moga",
+   "estimatedCount": 400,
+   "employeesTypical": 8,
+   "annualRevenueInrTypical": 6000000,
+   "grossMarginPct": 18,
+   "buysFrom": [
+    "steel_trader",
+    "component_supplier"
+   ],
+   "sellsTo": [
+    "farmer",
+    "tractor_dealer",
+    "custom_hirer"
+   ],
+   "paymentTerms": "Cash/UPI and cheques; dealer credit 30-60 days",
+   "creditPractice": "Farmers often pay part after harvest; subsidy-linked sales (CRM machines: Happy Seeder, super-SMS) paid partly via subsidy DBT to farmer",
+   "seasonality": "Pre-season Aug-Oct (straw management, seed drills) and Feb-Mar",
+   "informalShare": 0.4,
+   "notes": "DIC 2010-11: NIC-29 machinery & equipment 445 units, 3,182 employees, Rs 26 cr output; identified cluster: Agriculture Implements, Focal Point Moga (215 plots).",
+   "sourceIds": [
+    "s1"
+   ]
+  },
+  {
+   "id": "farm_machinery_repair",
+   "name": "Farm machinery & tubewell repair workshops / mechanics",
+   "region": "moga",
+   "estimatedCount": 800,
+   "employeesTypical": 3,
+   "annualRevenueInrTypical": 1500000,
+   "grossMarginPct": 40,
+   "buysFrom": [
+    "spares_dealer"
+   ],
+   "sellsTo": [
+    "farmer",
+    "custom_hirer"
+   ],
+   "paymentTerms": "Cash/UPI; udhaar for known farmers",
+   "creditPractice": "Bills settled at harvest; 1-3 month udhaar common",
+   "seasonality": "Peaks just before and during harvests",
+   "informalShare": 0.85,
+   "notes": "Est. DIC lists 117 registered motor-vehicle repair units (2010-11); unregistered repair dominates. Est. 2-3 per village.",
+   "sourceIds": [
+    "s1"
+   ]
+  },
+  {
+   "id": "custom_hirer",
+   "name": "Combine harvester / custom hiring operators",
+   "region": "moga",
+   "estimatedCount": 450,
+   "employeesTypical": 4,
+   "annualRevenueInrTypical": 4000000,
+   "grossMarginPct": 30,
+   "buysFrom": [
+    "fuel_pump",
+    "farm_machinery_repair"
+   ],
+   "sellsTo": [
+    "farmer"
+   ],
+   "paymentTerms": "Per-acre charge (~Rs 1,800-2,500/acre wheat/paddy, est.) cash or after sale of crop",
+   "creditPractice": "Many paid after crop sale; some combines migrate to other states seasonally",
+   "seasonality": "Apr-May and Oct-Nov",
+   "informalShare": 0.8,
+   "notes": "Est. Includes self-propelled combines and Happy Seeder/baler hire. Revenue/margins sensitive to diesel price.",
+   "sourceIds": []
+  },
+  {
+   "id": "dairy_collection",
+   "name": "Village milk collection centres (Nestle VCCs, Verka/Milkfed societies, private dodhis)",
+   "region": "moga",
+   "estimatedCount": 700,
+   "employeesTypical": 2,
+   "annualRevenueInrTypical": 6000000,
+   "grossMarginPct": 6,
+   "buysFrom": [
+    "farmer"
+   ],
+   "sellsTo": [
+    "nestle",
+    "milkfed_verka",
+    "private_dairy",
+    "halwai"
+   ],
+   "paymentTerms": "Farmers paid every 10-15 days by bank transfer (Nestle, Verka) based on fat/SNF; dodhis pay cash weekly",
+   "creditPractice": "Advances to farmers for cattle purchase/feed recovered from milk bills; dodhis lend informally",
+   "seasonality": "Flush season Nov-Mar (+30-40% volume), lean Apr-Jul",
+   "informalShare": 0.35,
+   "notes": "Nestle: >1.3-1.5 million kg/day in flush from >110,000 farmers across catchment; ~2,815 collection centres nationally; Kaonke Kalan example ~75 farmers, ~1,000 L/day. Moga has 245k buffaloes, 92k cows (2011). Est. ~2 centres per village.",
+   "sourceIds": [
+    "s1",
+    "s16",
+    "s17"
+   ]
+  },
+  {
+   "id": "factory_ancillary",
+   "name": "Factory ancillary vendors, Moga (packaging, engineering maintenance, cattle feed, contract services)",
+   "region": "moga",
+   "estimatedCount": 60,
+   "employeesTypical": 30,
+   "annualRevenueInrTypical": 50000000,
+   "grossMarginPct": 12,
+   "buysFrom": [
+    "steel_trader",
+    "packaging_supplier",
+    "fuel_pump"
+   ],
+   "sellsTo": [
+    "nestle_moga"
+   ],
+   "paymentTerms": "Invoiced with GST; 30-60 day credit from Nestle; e-invoicing",
+   "creditPractice": "Bank bill discounting/TReDS sometimes; formal",
+   "seasonality": "Steady; milk tanker volumes follow flush season",
+   "informalShare": 0.05,
+   "notes": "Anchor buyer is Nestle India's Moga factory (only large unit in DIC profile; milk collection began 1961; the sim instantiates it as its own agent, so it is NOT listed as a sector here). DIC 2010-11: all large+medium units Rs 1,554 cr turnover, 1,699 employees. DIC: 'setting up of a few large units can boost ancillarisation' - ancillary base is thin; est. 40-80 registered vendors in district. Also includes milk-tanker contractors.",
+   "sourceIds": [
+    "s1"
+   ]
+  },
+  {
+   "id": "truck_operator",
+   "name": "Truck owner-operators (1-3 trucks)",
+   "region": "both",
+   "estimatedCount": 3500,
+   "employeesTypical": 2,
+   "annualRevenueInrTypical": 2500000,
+   "grossMarginPct": 20,
+   "buysFrom": [
+    "fuel_pump",
+    "tyre_dealer",
+    "farm_machinery_repair",
+    "financier"
+   ],
+   "sellsTo": [
+    "transport_company",
+    "arhtiya",
+    "rice_sheller",
+    "grain_transport_contractor",
+    "industry"
+   ],
+   "paymentTerms": "Paid per trip by booking agent/transport company: 70-90% advance or on delivery, balance 15-45 days after POD; mandi/grain work paid after govt reimbursement (can lag months)",
+   "creditPractice": "Truck bought on NBFC loan (Shriram, etc.) 14-18% p.a.; diesel credit at local pump settled monthly",
+   "seasonality": "Peak demand Apr-Jun (wheat) and Oct-Jan (paddy, CMR); lean monsoon",
+   "informalShare": 0.6,
+   "notes": "Est. Moga ~2,000 goods trucks (HGV/MGV) + tractor-trolleys; tricity ~1,500 truck-owning operators using Transport Nagar Chandigarh/Mohali/Zirakpur. Most owners hold 1-3 trucks. Former truck-union (cartel) members.",
+   "sourceIds": [
+    "s2",
+    "s3"
+   ]
+  },
+  {
+   "id": "transport_company",
+   "name": "Transport companies / booking agents (Transport Nagar)",
+   "region": "both",
+   "estimatedCount": 700,
+   "employeesTypical": 6,
+   "annualRevenueInrTypical": 20000000,
+   "grossMarginPct": 10,
+   "buysFrom": [
+    "truck_operator"
+   ],
+   "sellsTo": [
+    "industry",
+    "wholesaler",
+    "nestle_moga",
+    "exporter"
+   ],
+   "paymentTerms": "Bilty (LR) issued; consignor pays 'to pay' or 'paid'; credit 15-45 days to regular clients; commission 5-10% on hired trucks",
+   "creditPractice": "Advance diesel/cash to drivers; carry receivables of industry",
+   "seasonality": "Follows harvest and wedding/festival trade",
+   "informalShare": 0.4,
+   "notes": "Est. Moga ~150, tricity ~550 (Chandigarh Transport Area Sec 26/Indl Area, Mohali Phase, Zirakpur).",
+   "sourceIds": []
+  },
+  {
+   "id": "grain_transport_contractor",
+   "name": "Mandi labour & cartage (transport) contractors",
+   "region": "moga",
+   "estimatedCount": 40,
+   "employeesTypical": 200,
+   "annualRevenueInrTypical": 30000000,
+   "grossMarginPct": 12,
+   "buysFrom": [
+    "truck_operator",
+    "mandi_labour"
+   ],
+   "sellsTo": [
+    "state_agency",
+    "fci"
+   ],
+   "paymentTerms": "Paid by state agencies/FCI against tendered schedule-of-rates (+% premium cap); payment lag 1-6 months",
+   "creditPractice": "Need security deposits (~Rs 5/t cluster capacity); front labour wages and diesel",
+   "seasonality": "Apr-Jun and Oct-Dec",
+   "informalShare": 0.3,
+   "notes": "Cluster-wise annual tenders by Punjab Food & Civil Supplies (Transportation Policy). Since 2017-18 open tendering; where no bids after 3 attempts, arhtiyas/shellers allowed to bid. Labour: Rs ~16-19.26 per bag paid via contractors; palledar complaints of underpayment.",
+   "sourceIds": [
+    "s24",
+    "s26",
+    "s27",
+    "s28",
+    "s29"
+   ]
+  },
+  {
+   "id": "petrol_pump_moga",
+   "name": "Petrol pumps (Moga district)",
+   "region": "moga",
+   "estimatedCount": 170,
+   "employeesTypical": 10,
+   "annualRevenueInrTypical": 180000000,
+   "grossMarginPct": 3,
+   "buysFrom": [
+    "oil_marketing_company"
+   ],
+   "sellsTo": [
+    "farmer",
+    "truck_operator",
+    "household",
+    "custom_hirer"
+   ],
+   "paymentTerms": "OMC paid in advance (RTGS); retail UPI/cash/card; farmers and truckers on monthly diesel credit",
+   "creditPractice": "Diesel udhaar to farmers repaid at harvest; truck fleets monthly",
+   "seasonality": "Diesel peaks at harvest/sowing and paddy transplanting (Jun)",
+   "informalShare": 0.1,
+   "notes": "Est. Punjab ~3,800-4,000 outlets x ~4.5% (Moga). Margin is fixed dealer commission (~Rs 2-4/L). Punjab diesel Rs 95.59 vs Chandigarh Rs 89.47 (Oct 2026) - trucks fill in Chandigarh when possible.",
+   "sourceIds": [
+    "s8",
+    "s9"
+   ]
+  },
+  {
+   "id": "petrol_pump_tricity",
+   "name": "Petrol pumps (Chandigarh, Mohali, Panchkula)",
+   "region": "chandigarh",
+   "estimatedCount": 190,
+   "employeesTypical": 12,
+   "annualRevenueInrTypical": 250000000,
+   "grossMarginPct": 3,
+   "buysFrom": [
+    "oil_marketing_company"
+   ],
+   "sellsTo": [
+    "household",
+    "truck_operator",
+    "taxi",
+    "corporate"
+   ],
+   "paymentTerms": "UPI/card dominant; fleet cards",
+   "creditPractice": "Corporate/fleet credit monthly",
+   "seasonality": "Steady",
+   "informalShare": 0.05,
+   "notes": "Est. Chandigarh ~45, Mohali district ~100, Panchkula ~45. Chandigarh's lower VAT pulls fuel demand from Mohali/Zirakpur/Panchkula.",
+   "sourceIds": [
+    "s9",
+    "s10"
+   ]
+  },
+  {
+   "id": "dhaba",
+   "name": "Highway dhabas & roadside eateries",
+   "region": "both",
+   "estimatedCount": 450,
+   "employeesTypical": 6,
+   "annualRevenueInrTypical": 3000000,
+   "grossMarginPct": 45,
+   "buysFrom": [
+    "kiryana",
+    "wholesaler_fmcg",
+    "dairy_collection"
+   ],
+   "sellsTo": [
+    "truck_operator",
+    "traveller",
+    "household"
+   ],
+   "paymentTerms": "Cash/UPI; truckers sometimes on account",
+   "creditPractice": "Supplier credit 7-15 days from wholesaler",
+   "seasonality": "Steady; spikes on weekends and harvest truck traffic",
+   "informalShare": 0.85,
+   "notes": "Est. Moga ~250 (NH-5/NH-703, Moga-Kotkapura, Moga-Barnala) and ~200 on Kharar-Ludhiana/Zirakpur-Banur belts.",
+   "sourceIds": []
+  },
+  {
+   "id": "kiryana_moga",
+   "name": "Kiryana / general stores (Moga)",
+   "region": "moga",
+   "estimatedCount": 6500,
+   "employeesTypical": 2,
+   "annualRevenueInrTypical": 3600000,
+   "grossMarginPct": 12,
+   "buysFrom": [
+    "wholesaler_fmcg",
+    "fmcg_distributor",
+    "b2b_app"
+   ],
+   "sellsTo": [
+    "household"
+   ],
+   "paymentTerms": "Cash + UPI (QR now ubiquitous); 'khata' (udhaar) for regular households",
+   "creditPractice": "Udhaar for 20-40% of customers in villages (est.), settled monthly by salaried households and at harvest by farm households; wholesaler gives the shop 7-21 days credit",
+   "seasonality": "Spikes after harvest payments (May, Nov) and during Diwali/weddings",
+   "informalShare": 0.75,
+   "notes": "Est. ~1 per 32 households (~210k households). Most unregistered for GST (below Rs 40 lakh threshold or composition scheme).",
+   "sourceIds": [
+    "s59"
+   ]
+  },
+  {
+   "id": "kiryana_tricity",
+   "name": "Kiryana / convenience stores (tricity)",
+   "region": "chandigarh",
+   "estimatedCount": 12000,
+   "employeesTypical": 3,
+   "annualRevenueInrTypical": 6000000,
+   "grossMarginPct": 12,
+   "buysFrom": [
+    "wholesaler_fmcg",
+    "fmcg_distributor",
+    "b2b_app"
+   ],
+   "sellsTo": [
+    "household"
+   ],
+   "paymentTerms": "UPI dominant, cards; khata for known residents",
+   "creditPractice": "Monthly khata for salaried families; quick-commerce competition reduces credit power",
+   "seasonality": "Month-start (salary) spikes",
+   "informalShare": 0.5,
+   "notes": "Est. Chandigarh city has ~40,000 shops/establishments of which only ~13,900 registered with Labour Dept; quick commerce (Blinkit/Zepto/Instamart) present in tricity.",
+   "sourceIds": [
+    "s48"
+   ]
+  },
+  {
+   "id": "wholesaler_fmcg",
+   "name": "Wholesale traders & FMCG distributors (staples, packaged goods)",
+   "region": "both",
+   "estimatedCount": 600,
+   "employeesTypical": 8,
+   "annualRevenueInrTypical": 80000000,
+   "grossMarginPct": 5,
+   "buysFrom": [
+    "fmcg_company",
+    "roller_flour_mill",
+    "private_trader"
+   ],
+   "sellsTo": [
+    "kiryana_moga",
+    "kiryana_tricity",
+    "dhaba",
+    "restaurant"
+   ],
+   "paymentTerms": "FMCG companies need advance/RTGS; wholesaler gives retailers 7-21 days credit; cash discounts for immediate pay",
+   "creditPractice": "Credit lines to retailers tracked in books/apps; collection rounds weekly",
+   "seasonality": "Festival stocking Sep-Oct",
+   "informalShare": 0.35,
+   "notes": "Est. Moga ~150 (Main Bazar, New Town), tricity ~450 (Grain Market Sec 26 Chandigarh, Mohali Phase, Zirakpur). Ludhiana is the regional C&F hub feeding both.",
+   "sourceIds": []
+  },
+  {
+   "id": "cloth_wholesale_retail",
+   "name": "Cloth & readymade garment wholesale/retail (incl. Ludhiana hosiery resale)",
+   "region": "both",
+   "estimatedCount": 2200,
+   "employeesTypical": 3,
+   "annualRevenueInrTypical": 5000000,
+   "grossMarginPct": 25,
+   "buysFrom": [
+    "ludhiana_hosiery",
+    "textile_mill",
+    "wholesaler_cloth"
+   ],
+   "sellsTo": [
+    "household",
+    "tailor",
+    "wedding_buyer"
+   ],
+   "paymentTerms": "Retail cash/UPI; wholesale 'dhara' credit 30-90 days from Ludhiana/Amritsar suppliers",
+   "creditPractice": "Long trade credit chains; wedding-season bulk purchases by families sometimes on udhaar",
+   "seasonality": "Weddings Oct-Feb, festivals (Diwali, Lohri), winterwear from Ludhiana Sep-Dec",
+   "informalShare": 0.6,
+   "notes": "Est. Moga ~700, tricity ~1,500. DIC: apparel 28 units, textile 8 (manufacturing negligible in Moga; hosiery is Ludhiana).",
+   "sourceIds": [
+    "s1"
+   ]
+  },
+  {
+   "id": "jeweller",
+   "name": "Jewellers (gold, wedding jewellery)",
+   "region": "both",
+   "estimatedCount": 1300,
+   "employeesTypical": 4,
+   "annualRevenueInrTypical": 25000000,
+   "grossMarginPct": 8,
+   "buysFrom": [
+    "bullion_dealer",
+    "karigar"
+   ],
+   "sellsTo": [
+    "household",
+    "wedding_buyer"
+   ],
+   "paymentTerms": "Mixed cash/RTGS/UPI; PAN mandatory above Rs 2 lakh cash; old-gold exchange common; hallmarking (HUID)",
+   "creditPractice": "Gold savings schemes (11-month); some lend against gold (informal)",
+   "seasonality": "Wedding season Oct-Feb, Akshaya Tritiya, Dhanteras; NRI visit season Dec-Jan",
+   "informalShare": 0.3,
+   "notes": "Est. Moga ~400, tricity ~900. NRI remittances heavily fund wedding gold in Moga/Doaba-Malwa belt.",
+   "sourceIds": []
+  },
+  {
+   "id": "ielts_coaching",
+   "name": "IELTS / PTE coaching centres",
+   "region": "moga",
+   "estimatedCount": 150,
+   "employeesTypical": 6,
+   "annualRevenueInrTypical": 3000000,
+   "grossMarginPct": 40,
+   "buysFrom": [
+    "landlord",
+    "trainer"
+   ],
+   "sellsTo": [
+    "student"
+   ],
+   "paymentTerms": "Upfront course fees (Rs 8,000-20,000, est.) via UPI/cash; exam fees paid to IDP/British Council online",
+   "creditPractice": "Instalment plans; little credit",
+   "seasonality": "Admissions intakes Jan/May/Sep drive enrolment",
+   "informalShare": 0.4,
+   "notes": "Moga is a known IELTS hub; directory lists 47 IELTS centres (s44) but local estimates historically 200-300+. Canada's 2024 study-permit caps and SDS end cut Punjab enrolment 70-80% at some centres and closed ~30% of centres. Licensed under Punjab Prevention of Human Smuggling/Travel Professions Regulation Act 2012/2014.",
+   "sourceIds": [
+    "s42",
+    "s43",
+    "s44",
+    "s45"
+   ]
+  },
+  {
+   "id": "immigration_consultant",
+   "name": "Immigration consultants, visa & travel agents",
+   "region": "both",
+   "estimatedCount": 1100,
+   "employeesTypical": 5,
+   "annualRevenueInrTypical": 6000000,
+   "grossMarginPct": 35,
+   "buysFrom": [
+    "airline",
+    "university_agent",
+    "landlord"
+   ],
+   "sellsTo": [
+    "student",
+    "family",
+    "nri"
+   ],
+   "paymentTerms": "Fees in tranches (file opening, offer letter, visa); university commissions from abroad (forex inflow); tickets on cards/UPI",
+   "creditPractice": "Families fund study abroad via land sale/mortgage, education loans, arhtiya/relative loans; agents sometimes hold passports/fees as leverage",
+   "seasonality": "Tied to foreign intakes and NRI season (Nov-Jan)",
+   "informalShare": 0.35,
+   "notes": "Est. Moga ~250, tricity ~850 (Mohali alone had 471 registered travel agents; Sector 17/34 Chandigarh). Regular DC licence cancellations (e.g. 263 in Jalandhar). Demand shifting from Canada to Germany/France/Ireland/Australia.",
+   "sourceIds": [
+    "s42",
+    "s43",
+    "s45",
+    "s58"
+   ]
+  },
+  {
+   "id": "private_school",
+   "name": "Private schools",
+   "region": "both",
+   "estimatedCount": 1000,
+   "employeesTypical": 30,
+   "annualRevenueInrTypical": 15000000,
+   "grossMarginPct": 25,
+   "buysFrom": [
+    "publisher",
+    "bus_operator",
+    "landlord"
+   ],
+   "sellsTo": [
+    "household"
+   ],
+   "paymentTerms": "Monthly/quarterly fees via bank/UPI; transport fees separate",
+   "creditPractice": "Fee arrears tolerated for a term; farm households pay after harvest",
+   "seasonality": "Admissions Mar-Apr; fee peaks Apr and Oct",
+   "informalShare": 0.2,
+   "notes": "Est. Moga ~400 private schools (2010: 403 primary + 374 middle/high/senior-secondary across all managements), tricity ~600 incl. high-fee CBSE schools.",
+   "sourceIds": [
+    "s1"
+   ]
+  },
+  {
+   "id": "coaching_tuition",
+   "name": "Coaching institutes / tuition (JEE/NEET/govt jobs/computer)",
+   "region": "both",
+   "estimatedCount": 1300,
+   "employeesTypical": 5,
+   "annualRevenueInrTypical": 2500000,
+   "grossMarginPct": 45,
+   "buysFrom": [
+    "landlord",
+    "teacher"
+   ],
+   "sellsTo": [
+    "student"
+   ],
+   "paymentTerms": "Upfront/instalment fees, UPI",
+   "creditPractice": "Instalments",
+   "seasonality": "Peaks Apr-Jul",
+   "informalShare": 0.6,
+   "notes": "Est. Sector 34 Chandigarh coaching hub ~500 institutes; Moga ~300 (DIC lists coaching among services).",
+   "sourceIds": [
+    "s1"
+   ]
+  },
+  {
+   "id": "hospital_clinic",
+   "name": "Private hospitals, nursing homes & clinics",
+   "region": "both",
+   "estimatedCount": 1700,
+   "employeesTypical": 15,
+   "annualRevenueInrTypical": 20000000,
+   "grossMarginPct": 30,
+   "buysFrom": [
+    "pharma_distributor",
+    "equipment_supplier",
+    "lab"
+   ],
+   "sellsTo": [
+    "household",
+    "insurer",
+    "govt_scheme"
+   ],
+   "paymentTerms": "Cash/UPI/cards upfront; cashless via insurers and Ayushman Bharat/Mukh Mantri Sehat Bima (reimbursed 30-90 days)",
+   "creditPractice": "Families borrow from arhtiyas/relatives for surgery; pharma distributors give 30-60 days",
+   "seasonality": "Steady; dengue Sep-Nov",
+   "informalShare": 0.2,
+   "notes": "Est. Moga ~250 (2011: 1 govt district hospital, 5 CHCs, 22 PHCs, 53 dispensaries), tricity ~1,450 incl. PGIMER, GMCH-32, Fortis Mohali, Max Mohali, Alchemist Panchkula.",
+   "sourceIds": [
+    "s1"
+   ]
+  },
+  {
+   "id": "pharmacy",
+   "name": "Chemists / pharmacies",
+   "region": "both",
+   "estimatedCount": 3300,
+   "employeesTypical": 2,
+   "annualRevenueInrTypical": 6000000,
+   "grossMarginPct": 18,
+   "buysFrom": [
+    "pharma_distributor"
+   ],
+   "sellsTo": [
+    "household",
+    "hospital_clinic"
+   ],
+   "paymentTerms": "Cash/UPI; distributors give 30-45 days",
+   "creditPractice": "Small udhaar to regulars",
+   "seasonality": "Steady",
+   "informalShare": 0.3,
+   "notes": "Est. Moga ~800, tricity ~2,500. Panchkula/Baddi pharma belt supplies.",
+   "sourceIds": []
+  },
+  {
+   "id": "bank_branch",
+   "name": "Commercial & cooperative bank branches",
+   "region": "both",
+   "estimatedCount": 1300,
+   "employeesTypical": 10,
+   "annualRevenueInrTypical": 30000000,
+   "grossMarginPct": 30,
+   "buysFrom": [
+    "depositor",
+    "rbi"
+   ],
+   "sellsTo": [
+    "farmer",
+    "msme",
+    "household",
+    "nri"
+   ],
+   "paymentTerms": "KCC (crop loans ~7% with subvention), CC limits, NRI deposit accounts",
+   "creditPractice": "KCC renewed annually; NPAs high in agriculture; arhtiyas often route farmer payments",
+   "seasonality": "KCC disbursal Apr-Jun and Oct-Dec",
+   "informalShare": 0.0,
+   "notes": "Moga had 166 branches in 2010 (SBI 16, SBOP 11, PNB 15, others 77, cooperative 47); est. ~260 now. Tricity est. ~1,050 (Chandigarh ~500). Large NRI deposit base in Moga. Revenue = est. net interest + fee income per branch (~Rs 100 cr book x ~3% spread).",
+   "sourceIds": [
+    "s1"
+   ]
+  },
+  {
+   "id": "coop_society",
+   "name": "Primary agricultural cooperative societies (PACS)",
+   "region": "moga",
+   "estimatedCount": 190,
+   "employeesTypical": 3,
+   "annualRevenueInrTypical": 20000000,
+   "grossMarginPct": 4,
+   "buysFrom": [
+    "cooperative_bank",
+    "fertilizer_company"
+   ],
+   "sellsTo": [
+    "farmer"
+   ],
+   "paymentTerms": "Short-term crop loans in kind (fertilizer) and cash; recovery after harvest",
+   "creditPractice": "Members borrow up to limit; defaults rolled over; fertilizer at MRP",
+   "seasonality": "Fertilizer peaks Oct-Dec and Jun-Aug",
+   "informalShare": 0.0,
+   "notes": "Est. Punjab ~3,500 PACS; Moga ~190. Central Cooperative Bank Moga branches funded them.",
+   "sourceIds": [
+    "s1"
+   ]
+  },
+  {
+   "id": "moneylender_mfi",
+   "name": "Moneylenders, MFIs & NBFC lenders",
+   "region": "moga",
+   "estimatedCount": 400,
+   "employeesTypical": 3,
+   "annualRevenueInrTypical": 5000000,
+   "grossMarginPct": 50,
+   "buysFrom": [
+    "bank",
+    "own_capital"
+   ],
+   "sellsTo": [
+    "landless_labourer",
+    "small_farmer",
+    "woman_jlg",
+    "truck_operator"
+   ],
+   "paymentTerms": "Weekly/monthly cash or UPI collection; JLG loans fortnightly",
+   "creditPractice": "Informal 2-3%/month; MFI ~22-26% p.a.; NBFC vehicle loans 14-18%",
+   "seasonality": "Demand peaks in lean months and before weddings",
+   "informalShare": 0.6,
+   "notes": "Est. Arhtiyas are the main informal lender to landed farmers (>1/5 of rural debt to arhtiyas+moneylenders, per PARI); MFIs/NBFCs serve labourers and women's groups.",
+   "sourceIds": [
+    "s20",
+    "s22"
+   ]
+  },
+  {
+   "id": "real_estate_builder",
+   "name": "Real estate developers & brokers (Mohali/New Chandigarh/Zirakpur/Kharar)",
+   "region": "chandigarh",
+   "estimatedCount": 900,
+   "employeesTypical": 15,
+   "annualRevenueInrTypical": 100000000,
+   "grossMarginPct": 25,
+   "buysFrom": [
+    "construction_trade",
+    "brick_kiln",
+    "cement_steel_dealer"
+   ],
+   "sellsTo": [
+    "household",
+    "nri",
+    "investor"
+   ],
+   "paymentTerms": "Construction-linked plans via bank home loans; cash component in resale land deals; RERA escrow 70%",
+   "creditPractice": "Developer funding from NBFCs/private credit; buyers from NRI remittances",
+   "seasonality": "Pre-launch cycles; NRI season Dec-Jan",
+   "informalShare": 0.3,
+   "notes": "Est. incl. brokers. Mohali/Kharar/Zirakpur growth absorbs Punjab rural savings and NRI money from Moga-Malwa belt.",
+   "sourceIds": []
+  },
+  {
+   "id": "construction_trade",
+   "name": "Construction firms, masons & building-material dealers (cement, steel, hardware)",
+   "region": "both",
+   "estimatedCount": 3000,
+   "employeesTypical": 8,
+   "annualRevenueInrTypical": 8000000,
+   "grossMarginPct": 15,
+   "buysFrom": [
+    "brick_kiln",
+    "cement_steel_dealer",
+    "labour_contractor"
+   ],
+   "sellsTo": [
+    "household",
+    "real_estate_builder",
+    "government"
+   ],
+   "paymentTerms": "Stage payments; cash wages to (often migrant) labour weekly",
+   "creditPractice": "Dealers give 30-60 day credit to contractors",
+   "seasonality": "Oct-Jun; slows in monsoon",
+   "informalShare": 0.7,
+   "notes": "Est. Moga ~1,000, tricity ~2,000. Dealers sell cement, steel, sanitaryware.",
+   "sourceIds": []
+  },
+  {
+   "id": "brick_kiln",
+   "name": "Brick kilns",
+   "region": "moga",
+   "estimatedCount": 110,
+   "employeesTypical": 80,
+   "annualRevenueInrTypical": 25000000,
+   "grossMarginPct": 20,
+   "buysFrom": [
+    "coal_trader",
+    "landowner",
+    "labour_contractor"
+   ],
+   "sellsTo": [
+    "construction_trade",
+    "household"
+   ],
+   "paymentTerms": "Advance (peshgi) to migrant labour families recovered from per-1,000-brick piece rates; buyers cash/UPI on delivery",
+   "creditPractice": "Labour advance-debt bondage risk; buyers credit 15-30 days",
+   "seasonality": "Firing season Nov-Jun; closed monsoon",
+   "informalShare": 0.6,
+   "notes": "Punjab ~2,700 kilns (2014); Moga named among districts with most kilns. Est. 100-120 in Moga (DIC: non-metallic mineral products 120 units, 3,608 employees, 2010-11).",
+   "sourceIds": [
+    "s1",
+    "s49"
+   ]
+  },
+  {
+   "id": "auto_dealer",
+   "name": "Car, two-wheeler & commercial vehicle dealers",
+   "region": "both",
+   "estimatedCount": 200,
+   "employeesTypical": 40,
+   "annualRevenueInrTypical": 400000000,
+   "grossMarginPct": 5,
+   "buysFrom": [
+    "vehicle_oem",
+    "bank"
+   ],
+   "sellsTo": [
+    "household",
+    "nri",
+    "truck_operator",
+    "taxi"
+   ],
+   "paymentTerms": "Bank/NBFC finance + down-payment; cash/UPI for small; trade-in",
+   "creditPractice": "Floor-plan credit from OEM-linked banks",
+   "seasonality": "Navratri-Diwali, Baisakhi, post-harvest; SUVs very popular",
+   "informalShare": 0.05,
+   "notes": "Est. Moga ~50, tricity ~150.",
+   "sourceIds": []
+  },
+  {
+   "id": "mobile_electronics",
+   "name": "Mobile phone & consumer electronics retail/repair",
+   "region": "both",
+   "estimatedCount": 2200,
+   "employeesTypical": 3,
+   "annualRevenueInrTypical": 6000000,
+   "grossMarginPct": 10,
+   "buysFrom": [
+    "distributor"
+   ],
+   "sellsTo": [
+    "household",
+    "student"
+   ],
+   "paymentTerms": "UPI/cash; consumer-durable EMI (Bajaj Finserv etc.)",
+   "creditPractice": "NBFC 0% EMI pervasive; shop gives little credit",
+   "seasonality": "Festival and harvest peaks",
+   "informalShare": 0.4,
+   "notes": "Est. Moga ~700, tricity ~1,500. DIC flags mobile repair as a service potential.",
+   "sourceIds": [
+    "s1"
+   ]
+  },
+  {
+   "id": "restaurant_cafe",
+   "name": "Restaurants, cafes, sweet shops (halwais), bakeries",
+   "region": "both",
+   "estimatedCount": 4000,
+   "employeesTypical": 8,
+   "annualRevenueInrTypical": 8000000,
+   "grossMarginPct": 55,
+   "buysFrom": [
+    "wholesaler_fmcg",
+    "dairy_collection",
+    "vegetable_mandi"
+   ],
+   "sellsTo": [
+    "household",
+    "student",
+    "tourist",
+    "corporate"
+   ],
+   "paymentTerms": "UPI/cards; Zomato/Swiggy settle weekly minus commission",
+   "creditPractice": "Suppliers 7-30 days",
+   "seasonality": "Weekends, festivals; Chandigarh nightlife; halwais peak Diwali/weddings",
+   "informalShare": 0.45,
+   "notes": "Est. Moga ~700, tricity ~3,300 (Sector 7/8/26/35 Chandigarh, Mohali Phase 3B2/7, Zirakpur).",
+   "sourceIds": []
+  },
+  {
+   "id": "it_ites",
+   "name": "IT / ITES firms (Chandigarh IT Park, Mohali Quark City/IT City)",
+   "region": "chandigarh",
+   "estimatedCount": 800,
+   "employeesTypical": 60,
+   "annualRevenueInrTypical": 30000000,
+   "grossMarginPct": 30,
+   "buysFrom": [
+    "landlord",
+    "cloud_vendor"
+   ],
+   "sellsTo": [
+    "foreign_client",
+    "domestic_client"
+   ],
+   "paymentTerms": "Invoiced with GST/LUT for exports; salaries via bank monthly",
+   "creditPractice": "Formal; receivables 30-90 days from clients",
+   "seasonality": "Steady",
+   "informalShare": 0.05,
+   "notes": "Punjab: 150+ registered IT units, ~35,000 professionals (Mohali), Quark City 70+ IT/ITeS firms; Infosys Chandigarh ~6,000 staff; plus Tech Mahindra, Teleperformance, TaskUs. Est. tricity IT/ITES employment ~70,000-90,000.",
+   "sourceIds": [
+    "s46",
+    "s47"
+   ]
+  },
+  {
+   "id": "govt_employment_tricity",
+   "name": "Government employers (UT admin, Punjab & Haryana secretariats, central offices, PGIMER, PU, police, courts)",
+   "region": "chandigarh",
+   "estimatedCount": 1,
+   "employeesTypical": 150000,
+   "annualRevenueInrTypical": 0,
+   "grossMarginPct": 0,
+   "buysFrom": [
+    "taxpayer"
+   ],
+   "sellsTo": [
+    "household"
+   ],
+   "paymentTerms": "Monthly salaries/pensions via bank (1st of month)",
+   "creditPractice": "Salary-backed personal loans; government employees are the most creditworthy kiryana khata customers",
+   "seasonality": "Steady; DA hikes, pay commission arrears are demand shocks",
+   "informalShare": 0.0,
+   "notes": "Aggregate employer (count=1). Est. ~150,000 serving employees and large pensioner base; drives tricity consumption and housing demand.",
+   "sourceIds": []
+  },
+  {
+   "id": "govt_employment_moga",
+   "name": "Government employers (Punjab govt teachers, police, PSPCL, district offices)",
+   "region": "moga",
+   "estimatedCount": 1,
+   "employeesTypical": 15000,
+   "annualRevenueInrTypical": 0,
+   "grossMarginPct": 0,
+   "buysFrom": [
+    "taxpayer"
+   ],
+   "sellsTo": [
+    "household"
+   ],
+   "paymentTerms": "Monthly salary via bank",
+   "creditPractice": "Salary-backed loans",
+   "seasonality": "Steady",
+   "informalShare": 0.0,
+   "notes": "Aggregate employer (count=1). Est. ~15,000 employees in district; 2010 had 403 primary, 374 secondary-level schools, 22 PHCs, 5 CHCs.",
+   "sourceIds": [
+    "s1"
+   ]
+  },
+  {
+   "id": "hotel",
+   "name": "Hotels & guest houses",
+   "region": "both",
+   "estimatedCount": 330,
+   "employeesTypical": 25,
+   "annualRevenueInrTypical": 30000000,
+   "grossMarginPct": 35,
+   "buysFrom": [
+    "wholesaler_fmcg",
+    "laundry",
+    "ota"
+   ],
+   "sellsTo": [
+    "tourist",
+    "business_traveller",
+    "wedding_party"
+   ],
+   "paymentTerms": "OTA (MakeMyTrip/Booking) settle 7-30 days; corporate credit; GST invoices",
+   "creditPractice": "Corporate 30-day credit",
+   "seasonality": "Wedding season, conferences, Shimla-bound tourists through Chandigarh",
+   "informalShare": 0.25,
+   "notes": "Est. Moga ~40, tricity ~290.",
+   "sourceIds": []
+  },
+  {
+   "id": "banquet_wedding",
+   "name": "Marriage palaces, banquet halls, caterers, tent houses, DJs, decorators",
+   "region": "both",
+   "estimatedCount": 900,
+   "employeesTypical": 20,
+   "annualRevenueInrTypical": 20000000,
+   "grossMarginPct": 35,
+   "buysFrom": [
+    "wholesaler_fmcg",
+    "dairy_collection",
+    "decorator",
+    "musician"
+   ],
+   "sellsTo": [
+    "household",
+    "nri"
+   ],
+   "paymentTerms": "Booking advance 20-30%, balance on the day in cash/RTGS; large cash component",
+   "creditPractice": "Families fund weddings from harvest money, NRI remittances, arhtiya loans",
+   "seasonality": "Oct-Mar (auspicious dates), Feb peak; NRI weddings Dec-Feb",
+   "informalShare": 0.55,
+   "notes": "Est. Moga ~350 (incl. GT-road marriage palaces, caterers), tricity ~550. Punjabi weddings among most expensive in India relative to income.",
+   "sourceIds": []
+  },
+  {
+   "id": "gurdwara_economy",
+   "name": "Gurdwaras & religious-trust economy (langar, kar seva, shops)",
+   "region": "both",
+   "estimatedCount": 900,
+   "employeesTypical": 5,
+   "annualRevenueInrTypical": 3000000,
+   "grossMarginPct": 0,
+   "buysFrom": [
+    "wholesaler_fmcg",
+    "dairy_collection",
+    "farmer"
+   ],
+   "sellsTo": [
+    "community"
+   ],
+   "paymentTerms": "Donations (cash, UPI QR, wheat/milk in kind); bulk purchases of atta, dal, ghee, LPG",
+   "creditPractice": "Not credit-based; donations surge at harvest and gurpurabs",
+   "seasonality": "Gurpurab (Nov), Baisakhi (Apr), Hola Mohalla; harvest-time donations",
+   "informalShare": 0.6,
+   "notes": "Est. Moga ~550 gurdwaras (1-2 per village + town), tricity ~350. Langar is a significant B2B buyer of staples and a safety-net food source.",
+   "sourceIds": []
+  },
+  {
+   "id": "ecommerce_delivery",
+   "name": "E-commerce & quick-commerce delivery hubs (Amazon, Flipkart, Delhivery, Blinkit and Zepto dark stores)",
+   "region": "both",
+   "estimatedCount": 160,
+   "employeesTypical": 40,
+   "annualRevenueInrTypical": 30000000,
+   "grossMarginPct": 10,
+   "buysFrom": [
+    "platform",
+    "truck_operator"
+   ],
+   "sellsTo": [
+    "household"
+   ],
+   "paymentTerms": "Platform pays hub/franchise per parcel; COD collected in cash/UPI then remitted",
+   "creditPractice": "Riders paid weekly per drop",
+   "seasonality": "Festive sales Sep-Oct",
+   "informalShare": 0.2,
+   "notes": "Est. Moga ~25 hubs (COD share high), tricity ~135 incl. ~60 quick-commerce dark stores. Riders ~10-15 per hub.",
+   "sourceIds": []
+  },
+  {
+   "id": "sabzi_mandi_trader",
+   "name": "Fruit & vegetable wholesale mandi traders (Sec 26 Chandigarh, Mohali Phase 11, Moga sabzi mandi)",
+   "region": "both",
+   "estimatedCount": 700,
+   "employeesTypical": 5,
+   "annualRevenueInrTypical": 8000000,
+   "grossMarginPct": 8,
+   "buysFrom": [
+    "farmer",
+    "outstation_trader"
+   ],
+   "sellsTo": [
+    "retailer_vendor",
+    "restaurant_cafe",
+    "hotel"
+   ],
+   "paymentTerms": "Farmers paid cash/UPI same day minus commission (~4-6%, est.); retail vendors buy on daily credit",
+   "creditPractice": "Daily/weekly running credit to rehri vendors",
+   "seasonality": "Year-round; potato/peas season Dec-Mar",
+   "informalShare": 0.6,
+   "notes": "Est.",
+   "sourceIds": []
+  },
+  {
+   "id": "pds_depot",
+   "name": "Ration depots (PDS under NFSA)",
+   "region": "moga",
+   "estimatedCount": 800,
+   "employeesTypical": 1,
+   "annualRevenueInrTypical": 800000,
+   "grossMarginPct": 0,
+   "buysFrom": [
+    "state_agency"
+   ],
+   "sellsTo": [
+    "nfsa_household"
+   ],
+   "paymentTerms": "Free wheat under PMGKAY; dealer margin per qtl from govt",
+   "creditPractice": "Govt margin delays",
+   "seasonality": "Monthly/quarterly distribution",
+   "informalShare": 0.0,
+   "notes": "Est. Punjab ~18,000 depots x ~4.5%.",
+   "sourceIds": []
+  },
+  {
+   "id": "mohali_manufacturing",
+   "name": "Organised manufacturing (Mohali, Derabassi, Panchkula, Chandigarh Industrial Area)",
+   "region": "chandigarh",
+   "estimatedCount": 2500,
+   "employeesTypical": 40,
+   "annualRevenueInrTypical": 150000000,
+   "grossMarginPct": 20,
+   "buysFrom": [
+    "steel_trader",
+    "component_supplier",
+    "transport_company"
+   ],
+   "sellsTo": [
+    "oem",
+    "distributor",
+    "export"
+   ],
+   "paymentTerms": "GST invoices, 30-90 day credit, MSME 45-day rule (Sec 43B(h))",
+   "creditPractice": "Bank CC limits; TReDS",
+   "seasonality": "Steady",
+   "informalShare": 0.15,
+   "notes": "Est. Products: tractors, auto parts, pharma, electronics, chemicals. Incl. Swaraj tractors (Mahindra, Mohali), Chandigarh Industrial Area Ph I/II, Mohali Phases, Derabassi pharma/chemicals, Panchkula. Chandigarh GST base ~33,800 registered taxpayers (Jun 2026).",
+   "sourceIds": [
+    "s18"
+   ]
+  },
+  {
+   "id": "hosiery_garment",
+   "name": "Hosiery & garment small units / tailoring",
+   "region": "both",
+   "estimatedCount": 900,
+   "employeesTypical": 4,
+   "annualRevenueInrTypical": 2000000,
+   "grossMarginPct": 22,
+   "buysFrom": [
+    "ludhiana_yarn_trader",
+    "cloth_wholesale_retail"
+   ],
+   "sellsTo": [
+    "cloth_wholesale_retail",
+    "household"
+   ],
+   "paymentTerms": "Job-work paid weekly cash; wholesale credit 60-90 days",
+   "creditPractice": "Long credit chains to Ludhiana",
+   "seasonality": "Winter-wear Aug-Dec",
+   "informalShare": 0.8,
+   "notes": "Moga is not a hosiery cluster (DIC: 28 apparel units); Ludhiana (60 km) is. Mostly boutiques/tailors (DIC lists designer boutiques as potential).",
+   "sourceIds": [
+    "s1"
+   ]
+  }
+ ]
+}
