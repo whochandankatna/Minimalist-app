@@ -37,14 +37,12 @@ export class Stats {
     this.flowsMonth[kind] = (this.flowsMonth[kind] ?? 0) + amount;
   }
 
-  beginDay(_day: number) { this.flowsToday = {}; }
 
   rollMonth() { this.flowsLastMonth = this.flowsMonth; this.flowsMonth = {}; }
 
   endDay(w: World) {
     const f = this.flowsToday;
     const g = (k: string) => f[k] ?? 0;
-    const busy = w.trucks.filter(t => t.state !== 'idle').length;
     let backlog = 0;
     for (const s of w.mandiStock.values()) for (const v of Object.values(s)) backlog += v;
     const sent = { moga: [0, 0], chandigarh: [0, 0] };
@@ -60,7 +58,7 @@ export class Stats {
       cropSales: g('crop_sale'), milkSales: g('milk_sale'), procurement: g('procurement'), freight: g('freight'), fuel: g('fuel'),
       tolls: g('toll'), wages: g('wages'), remittance: g('remittance'), leakage: g('leakage'),
       paddyPrice: w.prices.paddy ?? 0, wheatPrice: w.prices.wheat ?? 0, basmatiPrice: w.prices.basmati ?? 0, milkPrice: w.prices.milk ?? 0,
-      truckUtil: w.trucks.length ? busy / w.trucks.length : 0, jobsWaiting: w.jobs.filter(j => j.takenBy == null).length,
+      truckUtil: w.trucks.length ? Math.min(1, w.truckBusyHours / (24 * w.trucks.length)) : 0, jobsWaiting: w.jobs.filter(j => j.takenBy == null).length,
       mandiBacklogT: backlog, aqi: w.env.aqi, burns: w.env.burnsToday,
       sentimentMoga: sent.moga[1] ? sent.moga[0] / sent.moga[1] : 0,
       sentimentChd: sent.chandigarh[1] ? sent.chandigarh[0] / sent.chandigarh[1] : 0,
@@ -72,6 +70,9 @@ export class Stats {
       if (this.series[k].length > MAX_DAYS) this.series[k].shift();
     }
     if (this.days.length > MAX_DAYS) this.days.shift();
+    // Reset after recording: hourly truck flows accumulate between day boundaries.
+    this.flowsToday = {};
+    w.truckBusyHours = 0;
   }
 
   last(k: SeriesKey): number { const s = this.series[k]; return s[s.length - 1] ?? 0; }

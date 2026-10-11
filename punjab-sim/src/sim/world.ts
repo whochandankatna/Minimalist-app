@@ -61,6 +61,8 @@ export class World {
   labourPool: Record<Region, number> = { moga: 0, chandigarh: 0 };
   profitPool: Record<Region, number> = { moga: 0, chandigarh: 0 };
   freightSurge = 1;
+  /** truck-hours spent working since the last day boundary (for utilisation) */
+  truckBusyHours = 0;
   labourDemandIndex: Record<Region, number> = { moga: 1, chandigarh: 1 };
   key: {
     villages: string[]; mandis: string[]; godown: string; railhead: string; nestle: string;
@@ -203,8 +205,14 @@ export class World {
     return this.policy.dieselPrice ?? this.data.logistics.fuel?.dieselInrPerLitrePunjab ?? this.data.agriculture.inputs?.dieselInrPerLitre ?? 88;
   }
 
-  commissionPct(): number {
-    return this.policy.arhtiyaCommissionPct ?? this.data.agriculture.mandiSystem?.arhtiyaCommissionPct ?? 2.5;
+  /** Arhtiya commission as % of MSP. The Centre pays a fixed ₹/qtl on central-pool grain when researched. */
+  commissionPct(cropId = 'paddy'): number {
+    if (this.policy.arhtiyaCommissionPct != null) return this.policy.arhtiyaCommissionPct;
+    const ms = this.data.agriculture.mandiSystem as { arhtiyaCommissionInrPerQtl?: Record<string, unknown>; arhtiyaCommissionPct?: number | null } | undefined;
+    const perQtl = ms?.arhtiyaCommissionInrPerQtl?.[cropId];
+    const msp = this.msp(cropId);
+    if (typeof perQtl === 'number' && msp) return (perQtl / msp) * 100;
+    return ms?.arhtiyaCommissionPct ?? 2.5;
   }
 
   // ---------------------------------------------------------------- agents
@@ -327,7 +335,8 @@ export class World {
       cash: income * this.rng.range(0.5, 2.5) * (1 + (p.savingsRate ?? 0.1) * 4),
       debtBank: 0, debtArhtiya: 0, udhaar: 0, arhtiyaId: null, loyalty: {}, farm: null,
       sentiment: 0.6, incomeMonth: 0, spendMonth: 0, incomeLastMonth: income, spendLastMonth: income * (1 - (p.savingsRate ?? 0.1)),
-      migration: 'none', migrationTimer: 0, membersAbroad: (src.remittance ?? 0) > 0.2 ? 1 : 0, weddingPlannedDay: null,
+      migration: 'none', migrationTimer: 0, // Only diaspora households start with someone abroad; students' "remittance" is family support.
+      membersAbroad: (src.remittance ?? 0) > 0.2 && /nri|diaspora|abroad/i.test(p.id + p.name) ? 1 : 0, weddingPlannedDay: null,
       log: [], custom: !!opts.custom,
     };
     this.households.push(hh);
@@ -384,7 +393,6 @@ export class World {
   }
 
   private daily() {
-    this.stats.beginDay(this.dayIndex);
     if (this.dayOfMonth() === 1) {
       householdsMonthly(this);
       businessesMonthly(this);

@@ -1,0 +1,885 @@
+{
+  "meta": {
+    "compiledOn": "2026-10-11",
+    "region": "Moga district (Punjab) with Punjab state fallbacks; Chandigarh is treated as the urban consumer/administrative hub",
+    "conventions": {
+      "currency": "INR, nominal, as of the year stated in each note",
+      "area": "hectares (1 acre = 0.4047 ha)",
+      "yield": "quintals per hectare (1 qtl = 100 kg); paddy yields are paddy (unmilled), cotton yield is lint",
+      "null": "null means the value could not be verified from an official or citable source; do not fill it with guesses",
+      "derived": "fields whose note says 'derived' are computed from cited inputs; the arithmetic is shown in the note"
+    },
+    "sources": [
+      {
+        "id": "s1",
+        "title": "PIB: Cabinet approves MSP for Kharif crops for Marketing Season 2026-27 (13 May 2026)",
+        "url": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2260617"
+      },
+      {
+        "id": "s2",
+        "title": "DD News: Cabinet approves higher MSP for 14 Kharif crops for 2026-27 marketing season",
+        "url": "https://ddnews.gov.in/en/cabinet-approves-higher-msp-for-14-kharif-crops-for-2026-27-marketing-season/"
+      },
+      {
+        "id": "s3",
+        "title": "PAU Package of Practices for Crops of Punjab, Kharif 2026 (Annexure I MSP table 2021-22 to 2025-26; Annexure II district-wise APY 2024-25, source Dept of Agriculture & FW Punjab; PR 126 variety notes)",
+        "url": "https://pau.edu/content/ccil/pf/pp_kharif.pdf"
+      },
+      {
+        "id": "s4",
+        "title": "PAU Package of Practices for Crops of Punjab, Rabi 2025-26 (Appendix I(B) district-wise APY of rabi crops 2023-24; wheat fertiliser and seed rates; berseem chapter)",
+        "url": "https://pau.edu/content/ccil/pf/pp_rabi.pdf"
+      },
+      {
+        "id": "s5",
+        "title": "All India Radio News: Union Cabinet hikes MSP for rabi crops for 2027-28 marketing season (1 Oct 2026)",
+        "url": "https://newsonair.gov.in/union-cabinet-hikes-minimum-support-prices-for-rabi-crops-for-2027-28-marketing-season/"
+      },
+      {
+        "id": "s6",
+        "title": "The Federal (PTI): Cabinet approves Rs 25 hike in wheat MSP to Rs 2,610 per quintal for 2027-28",
+        "url": "https://thefederal.com/category/news/cabinet-approves-rs-25-hike-in-wheat-msp-to-rs-2610-per-quintal-for-2027-28-258133"
+      },
+      {
+        "id": "s7",
+        "title": "Ministry of Agriculture & FW (DES/UPAg) via Dataful: District and season-wise APY for wheat (Moga 2024-25 row)",
+        "url": "https://dataful.in/datasets/21154/"
+      },
+      {
+        "id": "s8",
+        "title": "APEDA/BEDF: Crop survey for acreage, crop health and expected yield of basmati rice 2023, Vol VI (Punjab district table)",
+        "url": "https://apeda.gov.in/sites/default/files/documents/2025-06/Basmati_Crop_survey_Report_6_Season_2023.pdf"
+      },
+      {
+        "id": "s9",
+        "title": "PAU Potato Cultivation page: area and production of potato in major districts 2023-24 (source Dept of Horticulture, Punjab)",
+        "url": "https://pau.edu/potato/Potato_cult.php"
+      },
+      {
+        "id": "s10",
+        "title": "All India Radio News: Govt revises commission rates for wheat and paddy procurement from Rabi 2026-27 (17 Mar 2026)",
+        "url": "https://www.newsonair.gov.in/govt-revises-commission-rates-for-wheat-and-paddy-procurement-from-rabi-2026-27"
+      },
+      {
+        "id": "s11",
+        "title": "The Tribune: Punjab moves Supreme Court for release of Rs 4,200-crore RDF, market fee dues",
+        "url": "https://www.tribuneindia.com/news/punjab/punjab-moves-supreme-court-for-release-of-rs-4-200-crore-rdf-market-fee-dues-523083"
+      },
+      {
+        "id": "s12",
+        "title": "NSO, NSS Report No. 587: Situation Assessment of Agricultural Households and Land and Livestock Holdings of Households in Rural India, 2019 (77th round)",
+        "url": "https://mospi.gov.in/sites/default/files/publication_reports/Report_587m_0.pdf"
+      },
+      {
+        "id": "s13",
+        "title": "DAHD: Basic Animal Husbandry Statistics 2025 (reference year 2024-25), Tables 37, 43, 49(A)",
+        "url": "https://dahd.gov.in/sites/default/files/2026-02/BAHS2025.pdf"
+      },
+      {
+        "id": "s14",
+        "title": "Kaur, Iqubal, Toor & Abusaad (2024), Cost-Benefit Analysis of Buffalo Milk Production in India, Journal of Buffalo Science 13:1-9 (Punjab field survey 2019)",
+        "url": "https://journals.indexcopernicus.com/api/file/viewByFileId/2019563"
+      },
+      {
+        "id": "s15",
+        "title": "Nestle India: Sustaining Farms / farm economics (Moga milk district)",
+        "url": "https://www.nestle.in/csv/communities/farm-economics"
+      },
+      {
+        "id": "s16",
+        "title": "The Tribune: Milkfed Punjab announces increase in milk procurement price for farmers (28 Apr 2026, +Rs 20/kg fat from 1 May)",
+        "url": "https://www.tribuneindia.com/news/punjab/milkfed-punjab-announces-increase-in-milk-procurement-price-for-farmers/"
+      },
+      {
+        "id": "s17",
+        "title": "Dairy Dimension: Verka hikes milk purchase price by Rs 10 per kg of fat (buffalo Rs 810 to 820, cow Rs 770 to 780 per kg fat, from 11 Jun 2024)",
+        "url": "https://dairydimension.com/verka-hikes-milk-purchase-price-by-%E2%82%B910-per-kg-of-fat/"
+      },
+      {
+        "id": "s18",
+        "title": "Goodreturns: Diesel price in Moga (11 Oct 2026)",
+        "url": "https://www.goodreturns.in/diesel-price-in-moga.html"
+      },
+      {
+        "id": "s19",
+        "title": "Fertiliser MRPs: urea statutory MRP Rs 242/45 kg excl. neem coating and taxes; DAP Rs 1,350/50 kg (secondary summaries of Lok Sabha replies / NBS Kharif 2026)",
+        "url": "https://www.pw.live/upsc/exams/nutrient-based-subsidy-nbs-2026"
+      },
+      {
+        "id": "s20",
+        "title": "The Tribune: Falling watertable cause for worry (Moga, 15 Mar 2022): ~64,232 tubewells, all 5 blocks over-exploited",
+        "url": "https://www.tribuneindia.com/news/punjab/falling-watertable-cause-for-worry-377891"
+      },
+      {
+        "id": "s21",
+        "title": "Down To Earth: Centre doubles stubble burning fines; farmers to pay up to Rs 30,000 (CAQM amendment, Nov 2024)",
+        "url": "https://www.downtoearth.org.in/air/centre-doubles-fine-for-stubble-burning-farmers-to-pay-up-to-rs-30000"
+      },
+      {
+        "id": "s22",
+        "title": "The Tribune: High land lease rentals crippling cultivators (Jul 2023)",
+        "url": "https://www.tribuneindia.com/news/features/high-land-lease-rentals-crippling-cultivators-526335"
+      },
+      {
+        "id": "s23",
+        "title": "PARI: Punjab's arhtiyas - sins of commission (arhtiya interest rates)",
+        "url": "https://ruralindiaonline.org/article/punjabs-arhtiyas-sins-of-commission"
+      },
+      {
+        "id": "s24",
+        "title": "Modified Interest Subvention Scheme continued for 2025-26 (summary of PIB release, May 2025)",
+        "url": "https://www.drishtiias.com/daily-updates/daily-news-analysis/extension-of-modified-interest-subvention-scheme/print_manually"
+      },
+      {
+        "id": "s25",
+        "title": "Esar, Sachdeva & Mouzam (2023), Cost of Cultivation and Production of Various Crops in Punjab, Journal of Agricultural Development and Policy 33(2):253-259 (PAU, 2018-19 data)",
+        "url": "https://www.isadp.in/publication/download-pdf/230"
+      },
+      {
+        "id": "s26",
+        "title": "All India Report on Agriculture Census 2015-16 (Table 6.1/6.2 and tenancy table, Punjab rows)",
+        "url": "https://hortharyana.gov.in/images/docs/statisticalData/AgriCensus2015-16.pdf"
+      },
+      {
+        "id": "s27",
+        "title": "Rural Voice: Wheat procurement nears 34.5 MT target in RMS 2026-27; Punjab, Haryana surpass goals",
+        "url": "https://eng.ruralvoice.in/national/wheat-procurement-nears-34.5-million-tonne-target-in-rms-2026-27-punjab-haryana-surpass-goals.html"
+      },
+      {
+        "id": "s28",
+        "title": "Informist: Govt 2026-27 kharif paddy procurement aim flat; Punjab target 18.0 MT, 2025-26 closed at 15.7 MT",
+        "url": "https://informistmedia.com/CommodityWire/60386/Paddy-Procurement-Govt-2026-27-kharif-paddy-procurement-aim-flat-YoY-Punjab-up-many-states-down"
+      },
+      {
+        "id": "s29",
+        "title": "ANI: Punjab CM seeks urgent lifting of 15 LMT wheat, 6 LMT rice from state (2 Oct 2026)",
+        "url": "https://www.aninews.in/news/national/general-news/punjab-cm-mann-seeks-urgent-lifting-of-15-lmt-wheat-6-lmt-rice-from-state20261002175258/"
+      },
+      {
+        "id": "s30",
+        "title": "The Tribune: CM Mann announces zone-wise cultivation of paddy from June 1 (2025 zones; Moga in June 9 zone)",
+        "url": "https://www.tribuneindia.com/news/punjab/cm-mann-announces-zone-wise-cultivation-of-paddy-from-june-1"
+      },
+      {
+        "id": "s31",
+        "title": "Free Press Journal: Punjab hikes sugarcane price by Rs 15 to Rs 416 per quintal (2025-26 crushing season)",
+        "url": "https://www.freepressjournal.in/amp/business/punjab-chief-minister-bhagwant-mann-announces-a-hike-in-sugarcane-prices-by-15-to-416-per-quintal-for-the-upcoming-crushing-season"
+      },
+      {
+        "id": "s32",
+        "title": "The Hans India (IANS): Punjab records 52 stubble-burning fires; one FIR filed (end-Sep 2026; Moga 2)",
+        "url": "https://www.thehansindia.com/news/national/punjab-records-52-stubble-burning-fires-one-fir-filed-1127234"
+      },
+      {
+        "id": "s33",
+        "title": "Lohan et al., Status of Farm Power and Mechanization in Punjab Agriculture (tractor density 154 per 1000 ha NSA, sample-village extrapolation)",
+        "url": "https://www.researchgate.net/publication/395882291_Status_of_Farm_Power_and_Mechanization_in_Punjab_Agriculture"
+      },
+      {
+        "id": "s34",
+        "title": "Down To Earth: Crop Weather Watch Group, May 2026 - maize modal mandi price Rs 1,889/qtl vs MSP Rs 2,400",
+        "url": "https://www.downtoearth.org.in/amp/story/agriculture/harvesting-of-wheat-almost-complete-yet-government-procurement-has-slowed"
+      },
+      {
+        "id": "s35",
+        "title": "Commodityonline / mandiprices: Punjab basmati paddy mandi prices 2025-26 (aggregator; low confidence)",
+        "url": "https://www.commodityonline.com/mandiprices/paddy-dhan-basmati/punjab"
+      },
+      {
+        "id": "s36",
+        "title": "acrop.app (Agmarknet-based): potato prices, Jalandhar district 2026 (aggregator; low confidence)",
+        "url": "https://acrop.app/prices/potato/punjab/jalandhar"
+      },
+      {
+        "id": "s37",
+        "title": "NaPanta (Agmarknet-based): Punjab mustard mandi prices Apr-May 2026 (aggregator; low confidence)",
+        "url": "https://www.napanta.com/agri-commodity-prices/punjab/mustard/23-Aug-2026/"
+      },
+      {
+        "id": "s38",
+        "title": "AERC PAU Study No. 44: State Agricultural Profile of Punjab (2017) - rice mills by district, milk plant capacity shares",
+        "url": "https://aercpau.com/assets/docs/AERC%2044.pdf"
+      },
+      {
+        "id": "s39",
+        "title": "The Tribune: Harvest paddy only with Super SMS, violators to face fines up to Rs 1 lakh",
+        "url": "https://www.tribuneindia.com/news/ludhiana/harvest-paddy-only-with-super-sms-violators-to-face-fines-up-to-1l-adc"
+      },
+      {
+        "id": "s40",
+        "title": "Basu, R.: Changing Correlations in Foodgrain Mandis of Punjab (CASI, UPenn) - agency shares, arhtiya role, PFMS payments",
+        "url": "https://casi.sas.upenn.edu/sites/default/files/upiasi/Changing%20Correlations%20in%20Foodgrain%20Mandis%20of%20Punjab%20(Ranjini%20Basu).pdf"
+      }
+    ]
+  },
+  "crops": [
+    {
+      "id": "wheat",
+      "name": "Wheat",
+      "season": "rabi",
+      "sowMonth": 11,
+      "harvestMonth": 4,
+      "growDays": 150,
+      "yieldQtlPerHa": 53.6,
+      "msp": {
+        "year": "RMS 2027-28 (crop sown Nov 2026, procured Apr 2027)",
+        "inrPerQtl": 2610,
+        "previous": {
+          "year": "RMS 2026-27",
+          "inrPerQtl": 2585
+        }
+      },
+      "mspNext": {
+        "year": "RMS 2027-28 (for the crop sown Nov 2026, marketed Apr 2027)",
+        "inrPerQtl": 2610
+      },
+      "privatePriceInrPerQtl": null,
+      "inputCostInrPerHa": {
+        "seed": null,
+        "fertilizer": 5279,
+        "pesticide": null,
+        "labour": 5500,
+        "machinery": 18600,
+        "irrigation": 0,
+        "total": 35000
+      },
+      "inputCostNotes": "fertilizer derived for 2026: PAU dose 110 kg neem urea + 55 kg DAP per acre = 271.8 kg urea (Rs 1,610) + 135.9 kg DAP (Rs 3,669) per ha at MRP Rs 266.50/45 kg and Rs 1,350/50 kg. labour, machinery and total are PAU 2018-19 per-ha averages (total = variable cost, nominal 2018-19); scale up for inflation. Irrigation 0 because farm power is free; diesel pumping not included.",
+      "mogaAreaHa": 176098,
+      "mogaAreaNotes": "2024-25 DES/UPAg: 176,098.5 ha, production 943,931 t (53.6 qtl/ha). Punjab Agriculture Dept 2023-24: 177,600 ha, 55.03 qtl/ha.",
+      "procurementShare": 0.68,
+      "procurementNotes": "Derived state-level: Punjab procured ~12.2-12.3 MT in RMS 2026-27 vs 18.18 MT production in 2023-24 (~0.67). Remainder is retained for home consumption, seed and private trade.",
+      "strawUse": "Combine-harvested; straw reaper converts residue to bhusa (dry fodder) that is fed to dairy animals or sold; wheat stubble burning is limited compared with paddy.",
+      "sourceIds": [
+        "s3",
+        "s4",
+        "s5",
+        "s6",
+        "s7",
+        "s19",
+        "s25",
+        "s27"
+      ]
+    },
+    {
+      "id": "paddy",
+      "name": "Paddy (non-basmati, e.g. PR 126)",
+      "season": "kharif",
+      "sowMonth": 6,
+      "harvestMonth": 10,
+      "growDays": 123,
+      "yieldQtlPerHa": 71.1,
+      "msp": {
+        "year": "KMS 2026-27 (common grade; procurement from 1 Oct 2026)",
+        "inrPerQtl": 2441
+      },
+      "mspGradeA": {
+        "year": "KMS 2026-27",
+        "inrPerQtl": 2461
+      },
+      "mspPrevious": {
+        "year": "KMS 2025-26",
+        "common": 2369,
+        "gradeA": 2389
+      },
+      "privatePriceInrPerQtl": null,
+      "inputCostInrPerHa": {
+        "seed": null,
+        "fertilizer": 1756,
+        "pesticide": null,
+        "labour": 16200,
+        "machinery": 13600,
+        "irrigation": 0,
+        "total": 45000
+      },
+      "inputCostNotes": "fertilizer derived for 2026: PAU dose 120 kg urea/acre = 296.5 kg/ha at Rs 266.50/45 kg; phosphorus omitted after wheat that got DAP. labour, machinery and total are PAU 2018-19 per-ha averages. A DES cost-of-cultivation series (via CEIC) puts Punjab paddy operating cost at about Rs 48,255/ha in 2022, close to this total.",
+      "growDaysNotes": "PR 126 matures about 93 days after transplanting plus 25-30 days in nursery. Nursery 25 May-20 Jun; Moga's transplanting zone opened 9 Jun in 2025.",
+      "yieldNotes": "71.1 qtl/ha is Moga's 2024-25 district average paddy yield (all paddy incl. basmati). PAU lists PR 126 at 30.0 qtl/acre (74.1 qtl/ha).",
+      "mogaAreaHa": 172380,
+      "mogaAreaNotes": "Derived: total Moga paddy 184,700 ha in 2024-25 (Punjab Agriculture Dept) minus basmati 12,320 ha (APEDA 2023 survey). The two years differ.",
+      "procurementShare": 0.9,
+      "procurementNotes": "Estimate: nearly all non-basmati paddy that reaches the mandis is bought at MSP by state agencies. Punjab procured 15.7 MT in KMS 2025-26 (a flood year), and the KMS 2026-27 target is 18.0 MT.",
+      "strawUse": "About 6-7 t/ha of loose straw after the combine. Options: in-situ (Super SMS on the combine plus Happy/Super/Surface Seeder), ex-situ (balers to biomass plants or boilers), or burning, which is penalised. The window is about 15-20 days before wheat sowing.",
+      "sourceIds": [
+        "s1",
+        "s2",
+        "s3",
+        "s8",
+        "s25",
+        "s28",
+        "s30"
+      ]
+    },
+    {
+      "id": "basmati",
+      "name": "Basmati paddy (PB 1121, 1509, 1718, 1885)",
+      "season": "kharif",
+      "sowMonth": 7,
+      "harvestMonth": 10,
+      "growDays": 130,
+      "yieldQtlPerHa": 42.1,
+      "msp": {
+        "year": "none - basmati has no MSP",
+        "inrPerQtl": null
+      },
+      "privatePriceInrPerQtl": 3300,
+      "privatePriceNotes": "Low confidence, from aggregators: PB 1509 averaged about Rs 2,800-3,060 in Sep-Oct 2025; PB 1121 about Rs 3,650-4,100 in Jan-Mar 2026. Rs 3,300 is a blended midpoint. Prices swing with exports (Iran/Middle East demand).",
+      "inputCostInrPerHa": {
+        "seed": null,
+        "fertilizer": null,
+        "pesticide": null,
+        "labour": 21600,
+        "machinery": 13600,
+        "irrigation": 0,
+        "total": 48000
+      },
+      "inputCostNotes": "PAU 2018-19 per-ha averages (nominal).",
+      "yieldNotes": "Moga 2023: 51.91 kt from 12.32 kha = 42.1 qtl/ha (APEDA). PAU lists Punjab Basmati 7 / PB 1121-type at about 15-19 qtl/acre.",
+      "mogaAreaHa": 12320,
+      "mogaAreaNotes": "APEDA 2023 satellite and field survey: PB1121/1718/1885 2,610 ha; PB1509/1692/1847 2,750 ha; PB1401/PB01/PB06 6,960 ha.",
+      "procurementShare": 0,
+      "strawUse": "Softer straw, partly fed to cattle; often manually or combine harvested later (Oct-Nov), so residue overlaps with wheat sowing.",
+      "sourceIds": [
+        "s3",
+        "s8",
+        "s25",
+        "s35"
+      ]
+    },
+    {
+      "id": "maize",
+      "name": "Maize (kharif)",
+      "season": "kharif",
+      "sowMonth": 6,
+      "harvestMonth": 9,
+      "growDays": 97,
+      "yieldQtlPerHa": 42.3,
+      "msp": {
+        "year": "KMS 2026-27",
+        "inrPerQtl": 2410
+      },
+      "mspPrevious": {
+        "year": "KMS 2025-26",
+        "inrPerQtl": 2400
+      },
+      "privatePriceInrPerQtl": 1889,
+      "privatePriceNotes": "All-India modal mandi price, May 2026 (Crop Weather Watch Group), 21% below MSP. Punjab mandi reports show Rs 1,500-2,000 with moisture deductions. Little MSP procurement happens.",
+      "inputCostInrPerHa": {
+        "seed": null,
+        "fertilizer": null,
+        "pesticide": null,
+        "labour": 15000,
+        "machinery": 12200,
+        "irrigation": 0,
+        "total": 42000
+      },
+      "inputCostNotes": "PAU 2018-19 per-ha averages (nominal). Hybrids mature in 96-99 days per PAU.",
+      "yieldNotes": "Moga 2024-25 shows 4,234 kg/ha, the same value reported for several small-area districts, so it is likely imputed. Punjab average 2024-25 is 43.03 qtl/ha.",
+      "mogaAreaHa": 200,
+      "procurementShare": 0,
+      "strawUse": "Stover fed green or dry to animals; increasingly harvested as silage for dairies.",
+      "sourceIds": [
+        "s1",
+        "s2",
+        "s3",
+        "s25",
+        "s34"
+      ]
+    },
+    {
+      "id": "potato",
+      "name": "Potato",
+      "season": "rabi",
+      "sowMonth": 10,
+      "harvestMonth": 1,
+      "growDays": 100,
+      "yieldQtlPerHa": 295.0,
+      "msp": {
+        "year": "none - no MSP",
+        "inrPerQtl": null
+      },
+      "privatePriceInrPerQtl": 700,
+      "privatePriceNotes": "Low confidence: Agmarknet-based tracker shows a Jalandhar district modal price of Rs 740-900/qtl in Jul-Sep 2026; Mar 2026 trade reports cite Rs 460-620. Prices boom and bust every second year (seed-potato glut cycle).",
+      "inputCostInrPerHa": {
+        "seed": null,
+        "fertilizer": null,
+        "pesticide": null,
+        "labour": 25300,
+        "machinery": 14300,
+        "irrigation": 0,
+        "total": 125000
+      },
+      "inputCostNotes": "PAU 2018-19 per-ha averages (nominal). Seed tubers are the dominant cost.",
+      "mogaAreaHa": 7485,
+      "mogaAreaNotes": "2023-24, Dept of Horticulture Punjab via PAU: 7,485 ha, 220,778 t, 294.96 qtl/ha. Punjab total 117,066 ha.",
+      "procurementShare": 0,
+      "strawUse": "No straw; haulms are incorporated. Fits paddy (PR 126) - potato - spring maize/summer moong rotations.",
+      "sourceIds": [
+        "s9",
+        "s25",
+        "s36",
+        "s4"
+      ]
+    },
+    {
+      "id": "mustard",
+      "name": "Rapeseed & mustard (raya/gobhi sarson)",
+      "season": "rabi",
+      "sowMonth": 10,
+      "harvestMonth": 3,
+      "growDays": 150,
+      "yieldQtlPerHa": 17.3,
+      "msp": {
+        "year": "RMS 2026-27",
+        "inrPerQtl": 6200
+      },
+      "mspNext": {
+        "year": "RMS 2027-28",
+        "inrPerQtl": 6613
+      },
+      "privatePriceInrPerQtl": 6400,
+      "privatePriceNotes": "Low confidence: Punjab mandis Rs 6,300-6,450 in Apr-May 2026 (Nawanshahr, Ahmedgarh), above MSP.",
+      "inputCostInrPerHa": {
+        "seed": null,
+        "fertilizer": null,
+        "pesticide": null,
+        "labour": 12400,
+        "machinery": 12800,
+        "irrigation": 0,
+        "total": 33000
+      },
+      "inputCostNotes": "PAU 2018-19 per-ha averages (nominal).",
+      "mogaAreaHa": 900,
+      "mogaAreaNotes": "2023-24: 0.9 kha, 1.6 kt, 1,731 kg/ha (Punjab Agriculture Dept via PAU).",
+      "procurementShare": 0,
+      "strawUse": "Stalks used as household fuel.",
+      "sourceIds": [
+        "s4",
+        "s5",
+        "s25",
+        "s37"
+      ]
+    },
+    {
+      "id": "sugarcane",
+      "name": "Sugarcane",
+      "season": "annual",
+      "sowMonth": 2,
+      "harvestMonth": 12,
+      "growDays": 330,
+      "yieldQtlPerHa": 832.5,
+      "msp": {
+        "year": "SAP 2025-26 crushing season (state-agreed price, early/mid/late varieties 416/406/406)",
+        "inrPerQtl": 416
+      },
+      "privatePriceInrPerQtl": null,
+      "priceNotes": "Sold to mills at the State Agreed Price, not procured. Punjab also pays a Rs 68.5/qtl subsidy on behalf of private mills (2025-26).",
+      "inputCostInrPerHa": {
+        "seed": null,
+        "fertilizer": null,
+        "pesticide": null,
+        "labour": null,
+        "machinery": null,
+        "irrigation": 0,
+        "total": null
+      },
+      "mogaAreaHa": 100,
+      "mogaAreaNotes": "2023-24: 0.1 kha (yield shown equals the state average 83,254 kg/ha, so it is imputed); 2024-25 the district table shows nil. Treat as negligible in Moga.",
+      "procurementShare": 0,
+      "strawUse": "Trash burnt or mulched; bagasse used at the mill.",
+      "sourceIds": [
+        "s3",
+        "s4",
+        "s31"
+      ]
+    },
+    {
+      "id": "cotton",
+      "name": "Cotton (American/Bt; minor in Moga)",
+      "season": "kharif",
+      "sowMonth": 5,
+      "harvestMonth": 10,
+      "growDays": 180,
+      "yieldQtlPerHa": 4.39,
+      "yieldNotes": "Lint basis: 439 kg lint/ha (Moga 2024-25). Seed cotton is about three times this.",
+      "msp": {
+        "year": "KMS 2026-27 medium staple (long staple 8,667)",
+        "inrPerQtl": 8267
+      },
+      "mspPrevious": {
+        "year": "KMS 2025-26",
+        "medium": 7710,
+        "long": 8110
+      },
+      "privatePriceInrPerQtl": null,
+      "inputCostInrPerHa": {
+        "seed": null,
+        "fertilizer": null,
+        "pesticide": null,
+        "labour": 26400,
+        "machinery": 14800,
+        "irrigation": 0,
+        "total": 59000
+      },
+      "inputCostNotes": "PAU 2018-19 per-ha averages (nominal). MSP is for kapas (seed cotton).",
+      "mogaAreaHa": 100,
+      "mogaAreaNotes": "2024-25: 0.1 kha. The cotton belt is Fazilka, Bathinda and Mansa, so cotton is a background crop for Moga agents.",
+      "procurementShare": null,
+      "procurementNotes": "CCI buys at MSP only when market prices fall below MSP.",
+      "strawUse": "Stalks (banchhitiyan) used as fuel.",
+      "sourceIds": [
+        "s1",
+        "s2",
+        "s3",
+        "s25"
+      ]
+    },
+    {
+      "id": "berseem",
+      "name": "Fodder - berseem (Egyptian clover), often mixed with oats/ryegrass",
+      "season": "rabi",
+      "sowMonth": 10,
+      "harvestMonth": 6,
+      "growDays": 240,
+      "yieldQtlPerHa": 976,
+      "yieldNotes": "Green fodder across repeated cuts Nov to mid-June: PAU varieties BL 43/44 yield about 390-395 qtl/acre (about 965-976 qtl/ha).",
+      "msp": {
+        "year": "none",
+        "inrPerQtl": null
+      },
+      "privatePriceInrPerQtl": null,
+      "inputCostInrPerHa": {
+        "seed": null,
+        "fertilizer": null,
+        "pesticide": null,
+        "labour": null,
+        "machinery": null,
+        "irrigation": 0,
+        "total": null
+      },
+      "mogaAreaHa": null,
+      "mogaAreaNotes": "No district figure found. PAU: about 2.25 lakh ha statewide. Most dairy households grow a small fodder plot; summer fodder is maize/sorghum/bajra.",
+      "procurementShare": 0,
+      "strawUse": "Fed fresh; surplus made into hay or silage for the lean months (Nov-Dec, May-Jun).",
+      "sourceIds": [
+        "s4"
+      ]
+    }
+  ],
+  "dairy": {
+    "avgHerdSmallFarm": 3,
+    "avgHerdNotes": "Derived, low confidence. NSS 77th round (Punjab rural households): 23.6% own in-milk buffalo at 39.0 per 100 households (1.65 per owning household); 17.1% own in-milk cattle at 23.1 per 100 (1.35 per owning household); plus young stock. A small-farm herd of about 2 in-milk animals + 1 young animal is a reasonable agent default.",
+    "milkLitresPerAnimalPerDay": {
+      "buffalo": 10.35,
+      "crossbredCow": 12.86
+    },
+    "milkYieldNotes": "BAHS 2025 (2024-25), Punjab per in-milk animal: buffalo 10.66 kg/day; crossbred cow 13.25 kg/day; exotic/crossbred combined 14.10 kg/day (highest in India). Converted to litres at 1.03 kg/L. A 2019 farm survey found only 6.30 L/day for buffalo, so use a distribution, not a constant.",
+    "procurementPriceInrPerLitre": {
+      "cow": null,
+      "buffalo": 54.6,
+      "basis": "fat/SNF"
+    },
+    "procurementPriceNotes": "Derived, low confidence. Verka paid Rs 820/kg fat (buffalo) and Rs 780/kg fat (cow) from 11 Jun 2024, then +Rs 20/kg fat statewide from 1 May 2026 (some unions also raised Rs 20 on 1 Apr 2026). Buffalo at 6.5% fat x Rs 840/kg fat = Rs 54.6/L. Cow milk is paid on a two-axis fat+SNF chart, which we could not obtain, so cow is null. Any 2025 revisions are unverified.",
+    "procurementPricePerKgFat": {
+      "buffaloInr": 840,
+      "cowInr": 800,
+      "asOf": "May 2026 (derived: Jun-2024 rate + Rs 20)"
+    },
+    "paymentCycle": "Nestle: fortnightly. Verka societies: typically every 7-15 days.",
+    "buyers": [
+      {
+        "id": "nestle_moga",
+        "name": "Nestle India, Moga",
+        "shareOfMarketedMilkMoga": null,
+        "notes": "First Indian factory (1961). Nestle cites about 1.5 million kg/day from about 100,000 farmers through village collection centres with chilling, twice-daily collection and fortnightly payment. This catchment spans Punjab and neighbouring states, so a Moga-district share cannot be derived."
+      },
+      {
+        "id": "verka",
+        "name": "Verka (Milkfed Punjab)",
+        "share": null,
+        "notes": "Three-tier cooperative: village milk producers' society, district milk union, Milkfed apex (head office in Chandigarh). About 2.5 lakh farmers directly linked (2026). Milkfed held about 23% of Punjab's milk processing capacity in 2014-15."
+      },
+      {
+        "id": "private_other",
+        "name": "Other private dairies, dodhis (milk vendors), halwais and home consumption",
+        "share": null,
+        "notes": "Large informal channel; dodhis pay cash and serve towns including the Chandigarh tricity."
+      }
+    ],
+    "feedCostInrPerAnimalPerDay": 122,
+    "feedCostNotes": "Punjab field survey (2019 prices): feed and fodder Rs 121.76 per milch buffalo per day (73% of variable cost). Total cost Rs 180.16/day, net return Rs 46.26/day at a 2019 milk price of Rs 35/L. Inflate for 2026.",
+    "punjabMilkProduction2024_25ThousandTonnes": 14874.74,
+    "punjabPerCapitaAvailabilityGPerDay": 1318,
+    "seasonality": "Flush season Oct/Nov-Mar (buffalo calving Aug-Dec, abundant berseem). Lean season May-Jul (heat stress, fodder gap).",
+    "sourceIds": [
+      "s12",
+      "s13",
+      "s14",
+      "s15",
+      "s16",
+      "s17",
+      "s38"
+    ]
+  },
+  "mandiSystem": {
+    "arhtiyaCommissionPct": 2.5,
+    "arhtiyaCommissionInrPerQtl": {
+      "wheat": 50.75,
+      "paddy": 50.61,
+      "effective": "RMS 2026-27 onwards (previously wheat 46.00, paddy 45.88)"
+    },
+    "arhtiyaNotes": "Statute allows 2.5% of MSP, but on central-pool procurement the Centre pays a fixed per-quintal commission (frozen near Rs 46 since 2019-20, revised Mar 2026). Model the fixed Rs/qtl rate.",
+    "marketFeePct": 3,
+    "rdfPct": 3,
+    "feeNotes": "Punjab levies 3% market fee + 3% RDF on MSP (raised from 2% each in 2017). The Centre has withheld or cut reimbursement since 2021-22 and wants 2% total. Dues of more than Rs 4,200 crore are before the Supreme Court. These are paid by the buying agency, not deducted from the farmer.",
+    "paymentDaysTypical": 2,
+    "paymentNotes": "48-hour payment norm; lifting norm is 72 hours after purchase.",
+    "directBenefitTransfer": true,
+    "fciRole": "The FCI sets quality norms (FAQ, moisture: paddy 17%, wheat 12%), funds the central pool via the cash credit limit, takes delivery of wheat from state agencies and of custom-milled rice (CMR, ~67% outturn) from millers, stores it in its own and hired godowns or CAP, and moves stocks by rail rakes to deficit states for PDS. In Punjab it buys only a small share directly.",
+    "pungrainMarkfedPunsupRole": "State agencies (PUNGRAIN/Food & Civil Supplies Dept, MARKFED, PUNSUP, Punjab State Warehousing Corp) do most mandi purchases, each assigned mandis/purchase centres. They store wheat in their godowns/open plinths until the FCI lifts it, and allot paddy to registered rice millers, who mill it and deliver CMR. Example 2019-20 paddy split: Pungrain ~41%, Markfed ~26%, Punsup ~20%, PSWC ~11%, FCI ~1%.",
+    "purchaseCentresPaddy": 1822,
+    "notes": "Flow: farmer brings grain to the arhtiya's platform in the mandi (APMC yard or temporary purchase centre). The arhtiya cleans, dries and bags it, the agency inspector bids at MSP, J-form/e-receipt issued. Payment goes from the agency to the farmer's bank account via PFMS (since RMS 2021-22), while the arhtiya gets commission plus labour charges. Bags are lifted by transport contractors to godowns (wheat) or rice mills (paddy). Bottlenecks include moisture rejections, lifting delays, and storage shortages: in Oct 2026 about 17 LMT of wheat was still in mills/mandi yards. Moga had 278 rice mills (6.98% of state) in 2015-16 data.",
+    "sourceIds": [
+      "s10",
+      "s11",
+      "s27",
+      "s28",
+      "s29",
+      "s38",
+      "s40"
+    ]
+  },
+  "landholdings": {
+    "district": "Moga",
+    "dataLevel": "Punjab state (no verifiable Moga district size-class table was retrievable; Agriculture Census district tables and the Statistical Abstract of Punjab were unreachable)",
+    "categories": [
+      {
+        "name": "landless/near-landless (<0.01 ha)",
+        "shareOfHoldings": 0.007,
+        "shareOfArea": null,
+        "avgHa": null
+      },
+      {
+        "name": "marginal (<1ha)",
+        "shareOfHoldings": 0.613,
+        "shareOfArea": null,
+        "avgHa": null
+      },
+      {
+        "name": "small (1-2ha)",
+        "shareOfHoldings": 0.145,
+        "shareOfArea": null,
+        "avgHa": null
+      },
+      {
+        "name": "semi-medium (2-4ha)",
+        "shareOfHoldings": 0.126,
+        "shareOfArea": null,
+        "avgHa": null
+      },
+      {
+        "name": "medium (4-10ha)",
+        "shareOfHoldings": 0.093,
+        "shareOfArea": null,
+        "avgHa": null
+      },
+      {
+        "name": "large (>10ha)",
+        "shareOfHoldings": 0.016,
+        "shareOfArea": null,
+        "avgHa": null
+      }
+    ],
+    "categoriesNotes": "Shares are of agricultural households by land possessed, Punjab, NSS 77th round (Jul-Dec 2018): <0.01 ha 0.7%, 0.01-0.40 39.2%, 0.40-1.00 22.1%, 1.01-2.00 14.5%, 2.01-4.00 12.6%, 4.01-10 9.3%, >10 1.6%. These are households (incl. tiny homestead plots), not Agriculture Census operational holdings. Agriculture Census 2015-16, Punjab: 10.93 lakh operational holdings, 39.54 lakh ha operated, average 3.62 ha.",
+    "tenancy": {
+      "tenantHoldingsShare": 0.211,
+      "areaLeasedInShare": 0.278,
+      "source": "NSS 77th round, Punjab 2018-19. Agriculture Census 2015-16 records far less leasing (0.37 lakh of 39.5 lakh ha), reflecting informal oral leases."
+    },
+    "leasingRentInrPerAcrePerYear": 55000,
+    "leasingNotes": "Statewide range Rs 45,000-65,000 per acre per year (Tribune, Jul 2023), highest in Malwa (which includes Moga). Paid half in April (before paddy) and half in September (before wheat).",
+    "landPriceInrPerAcre": null,
+    "landPriceNotes": "No official or reliable Moga figure found. Listing sites show anywhere from about Rs 35 lakh to Rs 1.3 crore per acre (road frontage drives this). Use the collector rate from the Punjab IGRS portal if needed.",
+    "sourceIds": [
+      "s12",
+      "s22",
+      "s26"
+    ]
+  },
+  "credit": {
+    "avgOutstandingDebtPerFarmHouseholdInr": 203249,
+    "indebtedShare": 0.544,
+    "institutionalShare": 0.787,
+    "sourceMix": {
+      "commercialBank": 0.651,
+      "rrb": 0.016,
+      "coopSociety": 0.069,
+      "coopBank": 0.033,
+      "shg": 0.001,
+      "otherInstitutional": 0.017,
+      "agriculturalMoneylender": 0.067,
+      "professionalMoneylender": 0.021,
+      "relativesFriends": 0.03,
+      "otherNonInstitutional": 0.094
+    },
+    "arhtiyaLendingInterestPctPerYear": 18,
+    "kccInterestPct": 7,
+    "kccEffectivePctWithPromptRepayment": 4,
+    "kccLimitInr": 300000,
+    "avgMonthlyIncomeAgHouseholdInr": {
+      "total": 26701,
+      "wages": 5981,
+      "leasingOut": 2652,
+      "crops": 12597,
+      "animals": 4457,
+      "nonFarm": 1014,
+      "year": "Jul 2018-Jun 2019, Punjab"
+    },
+    "notes": "NSS 77th round (2019): Punjab is India's third-highest in average debt per agricultural household. 'Agricultural moneylender' (6.7%) is where arhtiyas mostly appear. Arhtiya interest: farmers report 1.5%/month (18%/yr) or more; arhtiyas claim about 1%/month; older studies report 24-36%. KCC: 7% with 1.5% subvention to banks, 3% prompt-repayment incentive gives 4% effective on loans up to Rs 3 lakh (MISS continued for 2025-26).",
+    "sourceIds": [
+      "s12",
+      "s23",
+      "s24"
+    ]
+  },
+  "calendar": [
+    {
+      "month": 1,
+      "events": [
+        "Wheat: 2nd/3rd irrigation, urea top-dress",
+        "Potato main harvest and cold-store loading; price trough",
+        "Berseem cutting every 30-40 days",
+        "Dairy flush season peak",
+        "Sugarcane crushing continues"
+      ]
+    },
+    {
+      "month": 2,
+      "events": [
+        "Sugarcane spring planting begins",
+        "Spring maize sowing (20 Jan-15 Feb)",
+        "Potato harvest ends",
+        "Dairy flush tapers"
+      ]
+    },
+    {
+      "month": 3,
+      "events": [
+        "Mustard harvest",
+        "Wheat grain filling: heat-wave risk to yield",
+        "Sugarcane planting",
+        "Land lease negotiations for next year"
+      ]
+    },
+    {
+      "month": 4,
+      "events": [
+        "Wheat harvest by combine; mandi procurement from 1 Apr",
+        "Payment within 48h to bank account",
+        "Lease first instalment due (before paddy)",
+        "Straw reaper makes bhusa"
+      ]
+    },
+    {
+      "month": 5,
+      "events": [
+        "Wheat procurement ends (mid/late May)",
+        "Paddy nursery sowing (PR 126: 25 May-20 Jun)",
+        "Field puddling prep",
+        "Dairy lean season begins; fodder gap"
+      ]
+    },
+    {
+      "month": 6,
+      "events": [
+        "Paddy transplanting (Moga zone opened 9 Jun in 2025)",
+        "Peak tubewell pumping, free power 8h/day",
+        "Kharif maize sowing",
+        "Basmati nursery"
+      ]
+    },
+    {
+      "month": 7,
+      "events": [
+        "Basmati transplanting",
+        "Monsoon; flood risk (2025 floods)",
+        "Paddy urea split doses",
+        "Dairy lean season"
+      ]
+    },
+    {
+      "month": 8,
+      "events": [
+        "Paddy pest/disease sprays",
+        "Buffalo calving season starts",
+        "KCC renewal for rabi inputs"
+      ]
+    },
+    {
+      "month": 9,
+      "events": [
+        "Early paddy (PR 126) harvest begins late Sep",
+        "Maize harvest",
+        "Lease second instalment due (before wheat)",
+        "Berseem sowing last week of Sep-early Oct",
+        "Arhtiya advances for harvest labour"
+      ]
+    },
+    {
+      "month": 10,
+      "events": [
+        "Paddy procurement from 1 Oct; mandi glut and lifting delays",
+        "Stubble-burning season peaks (enforcement, red entries)",
+        "Potato and mustard sowing",
+        "Wheat sowing begins in last week"
+      ]
+    },
+    {
+      "month": 11,
+      "events": [
+        "Wheat sowing (optimum first fortnight)",
+        "Basmati harvest and private sales",
+        "Paddy procurement closes ~30 Nov",
+        "Sugarcane crushing starts",
+        "Dairy flush begins"
+      ]
+    },
+    {
+      "month": 12,
+      "events": [
+        "Wheat 1st irrigation (~3 weeks after sowing)",
+        "Early potato harvest",
+        "Milling of procured paddy into CMR",
+        "Fog/cold wave"
+      ]
+    }
+  ],
+  "inputs": {
+    "dieselInrPerLitre": 95.62,
+    "dieselAsOf": "2026-10-11, Moga",
+    "ureaInrPer45kgBag": 266.5,
+    "ureaNotes": "Statutory MRP Rs 242 per 45 kg excluding neem coating and taxes; about Rs 266.50 delivered.",
+    "dapInrPer50kgBag": 1350,
+    "electricityFarmFree": true,
+    "electricityNotes": "Free power for agricultural tubewells since 1997 (state subsidy). Supply is rationed by schedule (typically 8 hours/day in paddy season).",
+    "tubewellsPerDistrictMoga": 64232,
+    "tubewellNotes": "Tribune, Mar 2022, citing district data. All 5 Moga blocks are over-exploited ('dark zone'); water table falls 50-80 cm/yr (CGWB). Punjab has about 14 lakh tubewell connections.",
+    "sourceIds": [
+      "s18",
+      "s19",
+      "s20"
+    ]
+  },
+  "machinery": {
+    "tractorsPer100ha": 15.4,
+    "tractorNotes": "154 per 1,000 ha net sown area (sample-village extrapolation). Other studies give 10-16 per 100 ha depending on year and denominator. Punjab is widely described as over-mechanised; most small farmers hire services.",
+    "combineHarvesterRentInrPerAcre": null,
+    "combineNotes": "No verified 2025-26 Punjab rate card found. Haryana reports suggest wheat Rs 1,400-1,900 and paddy up to Rs 3,000-3,500 per acre. Combines harvesting paddy must carry a Super SMS (fines Rs 50,000/75,000/1 lakh for 1st/2nd/3rd violation).",
+    "strawManagementNotes": "Crop Residue Management (CRM) scheme subsidises Super SMS, Happy Seeder, Super Seeder, surface seeder, mulchers, balers (50% individual, 80% CHC/cooperatives). Stubble burning fines (CAQM, Nov 2024): Rs 5,000 (<2 acres), Rs 10,000 (2-5 acres), Rs 30,000 (>5 acres) per incident, plus FIRs and 'red entries' in land records that can block mandi sales. Punjab farm-fire counts fell from 36,663 (2023) to 10,909 (2024). Season 2026: 52 fires by end-Sep, 2 in Moga.",
+    "sourceIds": [
+      "s21",
+      "s32",
+      "s33",
+      "s39"
+    ]
+  }
+}

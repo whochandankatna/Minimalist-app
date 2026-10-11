@@ -17,7 +17,15 @@ const isPaddy = (id: string) => /paddy/.test(id);
 const isKharif = (c: Crop) => /kharif/i.test(c.season);
 const isRabi = (c: Crop) => /rabi/i.test(c.season);
 
-function cropCost(c: Crop): number { return c.inputCostInrPerHa?.total ?? 45000; }
+// Researched per-ha costs are PAU 2018-19 cost-of-cultivation figures; scale to 2026 prices
+// (CPI-AL roughly +38% over the period). Seed fallback values are already 2026 estimates.
+const COST_INFLATION_2019_TO_2026 = 1.38;
+let costInflation = 1;
+function cropCost(c: Crop): number { return (c.inputCostInrPerHa?.total ?? 45000) * costInflation; }
+/** Crops a farmer can choose as a cash crop: seasonal, with a known price. Excludes fodder and annual cane. */
+function tradable(w: World, c: Crop): boolean {
+  return !!c.yieldQtlPerHa && (w.msp(c.id) != null || c.privatePriceInrPerQtl != null) && !/berseem|fodder/i.test(c.id + c.name);
+}
 function cropYield(c: Crop): number { return c.yieldQtlPerHa ?? 40; }
 
 /** Net INR/ha/year from the dominant paddy–wheat rotation, used to size farms from income. */
@@ -37,53 +45,69 @@ function nearest(w: World, ids: string[], x: number, z: number): string {
   return best;
 }
 
-export function initFarms(w: World) {
-  const net = rotationNet(w);
-  const kharifCrops = [...w.crops.values()].filter(isKharif);
-  const areaWeight = (c: Crop) => c.mogaAreaHa ?? (isPaddy(c.id) ? 150000 : 5000);
-  const arhtiyas = w.businesses.filter(b => b.archetype === 'arhtiya');
+interface FarmCtx {
+  net: number; kharifCrops: Crop[]; arhtiyas: Business[]; nShare: number; avgLpd: number;
+  netPerAnimal: number; avgDebt: number; inst: number;
+}
+
+function farmCtx(w: World): FarmCtx {
   const dairyShares = w.data.agriculture.dairy?.buyers ?? [];
   const nestleShare = dairyShares.find(b => /nestl/i.test(b.id + b.name));
-  const nShare = (nestleShare?.shareOfMarketedMilkMoga ?? nestleShare?.share ?? 0.4);
   const lpd = w.data.agriculture.dairy?.milkLitresPerAnimalPerDay ?? {};
   const lpdVals = Object.values(lpd).filter((v): v is number => typeof v === 'number' && v > 1 && v < 40);
   const avgLpd = lpdVals.length ? lpdVals.reduce((a, b) => a + b, 0) / lpdVals.length : 9;
   const feed = w.data.agriculture.dairy?.feedCostInrPerAnimalPerDay ?? 200;
-  const netPerAnimal = Math.max(20000, (avgLpd * w.prices.milk - feed) * 365);
   const credit = w.data.agriculture.credit ?? {};
-  const avgDebt = credit.avgOutstandingDebtPerFarmHouseholdInr ?? 203000;
-  const inst = credit.institutionalShare ?? 0.8;
+  return {
+    net: rotationNet(w),
+    kharifCrops: [...w.crops.values()].filter(c => isKharif(c) && tradable(w, c)),
+    arhtiyas: w.businesses.filter(b => b.archetype === 'arhtiya'),
+    nShare: nestleShare?.shareOfMarketedMilkMoga ?? nestleShare?.share ?? 0.4,
+    avgLpd,
+    netPerAnimal: Math.max(20000, (avgLpd * w.prices.milk - feed) * 365),
+    avgDebt: credit.avgOutstandingDebtPerFarmHouseholdInr ?? 203000,
+    inst: credit.institutionalShare ?? 0.8,
+  };
+}
 
-  for (const h of w.households) {
-    if (h.region !== 'moga') continue;
-    const crops = h.profile.incomeSources.crops ?? 0;
-    const dairy = h.profile.incomeSources.dairy ?? 0;
-    if (crops < 0.1 && dairy < 0.1) continue;
-    const villageId = w.place(h.placeId)?.type === 'village_cluster' ? h.placeId : nearest(w, w.key.villages, h.x, h.z);
-    const v = w.place(villageId)!;
-    const ha = crops >= 0.1 ? Math.min(40, Math.max(0.3, (h.expectedIncome * 12 * crops) / net)) : 0;
-    const k = ha > 0 ? w.rng.weighted(kharifCrops, areaWeight) : null;
-    let harvestDay = 0, crop: string | null = null;
-    if (k && k.harvestMonth >= 10) {
-      crop = k.id;
-      harvestDay = isPaddy(k.id) ? w.rng.range(0, 40) : w.rng.range(10, 50);
-    }
-    const animals = dairy >= 0.05 ? Math.max(1, Math.round((h.expectedIncome * 12 * dairy) / netPerAnimal)) : 0;
-    h.farm = {
-      ha, villageId, mandiId: nearest(w, w.key.mandis, v.x, v.z), crop, sownDay: -110, harvestDay,
-      stock: null, lastKharif: k?.id ?? 'paddy', lastRabi: 'wheat',
-      animals, milkLpd: avgLpd * w.rng.range(0.8, 1.2),
-      dairyBuyer: w.rng.chance(nShare) ? 'nestle' : w.key.dairyAlt && w.rng.chance(0.5) ? 'verka' : 'local',
-      stubble: 'none',
-    };
-    if (ha > 0) {
-      const local = arhtiyas.filter(a => a.placeId === h.farm!.mandiId);
-      h.arhtiyaId = (local.length ? w.rng.pick(local) : arhtiyas.length ? w.rng.pick(arhtiyas) : null)?.id ?? null;
-      const debt = w.rng.lognormal(avgDebt * Math.sqrt(Math.max(0.3, ha) / 3), 0.5) * (0.6 + h.traits.creditAppetite * 0.8);
-      h.debtBank = debt * inst; h.debtArhtiya = debt * (1 - inst);
-      if (k) w.ag.area.kharif[k.id] = (w.ag.area.kharif[k.id] ?? 0) + ha * h.weight;
-    }
+/** Gives a Moga household land and/or a herd sized from its profile's income mix. */
+export function attachFarm(w: World, h: Household, ctx: FarmCtx = farmCtx(w), initialSeason = true) {
+  if (h.region !== 'moga') return;
+  const crops = h.profile.incomeSources.crops ?? 0;
+  const dairy = h.profile.incomeSources.dairy ?? 0;
+  if (crops < 0.1 && dairy < 0.1) return;
+  const villageId = w.place(h.placeId)?.type === 'village_cluster' ? h.placeId : nearest(w, w.key.villages, h.x, h.z);
+  const ha = crops >= 0.1 ? Math.min(40, Math.max(0.3, (h.expectedIncome * 12 * crops) / ctx.net)) : 0;
+  const areaWeight = (c: Crop) => c.mogaAreaHa ?? (isPaddy(c.id) ? 150000 : 5000);
+  const k = ha > 0 && ctx.kharifCrops.length ? w.rng.weighted(ctx.kharifCrops, areaWeight) : null;
+  let harvestDay = 0, crop: string | null = null;
+  if (initialSeason && k && k.harvestMonth >= 10) {
+    crop = k.id;
+    harvestDay = isPaddy(k.id) ? w.rng.range(0, 40) : w.rng.range(10, 50);
   }
+  const animals = dairy >= 0.05 ? Math.max(1, Math.round((h.expectedIncome * 12 * dairy) / ctx.netPerAnimal)) : 0;
+  h.farm = {
+    ha, villageId, mandiId: nearest(w, w.key.mandis, h.x, h.z), crop, sownDay: initialSeason ? -110 : w.dayIndex - 200, harvestDay,
+    stock: null, lastKharif: k?.id ?? 'paddy', lastRabi: 'wheat',
+    animals, milkLpd: ctx.avgLpd * w.rng.range(0.8, 1.2),
+    dairyBuyer: w.rng.chance(ctx.nShare) ? 'nestle' : w.key.dairyAlt && w.rng.chance(0.5) ? 'verka' : 'local',
+    stubble: 'none',
+  };
+  if (ha > 0) {
+    const local = ctx.arhtiyas.filter(a => a.placeId === h.farm!.mandiId);
+    h.arhtiyaId = (local.length ? w.rng.pick(local) : ctx.arhtiyas.length ? w.rng.pick(ctx.arhtiyas) : null)?.id ?? null;
+    if (initialSeason) {
+      const debt = w.rng.lognormal(ctx.avgDebt * Math.sqrt(Math.max(0.3, ha) / 3), 0.5) * (0.6 + h.traits.creditAppetite * 0.8);
+      h.debtBank = debt * ctx.inst; h.debtArhtiya = debt * (1 - ctx.inst);
+    }
+    if (crop && k) w.ag.area.kharif[k.id] = (w.ag.area.kharif[k.id] ?? 0) + ha * h.weight;
+  }
+}
+
+export function initFarms(w: World) {
+  costInflation = w.data.provenance.agriculture ? COST_INFLATION_2019_TO_2026 : 1;
+  const ctx = farmCtx(w);
+  for (const h of w.households) attachFarm(w, h, ctx, true);
   w.ag.share.kharif = shares(w.ag.area.kharif);
   w.ag.share.rabi = { wheat: 0.95, potato: 0.02, mustard: 0.01 };
   w.env.paddyShare = Object.entries(w.ag.share.kharif).filter(([id]) => isPaddy(id)).reduce((a, [, v]) => a + v, 0);
@@ -99,7 +123,7 @@ interface Option { crop: Crop; u: number; mean: number; sd: number; assured: boo
 
 export function chooseCrop(w: World, h: Household, season: 'kharif' | 'rabi'): { crop: Crop; text: string } | null {
   const f = h.farm!;
-  const cands = [...w.crops.values()].filter(c => (season === 'kharif' ? isKharif(c) : isRabi(c)) && c.yieldQtlPerHa);
+  const cands = [...w.crops.values()].filter(c => (season === 'kharif' ? isKharif(c) : isRabi(c)) && tradable(w, c));
   if (!cands.length) return null;
   const t = h.traits;
   const last = season === 'kharif' ? f.lastKharif : f.lastRabi;
@@ -141,7 +165,7 @@ export function farmingDaily(w: World) {
   w.env.burnsToday = 0;
   if (m === 6 && dom === 1) { w.ag.area.kharif = {}; }
   if (m === 10 && dom === 20) { w.ag.area.rabi = {}; }
-  const commission = w.commissionPct() / 100;
+  
   const payDays = w.data.agriculture.mandiSystem?.paymentDaysTypical ?? 3;
   const labourShare = 0.22;
   const arhtiyaById = new Map(w.businesses.filter(b => b.archetype === 'arhtiya').map(b => [b.id, b]));
@@ -182,7 +206,7 @@ export function farmingDaily(w: World) {
       if (w.rng.chance(0.25)) decideStubble(w, h);
     }
     // ---- sell
-    if (f.stock) sellStock(w, h, arhtiyaById, commission, payDays);
+    if (f.stock) sellStock(w, h, arhtiyaById, w.commissionPct(f.stock.crop) / 100, payDays);
     // ---- dairy
     if (f.animals > 0) {
       const litres = f.animals * f.milkLpd * milkSeason;
@@ -332,7 +356,7 @@ function sellPrivate(w: World, h: Household, price: number, arhtiya: Business | 
   h.cash += value; h.incomeMonth += value;
   w.transfer('crop_sale', value * h.weight, buyer ? w.bizAcct(buyer) : w.placeAcct(f.mandiId), w.hhAcct(h));
   if (arhtiya) {
-    const comm = value * w.commissionPct() / 100 * h.weight;
+    const comm = value * w.commissionPct(s.crop) / 100 * h.weight;
     arhtiya.cash += comm; arhtiya.revenueDay += comm; arhtiya.revenueMonth += comm;
     w.transfer('commission', comm, buyer ? w.bizAcct(buyer) : null, w.bizAcct(arhtiya));
   }
@@ -384,10 +408,11 @@ function updatePrices(w: World) {
 
 function liftMandis(w: World) {
   const mills = w.businesses.filter(b => b.archetype === 'rice_mill' && b.region === 'moga');
-  // Daily lifting contracts per mandi (tonnes), scaled by policy.
-  const capacity = 3500 * w.policy.liftingCapacityMult;
+  // Daily lifting per mandi scales with the heap waiting there (bigger yards get more
+  // contracted trucks), so a typical backlog is a few days of arrivals. Policy scales it.
   for (const [mandi, stock] of w.mandiStock) {
-    let budget = capacity;
+    const waiting = Object.values(stock).reduce((a, b) => a + b, 0);
+    let budget = (1500 + 0.28 * waiting) * w.policy.liftingCapacityMult;
     for (const crop of Object.keys(stock)) {
       while (stock[crop] >= LIFT_JOB_T * 0.5 && budget > 0) {
         const t = Math.min(LIFT_JOB_T, stock[crop]);
@@ -493,6 +518,7 @@ function decideStubble(w: World, h: Household) {
   const burn = burnPull + w.rng.normal(0, 1500) > burnPush;
   if (burn) {
     f.stubble = 'burned';
+    f.burnDay = w.t;
     w.env.burnsToday += h.weight;
     w.env.burnHaSeason += f.ha * h.weight;
     w.env.burnHaRecent.push(f.ha * h.weight);

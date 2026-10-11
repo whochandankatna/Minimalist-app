@@ -97,6 +97,7 @@ export interface Farm {
   milkLpd: number;
   dairyBuyer: string;
   stubble: 'none' | 'standing' | 'burned' | 'managed';
+  burnDay?: number;
 }
 
 export type MigrationStage = 'none' | 'ielts' | 'applied' | 'abroad';

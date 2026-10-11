@@ -223,13 +223,14 @@ export function householdsMonthly(w: World) {
       w.transfer('remittance', amt * h.weight, null, w.hhAcct(h));
     }
     // ---- business owners draw profit
+    // Owners' income is anchored to their researched level (firms also sell outside the
+    // simulated households) and swings with local profitability: half fixed, half scaled
+    // by this month's regional profit pool relative to what owners expect.
     if (h.businessIncomeExpected > 0 && bizWeights[h.region] > 0) {
-      const share = (h.businessIncomeExpected * h.weight) / bizWeights[h.region];
-      const amt = (profitPool[h.region] * share) / h.weight;
-      if (amt !== 0) {
-        h.cash += amt; h.incomeMonth += Math.max(0, amt);
-        w.transfer('profit_draw', Math.max(0, amt * h.weight), null, w.hhAcct(h));
-      }
+      const ratio = Math.max(0, Math.min(2, profitPool[h.region] / (0.5 * bizWeights[h.region])));
+      const amt = h.businessIncomeExpected * (0.5 + 0.5 * ratio) * w.rng.range(0.85, 1.15);
+      h.cash += amt; h.incomeMonth += amt;
+      w.transfer('profit_draw', amt * h.weight, null, w.hhAcct(h));
     }
     // ---- interest
     const intBank = h.debtBank * bankRate, intInf = h.debtArhtiya * infRate;

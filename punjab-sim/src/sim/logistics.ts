@@ -140,6 +140,7 @@ function burnDiesel(w: World, tr: Truck, km: number, loaded: boolean) {
 
 export function logisticsHourly(w: World, dt: number) {
   dispatch(w);
+  for (const tr of w.trucks) if (tr.state !== 'idle') w.truckBusyHours += dt;
   for (const tr of w.trucks) {
     switch (tr.state) {
       case 'idle':

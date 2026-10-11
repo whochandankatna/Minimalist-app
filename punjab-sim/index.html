@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Moga–Chandigarh Corridor</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800&family=Archivo:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap">
+</head>
+<body>
+<div id="app">
+  <div id="viewport"></div>
+  <header id="topbar">
+    <div class="brand">
+      <span class="brand-mark">NH-5</span>
+      <div><h1>Moga–Chandigarh Corridor</h1><p class="sub">Agent-based economy · Moga district &amp; tricity</p></div>
+    </div>
+    <div class="clock">
+      <div id="date" class="date">1 Oct 2026</div>
+      <div class="clock-row"><span id="time" class="mono">06:00</span><span id="season" class="chip">Paddy procurement</span></div>
+    </div>
+    <div class="speed" role="group" aria-label="Simulation speed">
+      <button id="sp-0" data-speed="0" title="Pause (space)">❚❚</button>
+      <button id="sp-1" data-speed="1" title="1 sim hour per second">1h/s</button>
+      <button id="sp-6" data-speed="6" title="6 sim hours per second">6h/s</button>
+      <button id="sp-24" data-speed="24" title="1 sim day per second">1d/s</button>
+      <button id="sp-96" data-speed="96" title="4 sim days per second">4d/s</button>
+    </div>
+  </header>
+  <nav id="places" aria-label="Fly to"></nav>
+  <div id="layers" aria-label="Layers"></div>
+  <aside id="panel">
+    <div class="tabs" role="tablist"></div>
+    <div id="panel-body"></div>
+  </aside>
+  <section id="inspector" hidden></section>
+  <div id="placing" hidden>Click the map to place agents · <button id="cancel-place">Cancel</button></div>
+  <div id="toast" hidden></div>
+</div>
+<script type="module" src="/src/main.ts"></script>
+</body>
+</html>
