@@ -1,0 +1,15 @@
+.venv/
+__pycache__/
+*.pyc
+.mypy_cache/
+.pytest_cache/
+*.egg-info/
+build/
+# Runtime data: database, backups, tokens, logs. Never commit.
+data/
+.env
+*.db
+*.db-journal
+*.db-wal
+*.db-shm
+screenshots/

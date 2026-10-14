@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title %}Costs · Paper Trading Lab{% endblock %}
+{% block content %}
+<h1>Costs</h1>
+<div class="notice info small">Three separate layers, never double-counted. (1) <strong>Trading charges</strong> (STT, exchange, SEBI, stamp duty, GST, DP) are paid from virtual cash and appear only in the trading account. (2) <strong>Running costs</strong> (data API, hosting, AI, data) are paid outside the virtual account and reduce <em>economic</em> performance, accrued per calendar day. (3) <strong>Setup costs</strong> (one-off) reduce <em>all-in project</em> performance only.</div>
+
+{% if e and d.opex is defined %}
+<div class="grid"><div class="card kpi"><div class="label">Running costs accrued for {{ e.code }}</div><div class="value">{{ inr(d.opex) }}</div></div>
+<div class="card kpi"><div class="label">Setup costs charged to {{ e.code }}</div><div class="value">{{ inr(d.setup) }}</div></div>
+<div class="card kpi"><div class="label">Setup costs not yet allocated</div><div class="value">{{ inr(d.unallocated_setup) }}</div><div class="sub">charged to the next official experiment</div></div></div>
+{% endif %}
+
+<h2 class="section">Recorded expenses</h2>
+<div class="card table-wrap">{% if d.lines %}<table><tr><th>Scope</th><th>Category</th><th>Description</th><th class="num">Amount</th><th>Basis</th><th>From / to</th><th>Price</th></tr>
+{% for l in d.lines %}<tr><td>{{ l.scope }}</td><td>{{ l.category }}</td><td class="small">{{ l.description }}</td><td class="num">{{ inr(l.amount_paise) }}</td><td>{{ l.basis }}</td><td class="small">{{ l.start_date }} → {{ l.end_date or 'ongoing' }}</td>
+<td>{% if l.verified_price %}<span class="tag ok">verified</span>{% else %}<span class="tag warn">estimate</span>{% endif %}{% if l.source_url %} <a class="small" href="{{ l.source_url }}" rel="noopener noreferrer" target="_blank">source</a>{% endif %}</td></tr>{% endfor %}
+</table>{% else %}<span class="muted">No expenses recorded. Add with <code>tradelab expense-add</code> once a cost is actually incurred.</span>{% endif %}</div>
+
+<h2 class="section">Trading charge schedule applied to every simulated fill</h2>
+<div class="card small"><table>
+<tr><th>Schedule</th><td>{{ fees.id }} (retrieved {{ fees.retrieved }}, <a href="{{ fees.source_url }}" rel="noopener noreferrer" target="_blank">source</a>)</td></tr>
+<tr><th>Brokerage (delivery)</th><td>{{ (fees.brokerage_rate * 100)|float }}%</td></tr>
+<tr><th>STT</th><td>{{ (fees.stt_rate_buy * 100)|float }}% buy and {{ (fees.stt_rate_sell * 100)|float }}% sell (conservative for ETFs, rounded to the rupee)</td></tr>
+<tr><th>NSE transaction</th><td>{{ (fees.exchange_txn_rate * 100)|float }}%</td></tr>
+<tr><th>SEBI fee</th><td>₹10 per crore</td></tr>
+<tr><th>IPFT</th><td>₹10 per crore (conservative; unverified)</td></tr>
+<tr><th>Stamp duty</th><td>{{ (fees.stamp_rate_buy * 100)|float }}% on buys</td></tr>
+<tr><th>GST</th><td>{{ (fees.gst_rate * 100)|float }}% on brokerage + exchange + SEBI (+IPFT)</td></tr>
+<tr><th>DP charge</th><td>{{ inr(fees.dp_charge_per_scrip_sell_day_paise) }} per ETF per day it is sold</td></tr>
+</table>
+<p class="muted">Small-capital effect: on a ₹6,250 position, one round trip costs roughly ₹31 to ₹32 (about 0.5%), and the DP charge alone is about 0.25%. A ₹500/month data plan is 2% of ₹25,000 every month.</p></div>
+{% endblock %}

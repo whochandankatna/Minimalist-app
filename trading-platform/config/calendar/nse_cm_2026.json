@@ -1,0 +1,56 @@
+{
+  "exchange": "NSE",
+  "segment": "Capital Market (equity, ETFs)",
+  "year": 2026,
+  "timezone": "Asia/Kolkata",
+  "regular_hours": {"pre_open_start": "09:00", "pre_open_end": "09:08", "open": "09:15", "close": "15:30"},
+  "sources": [
+    {
+      "id": "NSE/CMTR/71775",
+      "title": "Trading Holidays for Calendar Year 2026",
+      "issued": "2025-12-12",
+      "url": "https://nsearchives.nseindia.com/content/circulars/CMTR71775.pdf"
+    },
+    {
+      "id": "NSE/CMTR/72260",
+      "title": "Additional trading holiday: Municipal Corporation elections in Maharashtra",
+      "issued": "2026-01-12",
+      "url": "https://nsearchives.nseindia.com/content/circulars/CMTR72260.pdf"
+    }
+  ],
+  "verification": {
+    "status": "UNVERIFIED_TRANSCRIPTION",
+    "note": "nseindia.com blocked automated retrieval (HTTP 403) on 2026-10-14, so this list was transcribed from search excerpts of the circulars and cross-checked against several secondary calendars. One secondary source also lists 2026-08-26 (Id-E-Milad); it is NOT included because it could not be confirmed. A human must open both PDFs, compare, and run `tradelab calendar-verify` before an official experiment can start.",
+    "verified_by": null,
+    "verified_at": null
+  },
+  "holidays": [
+    {"date": "2026-01-15", "name": "Municipal Corporation Elections in Maharashtra", "source": "NSE/CMTR/72260"},
+    {"date": "2026-01-26", "name": "Republic Day", "source": "NSE/CMTR/71775"},
+    {"date": "2026-03-03", "name": "Holi", "source": "NSE/CMTR/71775"},
+    {"date": "2026-03-26", "name": "Shri Ram Navami", "source": "NSE/CMTR/71775"},
+    {"date": "2026-03-31", "name": "Shri Mahavir Jayanti", "source": "NSE/CMTR/71775"},
+    {"date": "2026-04-03", "name": "Good Friday", "source": "NSE/CMTR/71775"},
+    {"date": "2026-04-14", "name": "Dr. Baba Saheb Ambedkar Jayanti", "source": "NSE/CMTR/71775"},
+    {"date": "2026-05-01", "name": "Maharashtra Day", "source": "NSE/CMTR/71775"},
+    {"date": "2026-05-28", "name": "Bakri Id", "source": "NSE/CMTR/71775"},
+    {"date": "2026-06-26", "name": "Muharram", "source": "NSE/CMTR/71775"},
+    {"date": "2026-09-14", "name": "Ganesh Chaturthi", "source": "NSE/CMTR/71775"},
+    {"date": "2026-10-02", "name": "Mahatma Gandhi Jayanti", "source": "NSE/CMTR/71775"},
+    {"date": "2026-10-20", "name": "Dussehra", "source": "NSE/CMTR/71775"},
+    {"date": "2026-11-10", "name": "Diwali Balipratipada", "source": "NSE/CMTR/71775"},
+    {"date": "2026-11-24", "name": "Prakash Gurpurb Sri Guru Nanak Dev", "source": "NSE/CMTR/71775"},
+    {"date": "2026-12-25", "name": "Christmas", "source": "NSE/CMTR/71775"}
+  ],
+  "special_sessions": [
+    {
+      "date": "2026-11-08",
+      "name": "Muhurat Trading (Diwali Laxmi Pujan, Sunday)",
+      "open": null,
+      "close": null,
+      "status": "TIMINGS_NOT_YET_ANNOUNCED",
+      "strategy_trades": false,
+      "counts_toward_experiment": false
+    }
+  ]
+}

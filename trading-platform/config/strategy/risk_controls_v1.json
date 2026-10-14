@@ -1,0 +1,15 @@
+{
+  "id": "provisional_research_controls_v1",
+  "status": "PROVISIONAL RESEARCH CONTROLS. Not user-approved live-trading limits.",
+  "starting_capital_rupees": "25000",
+  "max_invested_rupees": "12500",
+  "pause_entries_drawdown_from_peak": "0.05",
+  "halt_loss_from_start": "0.10",
+  "equity_basis": "economic (trading equity minus accrued operating expenses)",
+  "definitions": {
+    "pause_entries": "No new BUY orders. Existing holdings, pending sells and exits continue. Resuming requires a logged human action.",
+    "cancel_pending": "Cancel all OPEN/PARTIALLY_FILLED simulated orders. Holdings are unchanged.",
+    "liquidate": "Submit protected SELL orders for every holding. Fills depend on simulated market conditions; gaps, price bands and thin liquidity can mean exits fill below the threshold or not at all on that day.",
+    "halt": "Pause entries + cancel pending buys + liquidate, then end the experiment as HALTED. A halted experiment is never resumed; a new experiment must be created."
+  }
+}

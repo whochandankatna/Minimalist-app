@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}Backtests · Paper Trading Lab{% endblock %}
+{% block content %}
+<h1>Backtests (historical, separate from forward paper trading)</h1>
+<div class="notice warn small">Backtests replay past daily bars. They are not forward results and do not count towards the experiment. Runs on MOCK data use synthetic prices and say nothing about real markets. The EVALUATION period is a hold-out: every run on it is logged and counted below.</div>
+{% set evals = runs|selectattr('r.period', 'equalto', 'EVALUATION')|list %}
+<p class="small">Hold-out (EVALUATION) runs so far: <strong>{{ evals|length }}</strong>{% for x in evals %} · #{{ x.r.id }} {{ x.r.data_source }} {{ fmt_dt(x.r.created_at) }}{% endfor %}</p>
+<div class="card table-wrap">{% if runs %}<table><tr><th>#</th><th>When</th><th>Period</th><th>Data</th><th>Range</th><th class="num">Trading</th><th class="num">Economic</th><th class="num">Benchmark</th><th class="num">Max DD</th><th class="num">Trades</th><th class="num">Charges</th><th class="num">Days ≥10%</th><th>Notes</th></tr>
+{% for x in runs %}{% set r = x.res %}<tr><td>{{ x.r.id }}</td><td class="small">{{ fmt_dt(x.r.created_at) }}</td><td>{{ x.r.period }}</td>
+<td><span class="tag {{ 'warn' if x.r.data_source=='MOCK' else 'ok' }}">{{ x.r.data_source }}</span></td><td class="small">{{ r.start }} → {{ r.end }} ({{ r.days }} d)</td>
+<td class="num">{{ pct(r.trading_return) }}</td><td class="num">{{ pct(r.economic_return) }}</td><td class="num">{{ pct(r.benchmark_return) }}</td><td class="num">{{ pct(r.max_drawdown, 1, False) }}</td>
+<td class="num">{{ r.trades }}</td><td class="num">{{ inr(r.charges) }}</td><td class="num">{{ r.days_hit_10pct }}</td><td class="small muted">{{ r.notes|join('; ') }}{% if r.opex %} · running costs {{ inr(r.opex) }}{% endif %}</td></tr>{% endfor %}
+</table>{% else %}<span class="muted">No backtests yet. Run <code>tradelab backtest --period TRAIN</code>.</span>{% endif %}</div>
+{% endblock %}

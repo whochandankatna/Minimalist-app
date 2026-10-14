@@ -1,0 +1,26 @@
+{
+  "id": "etf_trend_momentum",
+  "version": "1.0.0",
+  "universe": "universe_v1",
+  "hypothesis": "Broad Indian asset-class ETFs that have risen over the last ~3 months and trade above their ~5-month average tend to keep outperforming over the following weeks, and stepping aside when trends break reduces losses. This is a modest, well-documented effect; it is NOT expected to come anywhere near 10% per day.",
+  "params": {
+    "momentum_lookback_sessions": 63,
+    "trend_sma_sessions": 100,
+    "top_k": 2,
+    "rebalance_every_sessions": 5,
+    "buy_limit_buffer_bps": 50,
+    "sell_limit_buffer_bps": 300,
+    "liquidation_limit_buffer_bps": 1000,
+    "order_submit_time_ist": "09:20",
+    "trade_on_special_sessions": false
+  },
+  "rules_plain_english": [
+    "After each close, for every ETF compute (a) its 63-session price change and (b) whether it closed above its 100-session simple average. Prices are adjusted for splits, bonuses and dividends.",
+    "An ETF is eligible only if it is above its average AND its 63-session change is positive.",
+    "Every 5th session of the experiment (sessions 1, 6, 11, 16), hold the top 2 eligible ETFs by 63-session change. If fewer than 2 qualify, the unused slots stay in cash. If none qualify, hold nothing.",
+    "On any session, if a held ETF closed below its 100-session average the previous day, sell it at the next session.",
+    "Signals use closes up to and including day D and are executed during session D+1 (order sent at 09:20 IST). A close is never used to trade on the same day.",
+    "Buy orders are DAY limit orders at 0.5% above the reference price; sells at 3% below (marketable, but protected). Unfilled remainders expire at the close.",
+    "Sizing: each slot gets an equal share of the maximum invested amount (Rs12,500 / 2 = Rs6,250), rounded DOWN to whole units after estimated charges. Existing holdings that stay selected are not topped up (avoids small, costly trades)."
+  ]
+}

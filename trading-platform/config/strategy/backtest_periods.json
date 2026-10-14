@@ -1,0 +1,9 @@
+{
+  "note": "Chronological split fixed BEFORE any backtest was run. Strategy parameters (63/100/top-2/5) were chosen a priori from common practice, not tuned. TRAIN and VALIDATION may be run freely for sanity checks. EVALUATION is the untouched hold-out: each run is permanently logged and counted, and needs explicit confirmation.",
+  "warmup_calendar_days": 200,
+  "periods": {
+    "TRAIN": {"start": "2014-01-01", "end": "2019-12-31"},
+    "VALIDATION": {"start": "2020-01-01", "end": "2022-12-31"},
+    "EVALUATION": {"start": "2023-01-01", "end": "2026-09-30"}
+  }
+}

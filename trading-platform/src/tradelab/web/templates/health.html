@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block title %}Health · Paper Trading Lab{% endblock %}
+{% block content %}
+<h1>System health</h1>
+<div class="grid">
+  <div class="card kpi"><div class="label">Scheduler</div><div class="value" style="font-size:18px">{{ 'running' if scheduler_on else 'OFF' }}</div><div class="sub">Asia/Kolkata · NSE calendar</div></div>
+  <div class="card kpi"><div class="label">Last quote received</div><div class="value" style="font-size:18px">{% if d.last_quote %}{{ (d.last_quote_age/60)|round(1) }} min ago{% else %}never{% endif %}</div>
+    <div class="sub">{% if d.last_quote %}{{ d.last_quote.source }} {{ d.last_quote.symbol }}{% if d.last_quote.stale %} (stale){% endif %}{% endif %}</div></div>
+  <div class="card kpi"><div class="label">Open incidents</div><div class="value" style="font-size:18px">{{ d.open_incidents|length }}</div></div>
+  <div class="card kpi"><div class="label">Audit chain</div><div class="value" style="font-size:18px">{{ 'intact' if d.chain_ok else 'BROKEN at #' ~ d.chain_bad }}</div><div class="sub">{{ d.audit_rows }} rows, hash-linked</div></div>
+</div>
+
+{% if next_runs %}<h2 class="section">Next scheduled jobs</h2>
+<div class="card table-wrap"><table>{% for j, t in next_runs %}<tr><td>{{ j }}</td><td>{{ t }}</td></tr>{% endfor %}</table>
+<div class="small muted">Jobs check the NSE calendar themselves and skip holidays and weekends.</div></div>{% endif %}
+
+<h2 class="section">Latest job runs</h2>
+<div class="card table-wrap"><table><tr><th>Job</th><th>Started</th><th>Status</th><th>Detail</th></tr>
+{% for j in d.jobs %}<tr><td>{{ j.job }}</td><td class="small">{{ fmt_dt(j.started_at) }}</td><td><span class="tag {{ 'ok' if j.status=='OK' else ('bad' if j.status=='FAILED' else '') }}">{{ j.status }}</span></td><td class="small" style="white-space:pre-wrap">{{ (j.detail or '')[:400] }}</td></tr>{% endfor %}
+</table></div>
+
+<h2 class="section">Data coverage gaps</h2>
+<div class="card table-wrap">{% if d.degraded %}<table><tr><th>Session</th><th>Quality</th><th>Notes</th></tr>
+{% for r in d.degraded %}<tr><td>{{ r.session_date }}</td><td>{{ r.quality }}</td><td class="small">{{ r.quality_notes }}</td></tr>{% endfor %}</table>{% else %}<span class="muted">No degraded sessions.</span>{% endif %}</div>
+
+<h2 class="section">Incidents</h2>
+<div class="card table-wrap"><table><tr><th>When</th><th>Severity</th><th>Component</th><th>Message</th><th>Resolved</th></tr>
+{% for i in d.incidents %}<tr><td class="small">{{ fmt_dt(i.ts) }}</td><td><span class="tag {{ 'bad' if i.severity in ('ERROR','CRITICAL') else ('warn' if i.severity=='WARN' else '') }}">{{ i.severity }}</span></td><td>{{ i.component }}</td><td class="small">{{ i.message }}</td><td class="small">{{ fmt_dt(i.resolved_at) if i.resolved_at else '' }} {{ i.resolution or '' }}</td></tr>{% endfor %}
+</table></div>
+
+<h2 class="section">Alert drafts (never sent)</h2>
+<div class="card table-wrap"><div class="small muted">No alert channel is connected, so nothing leaves this server. Email/Telegram integrations are drafted in docs/OPERATIONS.md and need your approval.</div>
+{% if d.alerts %}<table>{% for a in d.alerts %}<tr><td class="small">{{ fmt_dt(a.created_at) }}</td><td>{{ a.severity }}</td><td class="small">{{ a.subject }}<div class="muted">{{ a.body }}</div></td><td>{{ a.status }}</td>
+<td>{% if a.status=='DRAFT' %}<form method="post" action="/alerts/{{ a.id }}/dismiss"><input type="hidden" name="csrf" value="{{ csrf }}"><button>Dismiss</button></form>{% endif %}</td></tr>{% endfor %}</table>{% endif %}</div>
+{% endblock %}

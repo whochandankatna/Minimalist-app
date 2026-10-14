@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}Holdings and trades · Paper Trading Lab{% endblock %}
+{% block content %}
+{% if not e %}<p>No experiment.</p>{% else %}
+<h1>Holdings, orders and trades: {{ e.code }}</h1>
+<div class="small muted">All orders are simulated DAY limit orders. Order IDs are fixed from the experiment and intent, so a restart cannot create duplicates.</div>
+
+<h2 class="section">Holdings</h2>
+<div class="card table-wrap">{% if ov.holdings %}<table><tr><th>ETF</th><th class="num">Units</th><th class="num">Cost</th><th class="num">Value</th><th>Mark source</th></tr>
+{% for h in ov.holdings %}<tr><td>{{ h.symbol }}</td><td class="num">{{ h.qty }}</td><td class="num">{{ inr(h.cost) }}</td><td class="num">{{ inr(h.value) }}</td><td class="small muted">{{ h.mark_src }}</td></tr>{% endfor %}
+</table>{% else %}<span class="muted">No holdings.</span>{% endif %}</div>
+
+<h2 class="section">Pending orders ({{ d.pending|length }})</h2>
+<div class="card table-wrap">{% if d.pending %}<table><tr><th>Created</th><th>ETF</th><th>Side</th><th class="num">Qty (filled)</th><th class="num">Limit</th><th>Status</th><th>Reason</th></tr>
+{% for o in d.pending %}<tr><td class="small">{{ fmt_dt(o.created_at) }}</td><td>{{ o.symbol }}</td><td>{{ o.side }}</td><td class="num">{{ o.quantity }} ({{ o.filled_qty }})</td><td class="num">{{ inr(o.limit_price_paise) }}</td><td>{{ o.status }}</td><td class="small">{{ o.reason }}</td></tr>{% endfor %}
+</table>{% else %}<span class="muted">None.</span>{% endif %}</div>
+
+<h2 class="section">Fills</h2>
+<div class="card table-wrap">{% if d.fills %}<table><tr><th>Time</th><th>ETF</th><th>Side</th><th class="num">Qty</th><th class="num">Price</th><th class="num">Charges</th><th class="num">Realised (gross)</th><th>Why</th></tr>
+{% for f in d.fills %}<tr><td class="small">{{ fmt_dt(f.ts) }}</td><td>{{ f.symbol }}</td><td>{{ f.side }}</td><td class="num">{{ f.qty }}</td><td class="num">{{ inr(f.price_paise) }}</td><td class="num">{{ inr(f.charges_paise) }}</td>
+<td class="num">{{ inr(f.realised_gross_paise, True) if f.side == 'SELL' else '' }}</td><td class="small">{{ d.reasons.get(f.order_id, '') }}<div class="muted mono">{{ f.market_ref }}</div></td></tr>{% endfor %}
+</table>{% else %}<span class="muted">No fills yet.</span>{% endif %}</div>
+
+<h2 class="section">All orders (latest 200)</h2>
+<div class="card table-wrap"><table><tr><th>Created</th><th>Session</th><th>ETF</th><th>Side</th><th>Intent</th><th class="num">Qty</th><th class="num">Filled</th><th class="num">Limit</th><th>Status</th><th>Notes</th></tr>
+{% for o in d.orders %}<tr><td class="small">{{ fmt_dt(o.created_at) }}</td><td class="small">{{ o.session_date }}</td><td>{{ o.symbol }}</td><td>{{ o.side }}</td><td class="small">{{ o.intent }}</td><td class="num">{{ o.quantity }}</td><td class="num">{{ o.filled_qty }}</td>
+<td class="num">{{ inr(o.limit_price_paise) }}</td><td><span class="tag {{ 'ok' if o.status=='FILLED' else ('bad' if o.status=='REJECTED' else '') }}">{{ o.status }}</span></td>
+<td class="small">{{ o.reason }}{% if o.reject_reason %}<div class="neg">rejected: {{ o.reject_reason }}</div>{% endif %}{% if o.cancel_reason %}<div class="muted">{{ o.cancel_reason }}</div>{% endif %}</td></tr>{% endfor %}
+</table></div>
+{% endif %}
+{% endblock %}

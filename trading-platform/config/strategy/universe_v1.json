@@ -1,0 +1,15 @@
+{
+  "id": "nse_etf_universe_v1",
+  "description": "Four long-running, liquid NSE-listed ETFs covering large caps, next-50 large caps, banks and gold. Chosen before any backtest was run.",
+  "instruments": [
+    {"symbol": "NIFTYBEES", "exchange": "NSE", "name": "Nippon India ETF Nifty 50 BeES", "asset_class": "Indian large-cap equity", "tick_paise": 1, "mock_start_price": "290.00", "mock_annual_drift": "0.10", "mock_annual_vol": "0.15"},
+    {"symbol": "JUNIORBEES", "exchange": "NSE", "name": "Nippon India ETF Nifty Next 50 Junior BeES", "asset_class": "Indian large/mid-cap equity", "tick_paise": 1, "mock_start_price": "780.00", "mock_annual_drift": "0.11", "mock_annual_vol": "0.20"},
+    {"symbol": "BANKBEES", "exchange": "NSE", "name": "Nippon India ETF Nifty Bank BeES", "asset_class": "Indian banking equity", "tick_paise": 1, "mock_start_price": "580.00", "mock_annual_drift": "0.09", "mock_annual_vol": "0.22"},
+    {"symbol": "GOLDBEES", "exchange": "NSE", "name": "Nippon India ETF Gold BeES", "asset_class": "Gold", "tick_paise": 1, "mock_start_price": "105.00", "mock_annual_drift": "0.08", "mock_annual_vol": "0.14"}
+  ],
+  "benchmark": "NIFTYBEES",
+  "notes": [
+    "mock_* fields only drive the synthetic MOCK data generator. They are not forecasts.",
+    "Selection bias: these ETFs are well-known survivors. Within the four, no instrument is added or dropped based on performance."
+  ]
+}

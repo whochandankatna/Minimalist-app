@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% block title %}Experiment · Paper Trading Lab{% endblock %}
+{% block content %}
+{% if not e %}<p>No experiment.</p>{% else %}
+<h1>Experiment {{ e.code }}</h1>
+<div class="two">
+  <div class="card"><h3>Version and rules</h3>
+    <table>
+      <tr><th>Purpose</th><td>{{ e.purpose }} {% if e.purpose=='DEMO' %}<span class="tag warn">does not count</span>{% endif %}</td></tr>
+      <tr><th>Data</th><td>{{ e.data_mode }}</td></tr>
+      <tr><th>Status</th><td>{{ e.status }}{% if e.end_reason %}: {{ e.end_reason }}{% endif %}</td></tr>
+      <tr><th>Strategy</th><td>{{ e.strategy_id }} v{{ e.strategy_version }}</td></tr>
+      <tr><th>Frozen fingerprint</th><td class="mono">{{ e.strategy_hash }}</td></tr>
+      <tr><th>Fee schedule</th><td>{{ e.fee_schedule_id }} <span class="mono">{{ e.fee_schedule_sha[:12] }}</span></td></tr>
+      <tr><th>Created</th><td>{{ fmt_dt(e.created_at) }}</td></tr>
+      <tr><th>Started</th><td>{{ fmt_dt(e.started_at) }} · first session {{ fmt_d(e.start_session_date) }}</td></tr>
+      <tr><th>Sessions</th><td>{{ d.n_closed }} of {{ e.target_sessions }} closed{% if d.expected_end %} · expected last session {{ fmt_d(d.expected_end) }}{% endif %}</td></tr>
+      {% if e.supersedes_experiment_id %}<tr><th>Supersedes</th><td>experiment #{{ e.supersedes_experiment_id }} (preserved)</td></tr>{% endif %}
+    </table>
+  </div>
+  <div class="card"><h3>Provisional research risk controls</h3>
+    <div class="small notice warn">These are research controls for the simulation, not limits you have approved for live trading.</div>
+    <table>
+      <tr><th>Starting virtual capital</th><td>{{ inr(d.risk.starting_capital_paise) }}</td></tr>
+      <tr><th>Max invested (cost basis + pending buys)</th><td>{{ inr(d.risk.max_invested_paise) }}</td></tr>
+      <tr><th>Pause new entries</th><td>{{ (d.risk.pause_entries_drawdown_from_peak|float * 100)|round(1) }}% below peak economic equity</td></tr>
+      <tr><th>Halt and liquidate</th><td>{{ (d.risk.halt_loss_from_start|float * 100)|round(1) }}% below starting economic capital (fills not guaranteed)</td></tr>
+      <tr><th>Not allowed</th><td>margin, borrowing, short selling, futures, options, withdrawals</td></tr>
+    </table>
+  </div>
+</div>
+
+<h2 class="section">Strategy (frozen)</h2>
+<div class="card">
+  <p><strong>Hypothesis.</strong> {{ spec.raw_strategy.hypothesis }}</p>
+  <ol class="small">{% for r in spec.raw_strategy.rules_plain_english %}<li>{{ r }}</li>{% endfor %}</ol>
+</div>
+
+<h2 class="section" id="reviews">Review checkpoints</h2>
+<div class="card table-wrap"><table><tr><th>After session</th><th>Status</th><th>Snapshot</th><th></th></tr>
+{% for c in d.checkpoints %}<tr><td>{{ c.n }}</td><td><span class="tag {{ 'warn' if c.status=='REVIEW DUE' else ('ok' if c.status=='acknowledged' else '') }}">{{ c.status }}</span></td>
+<td class="small">{% if c.review %}trading {{ pct(c.review.trading_return) }} · economic {{ pct(c.review.economic_return) }} · all-in {{ pct(c.review.allin_return) }} · benchmark {{ pct(c.review.benchmark_return) }} · max DD {{ pct(c.review.max_drawdown_economic, 2, False) }} · +10% sessions {{ c.review.sessions_hit_10pct }} · degraded sessions {{ c.review.degraded_sessions }}<div class="muted">{{ c.review.reminder }}</div>{% endif %}</td>
+<td>{% if c.status=='REVIEW DUE' %}<form method="post" action="/reviews/{{ c.id }}/ack"><input type="hidden" name="csrf" value="{{ csrf }}"><input name="note" placeholder="your notes"><button>Mark reviewed</button></form>{% endif %}</td></tr>{% endfor %}
+</table></div>
+
+<h2 class="section">Readiness checks</h2>
+<div class="card">
+{% if checks %}<table>{% for c in checks %}<tr><td><span class="tag {{ 'ok' if c.ok else 'bad' }}">{{ 'PASS' if c.ok else 'FAIL' }}</span></td><td>{{ c.name }}</td><td class="small">{{ c.detail }}</td></tr>{% endfor %}</table>
+{% else %}<a class="btn" href="/experiment?exp={{ e.id }}&check=1">Run readiness checks now</a> <span class="small muted">The official clock starts only when all checks pass (CLI: <code>tradelab experiment-start</code>).</span>{% endif %}
+</div>
+
+<h2 class="section">Sessions</h2>
+<div class="card table-wrap"><table><tr><th>Date</th><th>#</th><th>Quality</th><th class="num">Trading</th><th class="num">Economic</th><th class="num">All-in</th><th class="num">Day (econ.)</th><th class="num">Benchmark</th><th>Notes</th></tr>
+{% for r in d.sessions %}<tr><td>{{ r.session_date }}</td><td>{{ r.session_number or r.kind }}</td><td><span class="tag {{ 'ok' if r.quality=='OK' else 'warn' }}">{{ r.quality }}</span> <span class="small muted">{{ r.status }}</span></td>
+<td class="num">{{ inr(r.trading_equity_paise) if r.status=='CLOSED' else '' }}</td><td class="num">{{ inr(r.economic_equity_paise) if r.status=='CLOSED' else '' }}</td><td class="num">{{ inr(r.allin_equity_paise) if r.status=='CLOSED' else '' }}</td>
+<td class="num {{ 'pos' if (r.return_economic or 0) >= 0 else 'neg' }}">{{ pct(r.return_economic) if r.return_economic is not none else '' }}</td><td class="num">{{ inr(r.benchmark_value_paise) if r.benchmark_value_paise else '' }}</td><td class="small muted">{{ r.quality_notes or '' }}</td></tr>{% endfor %}
+</table></div>
+<div class="small muted" style="margin-top:8px">Running costs accrue every calendar day, including weekends and holidays. Costs from non-trading days appear in the next session's return.</div>
+{% endif %}
+{% endblock %}

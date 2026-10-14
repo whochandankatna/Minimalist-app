@@ -1,0 +1,126 @@
+{% extends "base.html" %}
+{% block title %}Overview · Paper Trading Lab{% endblock %}
+{% block content %}
+{% if not e %}
+  <h1>No experiment yet</h1>
+  <p>Create one from the command line: <code>tradelab experiment-create --purpose DEMO</code>, then <code>tradelab experiment-start</code>. See the README.</p>
+{% else %}
+  {% set sm = d.summary %}{% set sn = d.snap %}
+  <h1>{{ e.code }}: {{ e.name }}</h1>
+  <div class="small muted">
+    {{ e.purpose }} · {{ e.data_mode }} · status <strong>{{ e.status }}</strong> · strategy {{ e.strategy_id }} v{{ e.strategy_version }}
+    (<span class="mono" title="SHA-256 of frozen strategy, risk, universe and signal code">{{ e.strategy_hash[:12] }}</span>)
+    · session <strong>{{ d.n_closed }}</strong> of {{ e.target_sessions }}
+    {% if d.expected_end %}· expected last session {{ fmt_d(d.expected_end) }}{% endif %}
+  </div>
+  {% if e.purpose == 'DEMO' %}<div class="notice warn">DEMO experiment. It does <strong>not</strong> count towards the official 20-session test{% if e.data_mode == 'MOCK' %}, and every price on this page is synthetic MOCK data{% endif %}.</div>{% endif %}
+  {% if e.entries_paused %}<div class="notice crit"><strong>New entries paused:</strong> {{ e.entries_paused_reason }}</div>{% endif %}
+  {% if e.liquidation_requested and e.status == 'RUNNING' %}<div class="notice crit">Liquidation in progress. Exits depend on simulated market availability and may fill below the trigger level.</div>{% endif %}
+  {% for c in d.checkpoints if c.status == 'REVIEW DUE' %}<div class="notice info">Review due after session {{ c.n }}. <a href="/experiment?exp={{ e.id }}#reviews">Open review</a></div>{% endfor %}
+
+  {% if sn %}
+  <div class="grid" style="margin-top:12px">
+    <div class="card kpi"><div class="label">1 · Trading account (virtual)</div>
+      <div class="value">{{ inr(sn.trading) }}</div>
+      <div class="sub {{ 'pos' if sn.trading >= e.starting_capital_paise else 'neg' }}">{{ inr(sn.trading - e.starting_capital_paise, True) }} since start, after trading charges</div></div>
+    <div class="card kpi"><div class="label">2 · Economic (after running costs)</div>
+      <div class="value">{{ inr(sn.economic) }}</div>
+      <div class="sub {{ 'pos' if sn.economic >= e.starting_capital_paise else 'neg' }}">{{ inr(sn.economic - e.starting_capital_paise, True) }} · running costs so far {{ inr(sn.opex_cum) }}</div></div>
+    <div class="card kpi"><div class="label">3 · All-in project (incl. setup)</div>
+      <div class="value">{{ inr(sn.allin) }}</div>
+      <div class="sub">setup costs charged {{ inr(sn.setup_cum) }}</div></div>
+    <div class="card kpi"><div class="label">Cash / reserved / invested</div>
+      <div class="value" style="font-size:18px">{{ inr(sn.cash) }}</div>
+      <div class="sub">reserved for open buys {{ inr(sn.reserved) }} · holdings {{ inr(sn.market_value) }} (max {{ inr(d.risk.max_invested_paise) }})</div></div>
+  </div>
+  <div class="grid" style="margin-top:12px">
+    <div class="card kpi"><div class="label">Benchmark (NIFTYBEES, same ₹12,500 exposure + costs)</div>
+      <div class="value" style="font-size:18px">{{ pct(sm.benchmark_return) }}</div><div class="sub">strategy economic: {{ pct(sm.economic_return) }}</div></div>
+    <div class="card kpi"><div class="label">Max drawdown (economic)</div><div class="value" style="font-size:18px">{{ pct(sm.max_dd_economic, 2, False) }}</div>
+      <div class="sub">pause entries at 5% from peak; halt at 10% loss</div></div>
+    <div class="card kpi"><div class="label">Sessions reaching +10%</div><div class="value" style="font-size:18px">{{ sm.sessions_hit_target }} / {{ sm.sessions_closed }}</div>
+      <div class="sub">{{ pct(sm.pct_sessions_hit_target, 0, False) if sm.pct_sessions_hit_target is not none else 'n/a' }} of sessions</div></div>
+    <div class="card kpi"><div class="label">Trading charges · turnover</div><div class="value" style="font-size:18px">{{ inr(sm.total_charges) }}</div>
+      <div class="sub">turnover {{ inr(sm.total_turnover) }}{% if sm.turnover_ratio %} ({{ '%.2f'|format(sm.turnover_ratio) }}× avg equity){% endif %}</div></div>
+  </div>
+  {% else %}
+  <div class="notice info">Experiment not started yet. Run readiness checks on the <a href="/experiment?exp={{ e.id }}&check=1">Experiment page</a>.</div>
+  {% endif %}
+
+  <div class="two" style="margin-top:12px">
+    <div class="card"><h2>Equity: actual vs hypothetical 10%/session</h2>
+      <div class="small muted">Log scale. The purple line compounds 10% every session (×{{ '%.1f'|format(1.1 ** e.target_sessions) }} after {{ e.target_sessions }} sessions) and is shown only for comparison. It is not an expected outcome.</div>
+      <div class="chart-box"><canvas id="eq"></canvas></div></div>
+    <div class="card"><h2>Daily net return (economic)</h2>
+      <div class="small muted">Return on previous session's closing economic equity, adjusted for external cash flows. Dashed line = 10%.</div>
+      <div class="chart-box"><canvas id="ret"></canvas></div></div>
+  </div>
+
+  <h2 class="section">Holdings</h2>
+  <div class="card table-wrap">
+  {% if d.holdings %}
+  <table><tr><th>ETF</th><th class="num">Units</th><th class="num">Avg cost</th><th class="num">Mark</th><th class="num">Value</th><th class="num">Unrealised</th><th>Price source</th></tr>
+  {% for h in d.holdings %}<tr><td>{{ h.symbol }}</td><td class="num">{{ h.qty }}</td><td class="num">{{ inr(h.avg_cost|round|int) }}</td>
+    <td class="num">{{ inr(h.mark) if h.mark else 'n/a' }}</td><td class="num">{{ inr(h.value) }}</td>
+    <td class="num {{ 'pos' if (h.unrealised or 0) >= 0 else 'neg' }}">{{ inr(h.unrealised, True) if h.unrealised is not none else 'n/a' }}</td><td class="small muted">{{ h.mark_src }}</td></tr>{% endfor %}
+  </table>
+  {% else %}<span class="muted">No holdings. The strategy is in cash{% if d.signal and d.signal.notes %} ({{ d.signal.notes|join('; ') }}){% endif %}.</span>{% endif %}
+  <div class="small muted" style="margin-top:6px">Realised (gross) {{ inr(sm.realised_gross) }} · indicative tax on realised net gains if this were real: {{ inr(d.indicative_tax) }} <span title="Rough: 20% STCG on listed equity held under 12 months; gold ETFs are taxed differently. Not deducted from any figure above. Not tax advice.">(estimate, not deducted, not advice)</span></div>
+  </div>
+
+  {% if d.signal %}
+  <h2 class="section">Latest signal <span class="small muted">for {{ d.signal_row.valid_for }} using closes through {{ d.signal_row.data_through }}{% if d.signal.rebalance_day %} · rebalance session{% endif %}</span></h2>
+  <div class="card table-wrap"><table><tr><th>ETF</th><th class="num">Close</th><th class="num">63-session change</th><th class="num">100-session avg</th><th>Status</th></tr>
+  {% for r in d.signal.ranking %}<tr><td>{{ r.symbol }}</td><td class="num">{{ r.close if r.close is defined else '' }}</td>
+    <td class="num">{{ pct(r.momentum) if r.momentum is defined else '' }}</td><td class="num">{{ r.sma if r.sma is defined else '' }}</td>
+    <td>{% if r.symbol in d.signal.selected %}<span class="tag ok">selected</span> {% endif %}<span class="small">{{ r.note }}</span></td></tr>{% endfor %}
+  </table>
+  {% for x in d.signal.entries %}<div class="small">Planned entry: <strong>{{ x.symbol }}</strong>: {{ x.reason }}</div>{% endfor %}
+  {% for x in d.signal.exits %}<div class="small">Planned exit: <strong>{{ x.symbol }}</strong>: {{ x.reason }}</div>{% endfor %}
+  </div>
+  {% endif %}
+
+  {% if e.status == 'RUNNING' %}
+  <h2 class="section">Controls</h2>
+  <div class="card">
+    <div class="small muted" style="margin-bottom:8px">Each action is recorded in the audit log. <strong>Pause</strong> stops new buys only. <strong>Cancel</strong> withdraws open simulated orders. <strong>Liquidate</strong> sells all holdings at the next opportunity; fills are not guaranteed at any price.</div>
+    <div class="controls">
+      <form method="post" action="/controls/{{ 'resume' if e.entries_paused else 'pause' }}" class="ctl">
+        <input type="hidden" name="csrf" value="{{ csrf }}"><input type="hidden" name="exp_id" value="{{ e.id }}">
+        <input name="reason" placeholder="reason" required>
+        <button>{{ 'Resume new entries' if e.entries_paused else 'Pause new entries' }}</button></form>
+      <form method="post" action="/controls/cancel" class="ctl"><input type="hidden" name="csrf" value="{{ csrf }}"><input type="hidden" name="exp_id" value="{{ e.id }}">
+        <button>Cancel pending orders</button></form>
+      <form method="post" action="/controls/liquidate" class="ctl"><input type="hidden" name="csrf" value="{{ csrf }}"><input type="hidden" name="exp_id" value="{{ e.id }}">
+        <input name="reason" placeholder="reason" required><input name="confirm" placeholder="type LIQUIDATE" required>
+        <button class="danger">Liquidate all holdings</button></form>
+    </div>
+  </div>
+  {% endif %}
+
+  <h2 class="section">Downloads</h2>
+  <div class="card small">
+    {% for k in ['trades','orders','ledger','sessions','audit','research'] %}<a class="btn" href="/reports/{{ k }}.csv?exp={{ e.id }}">{{ k }}.csv</a> {% endfor %}
+  </div>
+
+<script>
+(function(){
+  const c = {{ json.dumps(d.curve)|safe }};
+  const css = getComputedStyle(document.documentElement);
+  const v = n => css.getPropertyValue(n).trim();
+  Chart.defaults.color = v('--muted'); Chart.defaults.borderColor = v('--line');
+  new Chart(document.getElementById('eq'), {type:'line', data:{labels:c.labels, datasets:[
+    {label:'Trading account', data:c.trading, borderColor:v('--accent'), tension:0, pointRadius:2},
+    {label:'Economic', data:c.economic, borderColor:v('--good'), tension:0, pointRadius:2},
+    {label:'All-in', data:c.allin, borderColor:v('--text'), borderDash:[2,3], tension:0, pointRadius:0},
+    {label:'Benchmark', data:c.benchmark, borderColor:v('--bench'), tension:0, pointRadius:0},
+    {label:'Hypothetical 10%/session', data:c.target, borderColor:v('--target'), borderDash:[6,4], pointRadius:0}
+  ]}, options:{maintainAspectRatio:false, animation:false, scales:{y:{type:'logarithmic', ticks:{callback:x=>'₹'+Number(x).toLocaleString('en-IN')}}}, plugins:{legend:{labels:{boxWidth:12}}}}});
+  new Chart(document.getElementById('ret'), {type:'bar', data:{labels:c.labels.slice(1), datasets:[
+    {label:'Daily net return %', data:c.returns, backgroundColor:c.returns.map(x=>x>=0?v('--good'):v('--bad'))},
+    {type:'line', label:'10% hypothesis', data:c.returns.map(()=>10), borderColor:v('--target'), borderDash:[6,4], pointRadius:0}
+  ]}, options:{maintainAspectRatio:false, animation:false, scales:{y:{ticks:{callback:x=>x+'%'}}}, plugins:{legend:{labels:{boxWidth:12}}}}});
+})();
+</script>
+{% endif %}
+{% endblock %}

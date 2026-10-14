@@ -1,0 +1,32 @@
+{
+  "checked": "2026-10-14",
+  "sources": [
+    {"key": "nse_announcements", "name": "NSE corporate announcements & financial results", "kind": "EXCHANGE_FILING",
+     "url": "https://www.nseindia.com/companies-listing/corporate-filings-announcements", "access_method": "MANUAL",
+     "terms_status": "AUTOMATION_BLOCKED",
+     "terms_note": "nseindia.com returned no response / HTTP 403 to automated requests from this server on 2026-10-14. Do not scrape. Enter items manually from the website, or use a licensed data vendor."},
+    {"key": "bse_announcements", "name": "BSE corporate announcements", "kind": "EXCHANGE_FILING",
+     "url": "https://www.bseindia.com/corporates/ann.html", "access_method": "MANUAL",
+     "terms_status": "AUTOMATION_BLOCKED",
+     "terms_note": "api.bseindia.com returned 'Access Denied' to an automated request on 2026-10-14. Manual entry only."},
+    {"key": "company_ir", "name": "Company / AMC investor-relations pages", "kind": "IR",
+     "url": "https://mf.nipponindiaim.com/", "access_method": "MANUAL", "terms_status": "UNVERIFIED",
+     "terms_note": "Per-company terms vary. Manual entry; record the exact document URL."},
+    {"key": "rbi_press", "name": "Reserve Bank of India press releases", "kind": "CENTRAL_BANK",
+     "url": "https://www.rbi.org.in/pressreleases_rss.xml", "access_method": "RSS", "terms_status": "UNVERIFIED",
+     "terms_note": "RBI publishes an RSS feed. Automated use is disabled until a human reviews RBI website terms and enables it with `tradelab research-enable rbi_press`."},
+    {"key": "pib", "name": "Press Information Bureau (Government of India)", "kind": "GOVERNMENT",
+     "url": "https://pib.gov.in/", "access_method": "MANUAL", "terms_status": "UNVERIFIED",
+     "terms_note": "Original ministry notices (e.g. tariff/customs notifications) should be cited from the Gazette or ministry site where possible."},
+    {"key": "dgft_cbic", "name": "DGFT / CBIC trade and customs notifications", "kind": "GOVERNMENT",
+     "url": "https://www.dgft.gov.in/", "access_method": "MANUAL", "terms_status": "UNVERIFIED",
+     "terms_note": "Record whether a measure is PROPOSED or EFFECTIVE and its effective date."},
+    {"key": "us_federal_register", "name": "US Federal Register (tariffs, sanctions rules)", "kind": "GOVERNMENT",
+     "url": "https://www.federalregister.gov/api/v1/documents.json?per_page=20&order=newest&conditions[term]=tariff", "access_method": "API",
+     "terms_status": "UNVERIFIED",
+     "terms_note": "The Federal Register publishes a documented public API. Disabled by default; a human should confirm terms before enabling."},
+    {"key": "ofac", "name": "US Treasury OFAC recent actions (sanctions)", "kind": "GOVERNMENT",
+     "url": "https://ofac.treasury.gov/recent-actions", "access_method": "MANUAL", "terms_status": "UNVERIFIED",
+     "terms_note": "Manual entry. Distinguish designations (effective) from proposals."}
+  ]
+}

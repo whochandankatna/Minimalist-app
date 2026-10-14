@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block title %}Research · Paper Trading Lab{% endblock %}
+{% block content %}
+<h1>Research</h1>
+<div class="notice info small">Research is used for explanations and logged risk flags only. In strategy v1 it <strong>cannot</strong> change trading; the database rejects any risk flag marked as affecting trades. Document text is treated as untrusted data and never as instructions. Coverage is incomplete and not instantaneous.</div>
+
+<h2 class="section">Sources and access status</h2>
+<div class="card table-wrap"><table><tr><th>Source</th><th>Kind</th><th>Access</th><th>Terms / automation</th><th>Last fetch</th></tr>
+{% for x in d.sources %}<tr><td><a href="{{ x.url }}" rel="noopener noreferrer" target="_blank">{{ x.name }}</a></td><td class="small">{{ x.kind }}</td>
+<td class="small">{{ x.access_method }} {% if x.automated_enabled %}<span class="tag ok">automated on</span>{% else %}<span class="tag">automated off</span>{% endif %}</td>
+<td class="small"><span class="tag {{ 'bad' if 'BLOCKED' in x.terms_status else 'warn' }}">{{ x.terms_status }}</span> {{ x.terms_note }}</td>
+<td class="small">{{ ago(x.last_fetch_at, d.now) }}{% if x.last_fetch_status %}<div class="muted">{{ x.last_fetch_status }}</div>{% endif %}</td></tr>{% endfor %}
+</table></div>
+
+<h2 class="section">Items ({{ d.rows|length }})</h2>
+<div class="card table-wrap">{% if d.rows %}<table><tr><th>Item</th><th>Type / status</th><th>Times</th><th>Facts / inference / missing</th></tr>
+{% for r in d.rows %}{% set it = r.it %}<tr>
+<td><a href="{{ it.url }}" rel="noopener noreferrer nofollow" target="_blank">{{ it.title }}</a><div class="small muted">{{ r.source }}{% if it.symbols %} · {{ it.symbols }}{% endif %} · entered by {{ it.entered_by }}</div>
+<details class="small"><summary>excerpt (untrusted)</summary><div style="white-space:pre-wrap">{{ it.excerpt[:1500] }}</div></details></td>
+<td class="small"><span class="tag">{{ it.doc_type }}</span> <span class="tag {{ 'warn' if it.event_status in ('RUMOUR','NON_BINDING','PROPOSED') else '' }}">{{ it.event_status }}</span>
+{% if it.statement_basis != 'NA' %}<div>basis: {{ it.statement_basis }}</div>{% endif %}{% if it.reporting_period %}<div>period: {{ it.reporting_period }}</div>{% endif %}{% if it.units %}<div>units: {{ it.units }}</div>{% endif %}</td>
+<td class="small">published {{ fmt_dt(it.published_at) }}<br>first seen {{ fmt_dt(it.first_observed_at) }}<br>retrieved {{ fmt_dt(it.retrieved_at) }}<br><span class="{{ 'neg' if r.age_h > 48 else 'muted' }}">{{ ago(it.retrieved_at, d.now) }}</span></td>
+<td class="small">{% for f in r.facts %}<div><span class="tag ok">verified fact</span> {{ f }}</div>{% endfor %}
+{% for f in r.inferences %}<div><span class="tag">inference</span> {{ f }}</div>{% endfor %}
+{% for f in r.missing %}<div><span class="tag warn">missing</span> {{ f }}</div>{% endfor %}</td></tr>{% endfor %}
+</table>{% else %}<span class="muted">No research items yet. Add one below (manual entry from an official source).</span>{% endif %}</div>
+
+<h2 class="section">Risk flags (logged only; never trade on them in v1)</h2>
+<div class="card table-wrap">{% if d.flags %}<table><tr><th>When</th><th>Category</th><th>Severity</th><th>Description</th><th>Basis</th><th>Affects trading</th></tr>
+{% for f in d.flags %}<tr><td class="small">{{ fmt_dt(f.created_at) }}</td><td>{{ f.category }}</td><td>{{ f.severity }}</td><td class="small">{{ f.description }}{% if f.symbol %} ({{ f.symbol }}){% endif %}</td><td class="small">{{ f.basis }} {{ f.rule_version }}</td><td>{{ 'yes' if f.affects_trading else 'no' }}</td></tr>{% endfor %}
+</table>{% else %}<span class="muted">None.</span>{% endif %}</div>
+
+<h2 class="section">Add an item manually</h2>
+<form method="post" action="/research/add" class="card">
+  <input type="hidden" name="csrf" value="{{ csrf }}">
+  <div class="controls">
+    <label class="ctl small">Source<select name="source_key">{% for x in d.sources %}<option value="{{ x.key }}">{{ x.name }}</option>{% endfor %}</select></label>
+    <label class="ctl small">Document URL (original source)<input name="url" type="url" required size="40"></label>
+    <label class="ctl small">Published (IST, e.g. 2026-10-14T17:30)<input name="published_at"></label>
+    <label class="ctl small">ETFs/stocks (comma separated)<input name="symbols" placeholder="{{ symbols|join(',') }}"></label>
+  </div>
+  <div class="controls" style="margin-top:8px">
+    <label class="ctl small">Title<input name="title" required size="50"></label>
+    <label class="ctl small">Type<select name="doc_type"><option value="">auto-detect</option>{% for t in ['FINANCIAL_RESULTS','ANNOUNCEMENT','CONTRACT','ACQUISITION','PARTNERSHIP','POLICY','TARIFF','SANCTION','MONETARY_POLICY','OTHER'] %}<option>{{ t }}</option>{% endfor %}</select></label>
+    <label class="ctl small">Status<select name="event_status"><option value="">auto-detect</option>{% for t in ['SIGNED','NON_BINDING','RUMOUR','PROPOSED','EFFECTIVE','UNKNOWN'] %}<option>{{ t }}</option>{% endfor %}</select></label>
+    <label class="ctl small">Accounts basis<select name="statement_basis">{% for t in ['NA','CONSOLIDATED','STANDALONE','UNKNOWN'] %}<option>{{ t }}</option>{% endfor %}</select></label>
+    <label class="ctl small">Reporting period<input name="reporting_period" placeholder="Q2 FY27"></label>
+    <label class="ctl small">Units<input name="units" placeholder="Rs crore"></label>
+  </div>
+  <label class="small">Verified facts (one per line, only what the document states)<textarea name="facts" rows="3"></textarea></label>
+  <label class="small">Text / excerpt (stored as untrusted data)<textarea name="text" rows="4"></textarea></label>
+  <button style="margin-top:8px">Add research item</button>
+</form>
+{% endblock %}

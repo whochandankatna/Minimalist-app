@@ -1,0 +1,23 @@
+{
+  "id": "zerodha_equity_delivery_v1",
+  "description": "Zerodha equity DELIVERY (CNC) charges on NSE, used for every simulated fill.",
+  "source_url": "https://zerodha.com/charges/",
+  "retrieved": "2026-10-14",
+  "brokerage_rate": "0",
+  "brokerage_cap_paise": 0,
+  "stt_rate_buy": "0.001",
+  "stt_rate_sell": "0.001",
+  "stt_round_to_rupee": true,
+  "exchange_txn_rate": "0.0000307",
+  "sebi_rate": "0.000001",
+  "ipft_rate": "0.000001",
+  "stamp_rate_buy": "0.00015",
+  "gst_rate": "0.18",
+  "dp_charge_per_scrip_sell_day_paise": 1534,
+  "notes": [
+    "VERIFIED on zerodha.com/charges (2026-10-14): zero delivery brokerage; STT 0.1% buy and sell; NSE transaction 0.00307%; SEBI Rs10/crore; GST 18% on (brokerage + SEBI + transaction); stamp 0.015% buy; DP Rs15.34 per scrip when sold (Rs3.50 CDSL + Rs9.50 Zerodha + Rs2.34 GST).",
+    "CONSERVATIVE ASSUMPTION: ETFs may attract lower STT (commonly cited 0.001% sell-only for equity ETFs; nil for gold ETFs). Zerodha's page did not confirm ETF-specific rates, so the higher equity-delivery STT is applied. This overstates costs rather than understating them.",
+    "UNVERIFIED: NSE IPFT. A page extract read 'Rs0.01 per crore'; that looks like an extraction error, so Rs10/crore (+GST) is used conservatively. Its effect is negligible at this capital size.",
+    "STT is rounded to the nearest rupee per fill (contract notes round per trade). Rounding per partial fill is slightly conservative."
+  ]
+}

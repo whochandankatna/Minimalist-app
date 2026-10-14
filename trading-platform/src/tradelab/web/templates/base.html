@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>{% block title %}Paper Trading Lab{% endblock %}</title>
+<link rel="stylesheet" href="/static/app.css">
+<script src="/static/chart.umd.min.js"></script>
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <span class="brand">Paper Trading Lab</span>
+  <nav>
+    {% set q = ('?exp=' ~ e.id) if e is defined and e else '' %}
+    <a href="/{{ q }}" class="{{ 'on' if active=='overview' }}">Overview</a>
+    <a href="/trades{{ q }}" class="{{ 'on' if active=='trades' }}">Holdings &amp; trades</a>
+    <a href="/experiment{{ q }}" class="{{ 'on' if active=='experiment' }}">Experiment</a>
+    <a href="/backtests" class="{{ 'on' if active=='backtests' }}">Backtests</a>
+    <a href="/research" class="{{ 'on' if active=='research' }}">Research</a>
+    <a href="/costs{{ q }}" class="{{ 'on' if active=='costs' }}">Costs</a>
+    <a href="/health" class="{{ 'on' if active=='health' }}">Health</a>
+  </nav>
+</div></header>
+<main class="wrap">
+  <div class="banner" role="status">
+    <span class="pill paper" title="Every order is simulated. No broker order endpoint exists in this app.">PAPER TRADING ONLY</span>
+    {% if banner.live %}<span class="pill live">LIVE MARKET DATA (Kite)</span>
+    {% else %}<span class="pill mock" title="Synthetic prices generated locally. Not real market data.">MOCK DATA: synthetic prices, not real</span>{% endif %}
+    <span class="pill muted">Live orders: not implemented</span>
+    <span class="pill muted">NSE: {{ banner.market }}</span>
+    <span class="pill muted">{{ banner.now }}</span>
+  </div>
+  {% if banner.live and not banner.auth_ok %}
+    <div class="notice crit"><strong>{{ banner.auth_msg }}</strong> <a href="/auth/kite/login">Log in to Kite</a> (opens Zerodha's own login page; this app never sees your password or TOTP).</div>
+  {% elif banner.live %}<div class="small muted">{{ banner.auth_msg }}</div>{% endif %}
+  {% if experiments %}
+  <form method="get" class="small muted" style="margin: 4px 0 0">
+    Experiment:
+    <select name="exp" onchange="this.form.submit()">
+      {% for x in experiments %}<option value="{{ x.id }}" {{ 'selected' if e is defined and e and e.id==x.id }}>{{ x.code }} · {{ x.purpose }} · {{ x.data_mode }} · {{ x.status }}</option>{% endfor %}
+    </select>
+  </form>
+  {% endif %}
+  {% block content %}{% endblock %}
+  <footer>Research and simulation only. Nothing here is investment advice, and past or simulated results do not predict future returns. The 10%-per-session figure is an untested hypothesis shown for comparison, not a target the system expects to reach.</footer>
+</main>
+</body>
+</html>
