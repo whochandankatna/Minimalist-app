@@ -1,0 +1,38 @@
+# Trading bot configuration.
+# This bot only backtests and paper trades. It never places real orders.
+
+[exchange]
+id = "cryptocom"
+# Fee charged on each buy and each sell, as a fraction (0.005 = 0.50%).
+# Crypto.com's base-tier taker fee per ccxt market data (Oct 2026). Market orders pay taker.
+# Lower it if your account is on a cheaper tier.
+fee_rate = 0.005
+# Extra price you lose on each fill versus the quoted price (0.0005 = 0.05%).
+slippage = 0.0005
+
+[strategy]
+name = "ma_crossover"
+timeframe = "1d"
+
+[strategy.params]
+fast = 20
+slow = 100
+kind = "ema"   # "ema" or "sma"
+
+[trading]
+symbols = ["BTC/USD", "ETH/USD"]
+# Starting cash per symbol. Each symbol is simulated as its own separate account.
+initial_cash = 10000
+# Fraction of an account's cash to put in when the strategy says "buy" (1.0 = all of it).
+allocation = 1.0
+
+[backtest]
+start = "2022-01-01"
+# Everything from this date on is held out as an out-of-sample test period.
+# Tune parameters on the earlier "train" period only, then check they still work here.
+test_start = "2025-01-01"
+# Dollar-cost-averaging benchmark: invest an equal slice of cash every N bars.
+dca_every_bars = 7
+
+[paper]
+state_dir = "state"
