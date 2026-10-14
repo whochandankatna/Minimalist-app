@@ -156,10 +156,14 @@ def orders_view(s: Session, exp: Experiment) -> dict[str, Any]:
 def health(ctx: AppContext, s: Session) -> dict[str, Any]:
     now = ctx.clock.now()
     incidents = list(s.scalars(select(Incident).order_by(Incident.id.desc()).limit(100)))
-    jobs = list(s.scalars(select(JobRun).order_by(JobRun.id.desc()).limit(60)))
+    recent = list(s.scalars(select(JobRun).order_by(JobRun.id.desc()).limit(400)))
     last_by_job: dict[str, JobRun] = {}
-    for j in jobs:
+    for j in recent:
         last_by_job.setdefault(j.job, j)
+    # Monitoring runs every minute; list only the latest one so other jobs stay visible.
+    jobs = [j for j in recent if j.job != "monitor"][:40]
+    if "monitor" in last_by_job:
+        jobs.insert(0, last_by_job["monitor"])
     q = s.scalars(select(QuoteSnapshot).order_by(QuoteSnapshot.id.desc())).first()
     degraded = list(s.scalars(select(ExperimentSession).where(ExperimentSession.quality != "OK")
                               .order_by(ExperimentSession.session_date.desc()).limit(50)))

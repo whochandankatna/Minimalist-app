@@ -1,0 +1,11 @@
+# Replace with your own domain (optional purchase). Caddy obtains a TLS certificate automatically.
+lab.example.com {
+	encode gzip
+	header {
+		Strict-Transport-Security "max-age=31536000"
+		X-Content-Type-Options nosniff
+		X-Frame-Options DENY
+		Referrer-Policy no-referrer
+	}
+	reverse_proxy tradelab:8000
+}

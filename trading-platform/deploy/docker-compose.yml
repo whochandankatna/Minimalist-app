@@ -1,0 +1,20 @@
+# Proposed production layout (NOT deployed). Caddy terminates HTTPS and proxies to the app.
+# The app container must have TRADELAB_DASHBOARD_PASSWORD set or it refuses to bind publicly.
+services:
+  tradelab:
+    image: tradelab:${TRADELAB_TAG:?set TRADELAB_TAG to a git commit tag}
+    env_file: ../.env
+    volumes:
+      - tradelab-data:/data
+    restart: unless-stopped
+    expose: ["8000"]
+  caddy:
+    image: caddy:2.8.4
+    ports: ["80:80", "443:443"]
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy-data:/data
+    restart: unless-stopped
+volumes:
+  tradelab-data:
+  caddy-data:

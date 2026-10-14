@@ -115,7 +115,7 @@
     {label:'All-in', data:c.allin, borderColor:v('--text'), borderDash:[2,3], tension:0, pointRadius:0},
     {label:'Benchmark', data:c.benchmark, borderColor:v('--bench'), tension:0, pointRadius:0},
     {label:'Hypothetical 10%/session', data:c.target, borderColor:v('--target'), borderDash:[6,4], pointRadius:0}
-  ]}, options:{maintainAspectRatio:false, animation:false, scales:{y:{type:'logarithmic', ticks:{callback:x=>'₹'+Number(x).toLocaleString('en-IN')}}}, plugins:{legend:{labels:{boxWidth:12}}}}});
+  ]}, options:{maintainAspectRatio:false, animation:false, scales:{y:{type:'logarithmic', ticks:{callback:(x)=>{const m=x/Math.pow(10,Math.floor(Math.log10(x))); return [1,1.5,2,3,5,7].some(k=>Math.abs(m-k)<1e-9)?'₹'+Number(x).toLocaleString('en-IN'):'';}}}}, plugins:{legend:{labels:{boxWidth:12}}}}});
   new Chart(document.getElementById('ret'), {type:'bar', data:{labels:c.labels.slice(1), datasets:[
     {label:'Daily net return %', data:c.returns, backgroundColor:c.returns.map(x=>x>=0?v('--good'):v('--bad'))},
     {type:'line', label:'10% hypothesis', data:c.returns.map(()=>10), borderColor:v('--target'), borderDash:[6,4], pointRadius:0}

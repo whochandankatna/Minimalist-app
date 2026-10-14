@@ -78,6 +78,7 @@ def run_backtest(
     period: str = "CUSTOM",
     source: str = "MOCK",
     opex_monthly: Paise = 50_000,
+    apply_risk_controls: bool = True,
 ) -> BacktestResult:
     params = ctx.spec.params
     db = Database(None)
@@ -91,7 +92,7 @@ def run_backtest(
     days = sorted(d for d in by_day[bench] if start <= d <= end)
     if not days:
         raise ValueError("no bars for benchmark in the requested period")
-    notes: list[str] = []
+    notes: list[str] = [] if apply_risk_controls else ["risk controls (pause/halt) NOT applied in this view"]
     with db.session() as s:
         exp = Experiment(
             code=f"BT-{period}", name=f"backtest {period}", purpose="DEMO",
@@ -191,7 +192,10 @@ def run_backtest(
                 eng._init_benchmark(exp, todays[bench])
             snap = performance.snapshot(s, exp, d, last_marks)
             res = JobResult()
-            eng._apply_risk_rules(s, exp, snap.economic, clock.now(), res)
+            if apply_risk_controls:
+                eng._apply_risk_rules(s, exp, snap.economic, clock.now(), res)
+                if exp.entries_paused and not any("entries paused" in n for n in notes):
+                    notes.append(f"entries paused on {d} by drawdown rule (backtest cannot resume; stays paused)")
             bval = eng._benchmark_value(exp, last_marks)
             invested_frac.append(snap.market_value / snap.trading if snap.trading else 0)
             equity.append({"date": d.isoformat(), "trading": snap.trading, "economic": snap.economic,

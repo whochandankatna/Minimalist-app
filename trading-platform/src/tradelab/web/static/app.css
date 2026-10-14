@@ -43,7 +43,7 @@ nav a.on, nav a:hover { color: var(--text); background: var(--bg); }
 .notice.crit { background: var(--crit-bg); color: var(--crit-text); }
 .notice.info { background: var(--paper-bg); color: var(--paper-text); }
 .grid { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
-.card { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px; min-width: 0; }
+.card { overflow-x: auto; background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px; min-width: 0; }
 .card h2, .card h3 { margin: 0 0 8px; font-size: 15px; }
 .kpi .label { color: var(--muted); font-size: 13px; }
 .kpi .value { font-size: 24px; font-weight: 700; font-variant-numeric: tabular-nums; }
@@ -74,3 +74,14 @@ code, .mono { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-
 details summary { cursor: pointer; }
 .two { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); }
 footer { color: var(--muted); font-size: 12.5px; margin-top: 30px; }
+.mono, td.mono { overflow-wrap: anywhere; word-break: break-all; }
+.controls .ctl { flex: 1 1 200px; min-width: 0; }
+.controls .ctl input, .controls .ctl select { width: 100%; }
+@media (max-width: 640px) {
+  th, td { padding: 6px 5px; font-size: 13px; }
+  .kpi .value { font-size: 20px; }
+  table.stack, table.stack tbody, table.stack tr, table.stack td { display: block; width: 100%; }
+  table.stack tr { border-bottom: 1px solid var(--line); padding: 6px 0; }
+  table.stack th { display: none; }
+  table.stack td { border: 0; padding: 2px 0; }
+}

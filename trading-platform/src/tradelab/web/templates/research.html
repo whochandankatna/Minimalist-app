@@ -5,7 +5,7 @@
 <div class="notice info small">Research is used for explanations and logged risk flags only. In strategy v1 it <strong>cannot</strong> change trading; the database rejects any risk flag marked as affecting trades. Document text is treated as untrusted data and never as instructions. Coverage is incomplete and not instantaneous.</div>
 
 <h2 class="section">Sources and access status</h2>
-<div class="card table-wrap"><table><tr><th>Source</th><th>Kind</th><th>Access</th><th>Terms / automation</th><th>Last fetch</th></tr>
+<div class="card table-wrap"><table class="stack"><tr><th>Source</th><th>Kind</th><th>Access</th><th>Terms / automation</th><th>Last fetch</th></tr>
 {% for x in d.sources %}<tr><td><a href="{{ x.url }}" rel="noopener noreferrer" target="_blank">{{ x.name }}</a></td><td class="small">{{ x.kind }}</td>
 <td class="small">{{ x.access_method }} {% if x.automated_enabled %}<span class="tag ok">automated on</span>{% else %}<span class="tag">automated off</span>{% endif %}</td>
 <td class="small"><span class="tag {{ 'bad' if 'BLOCKED' in x.terms_status else 'warn' }}">{{ x.terms_status }}</span> {{ x.terms_note }}</td>
@@ -13,7 +13,7 @@
 </table></div>
 
 <h2 class="section">Items ({{ d.rows|length }})</h2>
-<div class="card table-wrap">{% if d.rows %}<table><tr><th>Item</th><th>Type / status</th><th>Times</th><th>Facts / inference / missing</th></tr>
+<div class="card table-wrap">{% if d.rows %}<table class="stack"><tr><th>Item</th><th>Type / status</th><th>Times</th><th>Facts / inference / missing</th></tr>
 {% for r in d.rows %}{% set it = r.it %}<tr>
 <td><a href="{{ it.url }}" rel="noopener noreferrer nofollow" target="_blank">{{ it.title }}</a><div class="small muted">{{ r.source }}{% if it.symbols %} · {{ it.symbols }}{% endif %} · entered by {{ it.entered_by }}</div>
 <details class="small"><summary>excerpt (untrusted)</summary><div style="white-space:pre-wrap">{{ it.excerpt[:1500] }}</div></details></td>
@@ -35,12 +35,12 @@
   <input type="hidden" name="csrf" value="{{ csrf }}">
   <div class="controls">
     <label class="ctl small">Source<select name="source_key">{% for x in d.sources %}<option value="{{ x.key }}">{{ x.name }}</option>{% endfor %}</select></label>
-    <label class="ctl small">Document URL (original source)<input name="url" type="url" required size="40"></label>
+    <label class="ctl small">Document URL (original source)<input name="url" type="url" required></label>
     <label class="ctl small">Published (IST, e.g. 2026-10-14T17:30)<input name="published_at"></label>
     <label class="ctl small">ETFs/stocks (comma separated)<input name="symbols" placeholder="{{ symbols|join(',') }}"></label>
   </div>
   <div class="controls" style="margin-top:8px">
-    <label class="ctl small">Title<input name="title" required size="50"></label>
+    <label class="ctl small">Title<input name="title" required></label>
     <label class="ctl small">Type<select name="doc_type"><option value="">auto-detect</option>{% for t in ['FINANCIAL_RESULTS','ANNOUNCEMENT','CONTRACT','ACQUISITION','PARTNERSHIP','POLICY','TARIFF','SANCTION','MONETARY_POLICY','OTHER'] %}<option>{{ t }}</option>{% endfor %}</select></label>
     <label class="ctl small">Status<select name="event_status"><option value="">auto-detect</option>{% for t in ['SIGNED','NON_BINDING','RUMOUR','PROPOSED','EFFECTIVE','UNKNOWN'] %}<option>{{ t }}</option>{% endfor %}</select></label>
     <label class="ctl small">Accounts basis<select name="statement_basis">{% for t in ['NA','CONSOLIDATED','STANDALONE','UNKNOWN'] %}<option>{{ t }}</option>{% endfor %}</select></label>

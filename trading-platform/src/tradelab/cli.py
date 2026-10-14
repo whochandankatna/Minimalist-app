@@ -185,8 +185,11 @@ def cmd_backtest(a: argparse.Namespace) -> None:
     else:
         bars = {sym: ctx.market.daily_bars(sym, warm, end) for sym in ctx.universe.symbols}
         source = ctx.market.source
-    for label, opex in (("strategy view (no running costs)", 0), ("economic view", rupees(a.opex_monthly_rupees))):
-        r = run_backtest(ctx, bars, start, end, a.period, source, opex_monthly=opex)
+    views = (("RAW STRATEGY view: no running costs, no pause/halt rules", 0, False),
+             (f"EXPERIMENT RULES view: Rs{a.opex_monthly_rupees}/month running costs + pause/halt rules",
+              rupees(a.opex_monthly_rupees), True))
+    for label, opex, controls_on in views:
+        r = run_backtest(ctx, bars, start, end, a.period, source, opex_monthly=opex, apply_risk_controls=controls_on)
         rid = record_run(ctx, r)
         print(f"\n== {a.period} {label} [run #{rid}] data={source} {r.start}..{r.end} ({r.days} sessions)")
         if source == "MOCK":
