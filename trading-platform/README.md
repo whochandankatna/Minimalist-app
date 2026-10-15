@@ -61,7 +61,7 @@ Run the tests: `pytest -q` (69 tests). Type check: `mypy` (strict).
 These steps need your decisions. None are done yet.
 
 1. **Approve and buy the Kite Connect plan** (₹500/month on Zerodha's charges page). The free plan has
-   no market data. Zerodha has no sandbox.
+   no market data. Sandbox availability is unconfirmed; see docs/VERIFICATION.md.
 2. Create a Kite Connect app at developers.kite.trade and set its redirect URL. Put the key and secret
    in `.env` on the server only, and set `TRADELAB_MARKET_DATA=kite`.
 3. Open the two NSE circulars listed in `config/calendar/nse_cm_2026.json`, compare the dates, then run

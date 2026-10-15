@@ -34,7 +34,7 @@ session is recorded as DEGRADED. That is the intended, safe behaviour.
    Download `ledger.csv`, `orders.csv` and `audit.csv`, restore the latest good backup to a copy, and
    compare. Resume only once `tradelab reconcile` reports consistent.
 3. **Kite login failing:** check the API key/secret in `.env` and that the redirect URL matches the Kite
-   app exactly. Zerodha has no sandbox, so test the flow on a DEMO experiment.
+   app exactly. Zerodha's sandbox status is unconfirmed (see VERIFICATION.md), so test the flow on a DEMO experiment.
 4. **Strategy fingerprint mismatch (CRITICAL):** someone edited a frozen file. Restore it with
    `git checkout <commit> -- config/strategy src/tradelab/strategy/momentum.py`, or create a new
    experiment if the change was intended.

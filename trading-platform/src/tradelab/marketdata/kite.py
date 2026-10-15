@@ -7,7 +7,8 @@ portfolio-conversion and mutual-fund endpoints are not in the allowlist, so
 they cannot be reached from this code. Tests assert this.
 
 Verified against https://kite.trade/docs/connect/v3/ on 2026-10-14:
-- No sandbox exists; this client only ever talks to production read endpoints.
+- Official pages say there is no sandbox (a 17 Sep 2026 forum reply said one is in development);
+  this client only ever talks to production read endpoints.
 - Market data (quotes, historical candles) needs the paid Connect plan.
 - access_token expires at 06:00 IST the next day; a 403 TokenException means
   the session expired or was invalidated and the user must log in again.

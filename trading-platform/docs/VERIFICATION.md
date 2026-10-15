@@ -4,7 +4,7 @@
 
 | Fact | Result | Source |
 |---|---|---|
-| Kite Connect sandbox | **None exists** ("Zerodha does not offer a sandbox environment") | [Kite Connect FAQ](https://support.zerodha.com/category/trading-and-markets/general-kite/kite-api/articles/kite-connect-api-faqs) |
+| Kite Connect sandbox | **Unconfirmed.** Official FAQ and support article (checked 15 Oct 2026) say none exists. A 17 Sep 2026 reply on tradingqna.com said it was "actively" in development, "available in coming weeks". The user reports it now exists; no public URL or docs found yet | [FAQ](https://support.zerodha.com/category/trading-and-markets/general-kite/kite-api/articles/kite-connect-api-faqs), [support article](https://support.zerodha.com/category/trading-and-markets/general-kite/kite-api/articles/api-sandbox), [forum](https://tradingqna.com/t/eta-for-sandbox-environment/198193) |
 | Free Personal plan | Orders/portfolio only; **no live or historical market data** | same FAQ |
 | Connect plan | ₹500/month per app; WebSocket + historical candles included | same FAQ; [zerodha.com/charges](https://zerodha.com/charges/) |
 | Login flow | Redirect to `kite.zerodha.com/connect/login`, `request_token` → `POST /session/token` with SHA-256 checksum | [Kite user docs](https://kite.trade/docs/connect/v3/user/) |
